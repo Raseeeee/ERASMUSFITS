@@ -84,7 +84,7 @@ export function WeightChart({ points, title }: { points: { date: string; kg: num
 
   return (
     <figure>
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label={title} data-testid="weight-chart">
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="group" aria-label={title} data-testid="weight-chart">
         {ticks.map((v) => (
           <g key={v}>
             <line x1={PAD.left} x2={W - PAD.right} y1={y(v)} y2={y(v)} stroke="var(--color-bd)" strokeWidth={1} />
@@ -104,6 +104,7 @@ export function WeightChart({ points, title }: { points: { date: string; kg: num
               cy={y(p.kg)}
               r={12}
               fill="transparent"
+              role="img"
               tabIndex={0}
               aria-label={`${shortDate(p.date, lang)}: ${fmt(p.kg, lang)} kg`}
               onMouseEnter={() => setHover(i)}
@@ -158,7 +159,7 @@ export function KcalChart({ bars, title }: { bars: KcalBar[]; title: string }) {
 
   return (
     <figure>
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label={title} data-testid="kcal-chart">
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="group" aria-label={title} data-testid="kcal-chart">
         {ticks.map((v) => (
           <g key={v}>
             <line x1={PAD.left} x2={W - PAD.right} y1={y(v)} y2={y(v)} stroke="var(--color-bd)" strokeWidth={1} />
@@ -187,6 +188,7 @@ export function KcalChart({ bars, title }: { bars: KcalBar[]; title: string }) {
                 width={slot}
                 height={H - PAD.top - PAD.bottom}
                 fill="transparent"
+                role="img"
                 tabIndex={0}
                 aria-label={label(b)}
                 onMouseEnter={() => setHover(i)}

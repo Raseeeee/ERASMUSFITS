@@ -126,7 +126,7 @@ export function ProgressScreen() {
               {[...weights].reverse().slice(0, 6).map((w) => (
                 <li key={w.date} className="flex items-center justify-between">
                   <span className="tabular-nums">
-                    {w.date} · {fmt(w.kg, lang)} kg
+                    {new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'short', year: 'numeric' }).format(new Date(`${w.date}T12:00:00`))} · {fmt(w.kg, lang)} kg
                   </span>
                   <button
                     className="min-h-11 min-w-11 text-wr"
