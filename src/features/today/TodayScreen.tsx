@@ -1,6 +1,7 @@
 import { useLiveQuery } from 'dexie-react-hooks';
 import { useTranslation } from 'react-i18next';
-import { Navigate } from 'react-router';
+import { Link, Navigate } from 'react-router';
+import { useProgress } from '../progress/useProgress';
 import { Button, Card, Screen, inputClass } from '../../components/ui';
 import { fmt } from '../../components/format';
 import {
@@ -66,6 +67,8 @@ export function TodayScreen() {
   const { t } = useTranslation();
   const { profile, overrides } = useAppStore();
   const [date, setDate] = useSelectedDate();
+  const progress = useProgress();
+  const alertCount = progress?.alerts.length ?? 0;
 
   const day = useLiveQuery(() => getDay(date), [date]) ?? emptyDay(date);
   const entries = useLiveQuery(() => listEntries(date), [date]) ?? [];
@@ -112,6 +115,17 @@ export function TodayScreen() {
           </select>
         </label>
       </Card>
+
+      {alertCount > 0 && (
+        <Link
+          to="/progress"
+          className="mb-4 flex min-h-11 items-center justify-between rounded-xl border border-bd bg-card px-4 py-2"
+          data-testid="coach-banner"
+        >
+          <span>{t('today.coachBanner', { count: alertCount })}</span>
+          <span aria-hidden>›</span>
+        </Link>
+      )}
 
       <RemainingCounter r={remaining(totals, targets)} />
 

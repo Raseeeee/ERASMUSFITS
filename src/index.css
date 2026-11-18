@@ -10,6 +10,8 @@
   --color-ac-tx: #ffffff;
   --color-wr: #b03224;
   --color-wr-bg: #fdecea;
+  /* Marcas de gráficas: validado (dataviz) contra superficie clara #ffffff. */
+  --color-chart: #12855f;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,6 +25,8 @@
     --color-ac-tx: #0d1f19;
     --color-wr: #ef7b6c;
     --color-wr-bg: #3a1f1b;
+    /* Validado contra superficie oscura #222221. */
+    --color-chart: #2fa37d;
     color-scheme: dark;
   }
 }

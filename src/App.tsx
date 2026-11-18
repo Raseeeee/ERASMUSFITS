@@ -14,6 +14,7 @@ const RecipesScreen = lazy(() => import('./features/recipes/RecipesScreen').then
 const RecipeDetailScreen = lazy(() =>
   import('./features/recipes/RecipeDetailScreen').then((m) => ({ default: m.RecipeDetailScreen })),
 );
+const ProgressScreen = lazy(() => import('./features/progress/ProgressScreen').then((m) => ({ default: m.ProgressScreen })));
 const ShopScreen = lazy(() => import('./features/shop/ShopScreen').then((m) => ({ default: m.ShopScreen })));
 
 function RequireOnboarded({ children }: { children: ReactNode }) {
@@ -27,6 +28,7 @@ function TabsLayout() {
     { to: '/today', label: t('nav.today') },
     { to: '/recipes', label: t('nav.recipes') },
     { to: '/shop', label: t('nav.shop') },
+    { to: '/progress', label: t('nav.progress') },
     { to: '/settings', label: t('nav.settings') },
   ];
   return (
@@ -86,6 +88,7 @@ export default function App() {
           <Route path="/recipes" element={<RecipesScreen />} />
           <Route path="/recipes/:id" element={<RecipeDetailScreen />} />
           <Route path="/shop" element={<ShopScreen />} />
+          <Route path="/progress" element={<ProgressScreen />} />
           <Route path="/targets" element={<TargetsScreen />} />
           <Route path="/settings" element={<SettingsScreen />} />
         </Route>

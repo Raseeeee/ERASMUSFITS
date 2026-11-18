@@ -167,7 +167,9 @@
     "mealTotals": "{{kcal}} kcal · P {{p}} · C {{c}} · G {{f}}",
     "addToMeal": "Añadir a {{meal}}",
     "editEntry": "Editar {{name}}",
-    "mealEmpty": "Nada registrado."
+    "mealEmpty": "Nada registrado.",
+    "coachBanner_one": "Tienes {{count}} aviso del coach",
+    "coachBanner_other": "Tienes {{count}} avisos del coach"
   },
   "settings": {
     "title": "Ajustes",
@@ -183,7 +185,8 @@
     "settings": "Ajustes",
     "add": "Añadir",
     "recipes": "Recetas",
-    "shop": "Compra"
+    "shop": "Compra",
+    "progress": "Progreso"
   },
   "food": {
     "addTitle": "Añadir comida",
@@ -377,5 +380,55 @@
     "egg": "Huevo",
     "fish": "Pescado",
     "soy": "Soja"
+  },
+  "progress": {
+    "title": "Progreso",
+    "alerts": "Avisos",
+    "noAlerts": "Todo en orden por ahora. ¡Sigue así!",
+    "weightTitle": "Peso",
+    "weightKg": "Peso (kg)",
+    "weightRange": "Entre {{min}} y {{max}} kg.",
+    "date": "Fecha",
+    "saveWeight": "Guardar peso",
+    "weeklyHint": "Pésate una vez por semana, mismo día y a la misma hora (por ejemplo, en ayunas al levantarte).",
+    "rate": "Tendencia: {{kg}} kg/semana",
+    "noWeights": "Aún no has registrado tu peso.",
+    "weightList": "Pesajes recientes",
+    "deleteWeight": "Borrar pesaje del {{date}}",
+    "adherenceTitle": "Adherencia",
+    "adherence": "Últimos 7 días: {{pct}} % de los días registrados dentro de ±10 % de tus kcal.",
+    "noLogs": "Sin comidas registradas en los últimos 7 días.",
+    "kcalTitle": "Calorías por día (últimos 14 días)",
+    "kcalEaten": "kcal",
+    "kcalTarget": "Objetivo",
+    "notLogged": "sin registro",
+    "targetLine": "Objetivo del día",
+    "activityTitle": "Actividad",
+    "activeDays_one": "{{count}} día de entreno en los últimos 7.",
+    "activeDays_other": "{{count}} días de entreno en los últimos 7.",
+    "activityStrip": "Días de entreno (últimos 14 días)",
+    "active": "entreno",
+    "inactive": "sin entreno",
+    "activityHint": "Cuenta como entreno un día marcado en Hoy como gimnasio, carrera o fondo largo.",
+    "showTable": "Ver como tabla"
+  },
+  "coach": {
+    "severity": {
+      "info": "Sugerencia",
+      "warning": "Aviso"
+    },
+    "apply": "Aplicar {{kcal}} kcal/día",
+    "notNow": "Ahora no",
+    "dismiss": "Entendido",
+    "inactivity": "Llevas {{days}} días sin registrar actividad. Para perder grasa conservando músculo, moverse importa tanto como la comida: ¿un paseo largo o una sesión corta esta semana?",
+    "inactivitySoft": "Llevas {{days}} días sin entreno registrado. Si has entrenado, márcalo en Hoy como tipo de día.",
+    "plateau": "Llevas 2 semanas cumpliendo tus calorías y tu peso apenas se ha movido ({{kg}} kg). Es normal; si quieres, podemos ajustar un poco tus objetivos.",
+    "weightDrift": "Tu peso ha cambiado {{kg}} kg en 2 semanas mientras cumples tus calorías. Podemos ajustar un poco tus objetivos para mantenerte estable.",
+    "tooFast": "Estás perdiendo más del 1 % de tu peso por semana (≈ {{pct}} %). Ir más despacio protege tu músculo y tu energía: te proponemos subir un poco las calorías.",
+    "lowProtein": "Los últimos {{days}} días te has quedado por debajo del 80 % de tu proteína. Mira las recetas «altas en proteína» o añade yogur, huevos o legumbres.",
+    "lowWater": "Varios días ({{days}}) has bebido menos de la mitad del agua recomendada. Tener una botella a mano ayuda.",
+    "highSalt": "En {{days}} de los últimos 7 días has pasado de 5 g de sal. Ojo con embutidos, salsas y comida preparada.",
+    "highSugar": "En {{days}} de los últimos 7 días has superado el tope de azúcares libres. Prueba fruta entera en lugar de dulces o refrescos.",
+    "helpResources": "Hemos notado que intentas poner objetivos de calorías muy bajos. Comer muy poco puede afectar tu salud y tu ánimo. Si la comida te preocupa, puedes hablar con tu médico, con el servicio de salud de tu universidad o con una asociación de apoyo a los trastornos de la conducta alimentaria de tu país."
   }
 }
