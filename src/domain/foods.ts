@@ -40,6 +40,21 @@ export interface Food {
   barcode?: string;
   /** Para alimentos "míos" que corrigen a otro: id del original (lo oculta en búsquedas). */
   overridesId?: string;
+  /** Fuentes externas: marca y países (códigos ISO, p. ej. "ES"). */
+  brand?: string;
+  countries?: string[];
+  /** Calidad del dato en fuentes externas (las curadas y las mías son siempre "curated"). */
+  quality?: FoodQuality;
+  /** true si `sugar` son azúcares totales (OFF/USDA) y no libres. */
+  sugarIsTotal?: boolean;
+}
+
+/** curado > OFF completo > OFF incompleto (SPEC §5). USDA genérico cuenta como completo. */
+export type FoodQuality = 'curated' | 'complete' | 'incomplete';
+
+export function foodQuality(food: Food): FoodQuality {
+  if (food.source === 'mine' || food.source === 'seed') return 'curated';
+  return food.quality ?? 'incomplete';
 }
 
 /**
