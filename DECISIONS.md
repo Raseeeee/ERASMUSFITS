@@ -174,3 +174,35 @@ Registro de decisiones tomadas ante ambigüedades de `SPEC.md`. Formato: decisi�
 ### Pendiente
 - Fase 5: el coach debería usar también las recetas para sugerir cómo cubrir la proteína que falta.
 - Los precios de Turquía necesitan revisión frecuente.
+
+## Fase 5 — Progreso y avisos
+
+### Datos
+- **Peso**: tabla `weights` (Dexie v5), uno por fecha, 35–300 kg, con un decimal. Se recomienda pesarse una vez por semana, pero se admite cualquier fecha (no futura).
+- **El último pesaje actualiza el peso del perfil**, así que los objetivos (BMR, proteína g/kg, agua) se recalculan solos. Se conservan los overrides manuales.
+- **"Actividad registrada"** = días marcados en Hoy como gimnasio, carrera o fondo largo. No hay registro de entrenos aparte; la pantalla lo explica.
+- Resúmenes de los **últimos 28 días** (comidas, tipo de día, agua, objetivos de cada día) calculados en `src/domain/progress.ts`.
+
+### Reglas del coach (`src/domain/coach.ts`, umbrales en `RULES`)
+- Las reglas sobre comida solo miran **días completos (antes de hoy) y registrados**: no hay alarmas por días sin apuntar ni por el día en curso.
+- **Inactividad** (lose/recomp): días seguidos sin entreno contando desde hoy; ≥ 7 → aviso, 4–6 → sugerencia suave. No cuentan los días anteriores al primer uso de la app (un usuario nuevo no recibe "7 días sin actividad").
+- **Meseta / deriva** (2 semanas): requiere pesajes a ~14 días (±3), ≥ 10 días registrados de 14 y ≥ 80 % de ellos dentro de ±10 % de las kcal. lose: si no ha bajado ≥ 0,2 kg → propone −150; gain: si no ha subido ≥ 0,2 kg → +150; maintain/recomp: si cambia > 1 kg → ∓100. Tras aceptar un ajuste, no propone otro hasta pasados 14 días.
+- **Demasiado rápido**: pérdida > 1 % del peso en cada una de las 2 últimas semanas (pesajes a ~7 y ~14 días) → aviso y propone +150. Tiene prioridad sobre la meseta.
+- **Proteína** < 80 % del objetivo 4 días seguidos; **agua** < 50 % en ≥ 3 de los últimos 7 días registrados; **sal** > 5 g y **azúcares** > tope en ≥ 3 de 7.
+- **Objetivos muy bajos repetidos**: el contador de intentos por debajo del suelo ahora se guarda (antes era por sesión); con ≥ 2, aviso con recursos de ayuda (médico, servicio de salud de la universidad, asociaciones de TCA) en lugar de aceptar el valor.
+- **Ajustes de kcal**: nunca automáticos. El usuario pulsa "Aplicar ±X kcal/día"; se guarda en `profile.kcalAdjustment` (acumulado, ±500 máx.), se suma antes del suelo de seguridad (que se sigue respetando) y se ve en Objetivos con un botón para quitarlo. No afecta a los días con override manual.
+- **Descartar** oculta un aviso 7 días; si el problema sigue, vuelve.
+- Severidad `warning` (inactividad ≥ 7 días, demasiado rápido, recursos de ayuda) o `info`, siempre con icono y etiqueta además del color. Tono amable: sin ayuno, "compensar" ni castigos.
+- En Hoy aparece un acceso "Tienes N avisos del coach" cuando hay alguno.
+
+### Gráficas (`src/features/progress/charts.tsx`)
+- SVG propio, sin librería (la pantalla de Progreso son ~3,6 KB gz). Seguí el skill de dataviz: una sola serie por gráfica (sin leyenda; la nombra el título), un único eje, cuadrícula discreta, línea de 2 px, marcadores de 8 px con anillo de superficie, barras con 2 px de separación y extremo redondeado anclado a la base, etiqueta directa solo en el último peso, tooltip al pasar o enfocar cada marca (áreas de toque más grandes que la marca) y "Ver como tabla" en cada gráfica.
+- **Color de las marcas**: el acento de la app (#17664f) no pasaba el validador como color de datos (demasiado apagado en claro y fuera de la banda de luminosidad en oscuro). Se añadió `--color-chart`: #12855f en claro y #2fa37d en oscuro, validados contra sus superficies (#ffffff / #222221).
+- kcal: barras de lo comido + marca discontinua del objetivo de ese día (cambia con el tipo de día); los días sin registro llevan un punto gris en vez de barra. Actividad: franja de 14 días (relleno = entreno).
+
+### Navegación
+- Pestañas: Hoy · Recetas · Compra · **Progreso** · Ajustes.
+
+### Pendiente
+- El coach no sugiere recetas concretas para cubrir la proteína que falta (enlaza en el texto a las recetas altas en proteína).
+- Las fechas de la lista de pesajes se muestran en ISO; se pueden localizar en la Fase 6.
