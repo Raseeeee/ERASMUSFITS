@@ -126,7 +126,34 @@
   },
   "today": {
     "title": "Hoy",
-    "comingSoon": "El registro de comidas llega en la siguiente fase."
+    "date": "Fecha",
+    "prevDay": "Día anterior",
+    "nextDay": "Día siguiente",
+    "goToday": "Hoy",
+    "dayType": "Tipo de día",
+    "progress": "Progreso",
+    "remaining": "faltan {{value}}",
+    "over": "+{{value}}",
+    "underCap": "tope {{value}}",
+    "bars": {
+      "kcal": "Calorías",
+      "protein": "Proteína",
+      "carbs": "Carbohidratos",
+      "fat": "Grasa",
+      "fiber": "Fibra",
+      "salt": "Sal",
+      "sugar": "Azúcares libres"
+    },
+    "water": "Agua",
+    "waterCount": "{{count}} / {{target}} vasos",
+    "addGlass": "Añadir un vaso de agua",
+    "removeGlass": "Quitar un vaso de agua",
+    "meals": "Comidas del día",
+    "empty": "Aún no has registrado nada este día.",
+    "addFood": "Añadir comida",
+    "deleteEntry": "Borrar {{name}}",
+    "total": "Total",
+    "entryLine": "{{grams}} g · {{context}} · {{kcal}} kcal · P {{p}} · C {{c}} · G {{f}}"
   },
   "settings": {
     "title": "Ajustes",
@@ -139,6 +166,60 @@
   "nav": {
     "today": "Hoy",
     "targets": "Objetivos",
-    "settings": "Ajustes"
+    "settings": "Ajustes",
+    "add": "Añadir"
+  },
+  "food": {
+    "addTitle": "Añadir comida",
+    "search": "Buscar alimento",
+    "searchPlaceholder": "pollo, arroz, döner…",
+    "noResults": "Sin resultados para «{{q}}».",
+    "createNew": "Crear alimento nuevo",
+    "per100": "{{kcal}} kcal / 100 g",
+    "sources": {
+      "mine": "Mío",
+      "seed": "Curado",
+      "off": "Open Food Facts",
+      "usda": "USDA"
+    },
+    "states": {
+      "raw": "crudo",
+      "cooked": "cocinado"
+    },
+    "stateHint": {
+      "raw": "Valores en crudo: pesa el alimento antes de cocinarlo.",
+      "cooked": "Valores en cocinado: pesa el alimento ya cocinado."
+    },
+    "quantity": "Cantidad",
+    "unit": "Unidad",
+    "grams": "gramos",
+    "unitOption": "{{name}} ({{grams}} g)",
+    "context": "¿Dónde se ha cocinado?",
+    "contexts": {
+      "home": "En casa",
+      "canteen": "Cafetería / restaurante"
+    },
+    "canteenHint": "En cafetería sumamos {{fat}} g de grasa por cada 100 g por el aceite de cocina.",
+    "preview": "{{grams}} g → {{kcal}} kcal · P {{p}} · C {{c}} · G {{f}}",
+    "add": "Añadir al día",
+    "change": "Cambiar alimento",
+    "editMacros": "Editar macros (guardar como mío)",
+    "myFoodTitle": "Mi alimento (valores por 100 g)",
+    "fields": {
+      "name": "Nombre",
+      "p": "Proteína (g)",
+      "c": "Carbohidratos (g)",
+      "f": "Grasa (g)",
+      "fiber": "Fibra (g)",
+      "sugar": "Azúcares libres (g)",
+      "salt": "Sal (g)",
+      "canteenFat": "Grasa extra en cafetería (g)",
+      "unitName": "Unidad (ej. filete)",
+      "unitGrams": "Gramos por unidad",
+      "state": "Estado"
+    },
+    "kcalAuto": "Calorías calculadas: {{kcal}} kcal / 100 g",
+    "invalidMacros": "Los macros por 100 g no pueden sumar más de 100 g.",
+    "saveMine": "Guardar como mío"
   }
 }

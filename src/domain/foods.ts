@@ -121,8 +121,12 @@ export function sumNutrients(list: Nutrients[]): Nutrients {
   return { ...s, kcal: Math.round(s.kcal), p: r1(s.p), c: r1(s.c), f: r1(s.f), fiber: r1(s.fiber), sugar: r1(s.sugar), salt: Math.round(s.salt * 100) / 100 };
 }
 
-export function foodName(food: Food, lang: string): string {
-  return food.names[lang] ?? food.names.en ?? food.names.es;
+export function localized(text: LocalizedText, lang: string): string {
+  return text[lang] ?? text.en ?? text.es;
+}
+
+export function foodName(food: Pick<Food, 'names'>, lang: string): string {
+  return localized(food.names, lang);
 }
 
 /** Minúsculas, sin diacríticos; incluye letras turcas/polacas/alemanas. */

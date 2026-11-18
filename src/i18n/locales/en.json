@@ -126,7 +126,34 @@
   },
   "today": {
     "title": "Today",
-    "comingSoon": "Food logging arrives in the next phase."
+    "date": "Date",
+    "prevDay": "Previous day",
+    "nextDay": "Next day",
+    "goToday": "Today",
+    "dayType": "Day type",
+    "progress": "Progress",
+    "remaining": "{{value}} to go",
+    "over": "+{{value}}",
+    "underCap": "max {{value}}",
+    "bars": {
+      "kcal": "Calories",
+      "protein": "Protein",
+      "carbs": "Carbs",
+      "fat": "Fat",
+      "fiber": "Fibre",
+      "salt": "Salt",
+      "sugar": "Free sugars"
+    },
+    "water": "Water",
+    "waterCount": "{{count}} / {{target}} glasses",
+    "addGlass": "Add a glass of water",
+    "removeGlass": "Remove a glass of water",
+    "meals": "Today's food",
+    "empty": "You haven't logged anything for this day yet.",
+    "addFood": "Add food",
+    "deleteEntry": "Delete {{name}}",
+    "total": "Total",
+    "entryLine": "{{grams}} g · {{context}} · {{kcal}} kcal · P {{p}} · C {{c}} · F {{f}}"
   },
   "settings": {
     "title": "Settings",
@@ -139,6 +166,60 @@
   "nav": {
     "today": "Today",
     "targets": "Targets",
-    "settings": "Settings"
+    "settings": "Settings",
+    "add": "Add"
+  },
+  "food": {
+    "addTitle": "Add food",
+    "search": "Search food",
+    "searchPlaceholder": "chicken, rice, döner…",
+    "noResults": "No results for “{{q}}”.",
+    "createNew": "Create new food",
+    "per100": "{{kcal}} kcal / 100 g",
+    "sources": {
+      "mine": "Mine",
+      "seed": "Curated",
+      "off": "Open Food Facts",
+      "usda": "USDA"
+    },
+    "states": {
+      "raw": "raw",
+      "cooked": "cooked"
+    },
+    "stateHint": {
+      "raw": "Raw values: weigh the food before cooking.",
+      "cooked": "Cooked values: weigh the food after cooking."
+    },
+    "quantity": "Quantity",
+    "unit": "Unit",
+    "grams": "grams",
+    "unitOption": "{{name}} ({{grams}} g)",
+    "context": "Where was it cooked?",
+    "contexts": {
+      "home": "At home",
+      "canteen": "Canteen / restaurant"
+    },
+    "canteenHint": "For canteen food we add {{fat}} g of fat per 100 g for cooking oil.",
+    "preview": "{{grams}} g → {{kcal}} kcal · P {{p}} · C {{c}} · F {{f}}",
+    "add": "Add to day",
+    "change": "Change food",
+    "editMacros": "Edit macros (save as mine)",
+    "myFoodTitle": "My food (values per 100 g)",
+    "fields": {
+      "name": "Name",
+      "p": "Protein (g)",
+      "c": "Carbs (g)",
+      "f": "Fat (g)",
+      "fiber": "Fibre (g)",
+      "sugar": "Free sugars (g)",
+      "salt": "Salt (g)",
+      "canteenFat": "Extra fat in canteen (g)",
+      "unitName": "Unit (e.g. fillet)",
+      "unitGrams": "Grams per unit",
+      "state": "State"
+    },
+    "kcalAuto": "Calculated calories: {{kcal}} kcal / 100 g",
+    "invalidMacros": "Macros per 100 g cannot add up to more than 100 g.",
+    "saveMine": "Save as mine"
   }
 }
