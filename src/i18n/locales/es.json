@@ -478,7 +478,7 @@
       },
       "network": {
         "title": "Qué sale de tu dispositivo",
-        "body": "Únicamente el texto que buscas (o el código de barras) cuando pulsas «Buscar en Open Food Facts y USDA». Va a nuestro servidor intermedio, que lo reenvía a esas bases de datos y guarda temporalmente el resultado de la búsqueda (no quién la hizo). Nunca se envían tu perfil ni tus comidas. El proveedor de alojamiento puede registrar datos técnicos, como la dirección IP, según su propia política."
+        "body": "Únicamente lo que buscas (texto o código de barras) cuando pulsas «Buscar en Open Food Facts y USDA». La búsqueda en Open Food Facts va directamente desde tu dispositivo a sus servidores (como al visitar su web, ven tu dirección IP). La búsqueda en USDA pasa por nuestro servidor intermedio, que la reenvía y guarda temporalmente el resultado (no quién buscó). Nunca se envían tu perfil ni tus comidas. El proveedor de alojamiento puede registrar datos técnicos, como la dirección IP, según su propia política."
       },
       "analytics": {
         "title": "Cookies y analítica",

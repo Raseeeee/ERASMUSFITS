@@ -4,14 +4,6 @@
  * de peticiones hacia cada servicio y respuestas JSON con caché de CDN.
  */
 
-export const APP_VERSION = '0.1';
-
-/** User-Agent identificable que pide OFF: `AppName/Version (contacto)`. */
-export function userAgent(env: Record<string, string | undefined> = process.env): string {
-  const contact = env.OFF_CONTACT?.trim();
-  return contact ? `ErasmusEats/${APP_VERSION} (${contact})` : `ErasmusEats/${APP_VERSION}`;
-}
-
 // ---- Caché TTL -------------------------------------------------------------
 
 export class TtlCache<V> {
@@ -45,29 +37,7 @@ export class TtlCache<V> {
   }
 }
 
-// ---- Limitador (ventana deslizante) -----------------------------------------
-
-export class RateLimiter {
-  private stamps: number[] = [];
-  constructor(
-    private max: number,
-    private windowMs: number,
-    private now: () => number = Date.now,
-  ) {}
-
-  /** true si se permite la petición (y la cuenta). */
-  tryTake(): boolean {
-    const t = this.now();
-    this.stamps = this.stamps.filter((s) => t - s < this.windowMs);
-    if (this.stamps.length >= this.max) return false;
-    this.stamps.push(t);
-    return true;
-  }
-
-  reset(): void {
-    this.stamps = [];
-  }
-}
+export { RateLimiter } from '../../src/domain/rateLimit.js';
 
 // ---- Respuestas ---------------------------------------------------------------
 

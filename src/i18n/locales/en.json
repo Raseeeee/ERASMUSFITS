@@ -478,7 +478,7 @@
       },
       "network": {
         "title": "What leaves your device",
-        "body": "Only the text you search for (or the barcode) when you tap \"Search Open Food Facts and USDA\". It goes to our intermediate server, which forwards it to those databases and temporarily caches the search result (not who searched). Your profile and meals are never sent. The hosting provider may log technical data, such as IP address, under its own policy."
+        "body": "Only what you search for (text or barcode) when you tap \"Search Open Food Facts and USDA\". The Open Food Facts search goes directly from your device to their servers (as when visiting their website, they see your IP address). The USDA search goes through our intermediate server, which forwards it and temporarily caches the result (not who searched). Your profile and meals are never sent. The hosting provider may log technical data, such as IP address, under its own policy."
       },
       "analytics": {
         "title": "Cookies and analytics",

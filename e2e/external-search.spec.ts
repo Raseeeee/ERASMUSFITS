@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { readFileSync } from 'node:fs';
-import { normalizeOffSearch, normalizeUsdaSearch, type OffProduct, type UsdaFood } from '../src/domain/external';
+import { normalizeUsdaSearch, type UsdaFood } from '../src/domain/external';
 import { seedOnboarded } from './helpers';
 
 const fixture = (name: string) =>
@@ -8,19 +8,22 @@ const fixture = (name: string) =>
 const offSearch = fixture('off-search.json');
 const usdaSearch = fixture('usda-search.json');
 
-const offFoods = normalizeOffSearch(offSearch as { hits: OffProduct[] });
+/** OFF se llama directamente desde el navegador: hay que responder con CORS. */
+const OFF_SEARCH = 'https://world.openfoodfacts.org/cgi/search.pl**';
+const OFF_PRODUCT = 'https://world.openfoodfacts.org/api/v2/product/**';
+const CORS = { 'access-control-allow-origin': '*' };
 const usdaFoods = normalizeUsdaSearch(usdaSearch as { foods: UsdaFood[] });
 
-test.describe('búsqueda externa (OFF + USDA, proxy simulado)', () => {
+test.describe('búsqueda externa (OFF directo + USDA por proxy, simulados)', () => {
   test.beforeEach(async ({ page }) => {
     await seedOnboarded(page);
   });
 
   test('Enter busca fuera, muestra fuente, calidad, marca y atribución; se puede añadir', async ({ page }) => {
     const calls: string[] = [];
-    await page.route('**/api/off-search**', (route) => {
+    await page.route(OFF_SEARCH, (route) => {
       calls.push(route.request().url());
-      return route.fulfill({ json: { foods: offFoods } });
+      return route.fulfill({ json: { products: offSearch.hits }, headers: CORS });
     });
     await page.route('**/api/usda-search**', (route) => {
       calls.push(route.request().url());
@@ -41,7 +44,9 @@ test.describe('búsqueda externa (OFF + USDA, proxy simulado)', () => {
     await expect(external).toContainText('Open Food Facts');
     await expect(external).toContainText('USDA');
     await expect(page.getByText('Datos de Open Food Facts (licencia ODbL).')).toBeVisible();
-    expect(calls.some((u) => u.includes('off-search?q=yogur%20griego&lang=es'))).toBe(true);
+    const off = calls.find((u) => u.startsWith('https://world.openfoodfacts.org/cgi/search.pl'))!;
+    expect(new URL(off).searchParams.get('search_terms')).toBe('yogur griego');
+    expect(new URL(off).searchParams.get('app_name')).toBe('ErasmusFITS');
     expect(calls.some((u) => u.includes('usda-search?q=Plain%20Greek%20yogurt'))).toBe(true); // traducido con alias
 
     await external.getByRole('button', { name: /Yogur griego ligero/ }).click();
@@ -57,7 +62,7 @@ test.describe('búsqueda externa (OFF + USDA, proxy simulado)', () => {
   });
 
   test('avisa si OFF limita peticiones o USDA no está configurado', async ({ page }) => {
-    await page.route('**/api/off-search**', (route) => route.fulfill({ status: 429, json: { error: 'rate_limited' } }));
+    await page.route(OFF_SEARCH, (route) => route.fulfill({ status: 429, json: {}, headers: CORS }));
     await page.route('**/api/usda-search**', (route) => route.fulfill({ status: 503, json: { error: 'not_configured' } }));
     await page.getByRole('link', { name: 'Añadir a comida' }).click();
     await page.getByLabel('Buscar alimento').fill('lentejas');
@@ -69,9 +74,8 @@ test.describe('búsqueda externa (OFF + USDA, proxy simulado)', () => {
   });
 
   test('código de barras consulta solo el producto de OFF', async ({ page }) => {
-    const hacendado = offFoods.find((f) => f.barcode === '8402001012051')!;
     let usdaCalled = false;
-    await page.route('**/api/off-product**', (route) => route.fulfill({ json: { food: hacendado } }));
+    await page.route(OFF_PRODUCT, (route) => route.fulfill({ json: { status: 1, product: offSearch.hits[2] }, headers: CORS }));
     await page.route('**/api/usda-search**', (route) => {
       usdaCalled = true;
       return route.fulfill({ json: { foods: [] } });

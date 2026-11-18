@@ -2,7 +2,7 @@
  * Normalización de Open Food Facts y USDA FoodData Central al esquema `Food`
  * (por 100 g). Lógica pura: la usan tanto el proxy serverless como el cliente.
  */
-import { kcalFromMacros, normalize, type Food, type FoodCategory, type LocalizedText } from './foods';
+import { kcalFromMacros, normalize, type Food, type FoodCategory, type LocalizedText } from './foods.js';
 
 const KJ_PER_KCAL = 4.184;
 const r1 = (n: number) => Math.round(n * 10) / 10;
@@ -95,8 +95,9 @@ export function normalizeOffProduct(p: OffProduct): Food | null {
   return food;
 }
 
-export function normalizeOffSearch(res: { hits?: OffProduct[] }): Food[] {
-  return (res.hits ?? []).map(normalizeOffProduct).filter((f): f is Food => f !== null);
+/** Acepta la respuesta de `cgi/search.pl` (`products`) y la de Search-a-licious (`hits`). */
+export function normalizeOffSearch(res: { hits?: OffProduct[]; products?: OffProduct[] }): Food[] {
+  return (res.products ?? res.hits ?? []).map(normalizeOffProduct).filter((f): f is Food => f !== null);
 }
 
 /** Códigos de barras EAN-8, UPC-A (12), EAN-13 o GTIN-14. */

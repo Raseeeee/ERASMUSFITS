@@ -4,9 +4,9 @@
  * La API key se lee de USDA_API_KEY en el servidor y nunca llega al cliente.
  * El cliente traduce la búsqueda al inglés con la tabla de alias antes de llamar.
  */
-import { normalizeUsdaSearch, type UsdaFood } from '../src/domain/external';
-import type { Food } from '../src/domain/foods';
-import { RateLimiter, TtlCache, UpstreamError, cleanQuery, error, fetchJson, json } from './_lib/proxy';
+import { normalizeUsdaSearch, type UsdaFood } from '../src/domain/external.js';
+import type { Food } from '../src/domain/foods.js';
+import { RateLimiter, TtlCache, UpstreamError, cleanQuery, error, fetchJson, json } from './_lib/proxy.js';
 
 export const USDA_SEARCH_URL = 'https://api.nal.usda.gov/fdc/v1/foods/search';
 const PAGE_SIZE = 15;
