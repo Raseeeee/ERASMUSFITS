@@ -4,8 +4,10 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { apiDevPlugin } from './vite-plugins/api-dev.ts';
+import pkg from './package.json' with { type: 'json' };
 
 export default defineConfig(({ isSsrBuild }) => ({
+  define: { __APP_VERSION__: JSON.stringify(pkg.version) },
   plugins: [
     react(),
     tailwindcss(),

@@ -15,6 +15,8 @@ const RecipeDetailScreen = lazy(() =>
   import('./features/recipes/RecipeDetailScreen').then((m) => ({ default: m.RecipeDetailScreen })),
 );
 const ProgressScreen = lazy(() => import('./features/progress/ProgressScreen').then((m) => ({ default: m.ProgressScreen })));
+const PrivacyScreen = lazy(() => import('./features/legal/LegalScreens').then((m) => ({ default: m.PrivacyScreen })));
+const CreditsScreen = lazy(() => import('./features/legal/LegalScreens').then((m) => ({ default: m.CreditsScreen })));
 const ShopScreen = lazy(() => import('./features/shop/ShopScreen').then((m) => ({ default: m.ShopScreen })));
 
 function RequireOnboarded({ children }: { children: ReactNode }) {
@@ -87,6 +89,8 @@ export default function App() {
       <Suspense fallback={null}>
       <Routes>
         <Route path="/onboarding" element={<WelcomeScreen />} />
+        <Route path="/privacy" element={<PrivacyScreen />} />
+        <Route path="/credits" element={<CreditsScreen />} />
         <Route path="/onboarding/profile" element={<ProfileScreen />} />
         <Route path="/onboarding/targets" element={<TargetsScreen onboarding />} />
         <Route

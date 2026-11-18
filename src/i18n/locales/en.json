@@ -176,8 +176,20 @@
     "language": "Language",
     "editProfile": "Edit profile",
     "editTargets": "View targets",
+    "changeCountry": "Change country / Erasmus",
+    "currentCountry": "Country: {{country}}",
+    "units": "Units",
+    "unitsValue": "Metric (kg, cm, g, ml), as used in all 5 available countries.",
+    "data": "Your data",
+    "dataHint": "Everything is stored only on this device. You can download a copy or delete it all.",
+    "export": "Export my data (JSON)",
+    "exported": "Copy downloaded.",
     "deleteAll": "Delete all my data",
-    "deleteConfirm": "Are you sure? All your data on this device will be deleted. This can't be undone."
+    "deleteConfirm": "Are you sure? All your data on this device will be deleted. This can't be undone.",
+    "about": "About",
+    "privacy": "Privacy policy",
+    "credits": "Credits and licences",
+    "version": "Version {{v}}"
   },
   "nav": {
     "today": "Today",
@@ -449,5 +461,59 @@
       "vigorous": "Hard"
     },
     "effect": "Adds +{{kcal}} kcal (as carbs) and +{{glasses}} glasses of water to this day's target."
+  },
+  "privacyNotice": "Your data is stored only on this device.",
+  "privacy": {
+    "title": "Privacy policy",
+    "updated": "Last updated: {{date}}",
+    "back": "Back",
+    "sections": {
+      "what": {
+        "title": "What data we use",
+        "body": "Your profile (age, sex for calculation purposes, weight, height, goal and activity), what you eat, water, activity, weigh-ins and shopping preferences. Weight and height are health data under the GDPR (Art. 9), so we handle them with special care."
+      },
+      "where": {
+        "title": "Where it is stored",
+        "body": "Only on this device, in the browser's storage (IndexedDB). There are no accounts and no server holding your data. If you clear your browser data or uninstall the app, it is lost."
+      },
+      "network": {
+        "title": "What leaves your device",
+        "body": "Only the text you search for (or the barcode) when you tap \"Search Open Food Facts and USDA\". It goes to our intermediate server, which forwards it to those databases and temporarily caches the search result (not who searched). Your profile and meals are never sent. The hosting provider may log technical data, such as IP address, under its own policy."
+      },
+      "analytics": {
+        "title": "Cookies and analytics",
+        "body": "We don't use cookies or analytics. If privacy-friendly analytics is ever added, it will be optional and we'll ask for your permission first."
+      },
+      "rights": {
+        "title": "Your rights",
+        "body": "You can download all your data (Settings → Export my data) and delete it completely (Settings → Delete all my data) at any time."
+      },
+      "age": {
+        "title": "Minimum age",
+        "body": "The app is for people aged 18 or over."
+      },
+      "medical": {
+        "title": "Not medical advice",
+        "body": "Targets and alerts are estimates. If you have a health condition, are pregnant or have had difficulties with food, please talk to a healthcare professional."
+      },
+      "controller": {
+        "title": "Data controller",
+        "body": "Project in development. Before publishing, the name and contact details of the data controller must be added here."
+      }
+    }
+  },
+  "credits": {
+    "title": "Credits and licences",
+    "back": "Back",
+    "dataTitle": "Data",
+    "softwareTitle": "Software",
+    "off": "Product data from Open Food Facts, available under the Open Database License (ODbL); database contents under the Database Contents License (DbCL).",
+    "openPrices": "Some prices were checked against Open Prices (Open Food Facts), under the ODbL.",
+    "usda": "Generic foods from USDA FoodData Central, public domain (CC0).",
+    "seed": "Curated foods, recipes and estimated prices prepared for this app from food composition tables (BEDCA/USDA) and published supermarket prices. Indicative values.",
+    "met": "Activity energy estimated with MET values from the Compendium of Physical Activities (Ainsworth et al.).",
+    "software": "Built with React, React Router, i18next and react-i18next, Zustand, Tailwind CSS, vite-plugin-pwa and Workbox (MIT licence), Dexie (Apache-2.0) and javascript-lp-solver (Unlicense).",
+    "licenseLink": "View licence",
+    "siteLink": "Visit"
   }
 }

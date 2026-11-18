@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { Button, Card, Disclaimer, Field, Screen, Segmented, flag, inputClass } from '../../components/ui';
 import { COUNTRIES, LANGUAGES, type CountryCode, type Language, type Trip } from '../../domain/types';
 import { validateTrip } from '../../domain/profile';
@@ -84,6 +84,12 @@ export function WelcomeScreen() {
         )}
       </Card>
       <Disclaimer />
+      <p className="mb-4 text-sm text-mu">
+        {t('privacyNotice')}{' '}
+        <Link to="/privacy" className="text-ac underline">
+          {t('settings.privacy')}
+        </Link>
+      </p>
       <Button variant="primary" className="w-full" disabled={!valid} onClick={onContinue}>
         {t('common.continue')}
       </Button>

@@ -176,8 +176,20 @@
     "language": "Idioma",
     "editProfile": "Editar perfil",
     "editTargets": "Ver objetivos",
+    "changeCountry": "Cambiar país / Erasmus",
+    "currentCountry": "País: {{country}}",
+    "units": "Unidades",
+    "unitsValue": "Métricas (kg, cm, g, ml). Son las de los 5 países disponibles.",
+    "data": "Tus datos",
+    "dataHint": "Todo se guarda solo en este dispositivo. Puedes descargar una copia o borrarlo todo.",
+    "export": "Exportar mis datos (JSON)",
+    "exported": "Copia descargada.",
     "deleteAll": "Borrar todos mis datos",
-    "deleteConfirm": "¿Seguro? Se borrarán todos tus datos de este dispositivo. No se puede deshacer."
+    "deleteConfirm": "¿Seguro? Se borrarán todos tus datos de este dispositivo. No se puede deshacer.",
+    "about": "Información",
+    "privacy": "Política de privacidad",
+    "credits": "Créditos y licencias",
+    "version": "Versión {{v}}"
   },
   "nav": {
     "today": "Hoy",
@@ -449,5 +461,59 @@
       "vigorous": "Intensa"
     },
     "effect": "Suma +{{kcal}} kcal (en carbohidratos) y +{{glasses}} vasos de agua a tu objetivo de este día."
+  },
+  "privacyNotice": "Tus datos se guardan solo en este dispositivo.",
+  "privacy": {
+    "title": "Política de privacidad",
+    "updated": "Última actualización: {{date}}",
+    "back": "Volver",
+    "sections": {
+      "what": {
+        "title": "Qué datos usamos",
+        "body": "Tu perfil (edad, sexo a efectos de cálculo, peso, estatura, objetivo y actividad), lo que comes, el agua, la actividad, tus pesajes y tus preferencias de compra. El peso y la estatura son datos de salud según el RGPD (art. 9), por eso los tratamos con especial cuidado."
+      },
+      "where": {
+        "title": "Dónde se guardan",
+        "body": "Solo en este dispositivo, en el almacenamiento del navegador (IndexedDB). No hay cuentas ni servidor con tus datos. Si borras los datos del navegador o desinstalas la app, se pierden."
+      },
+      "network": {
+        "title": "Qué sale de tu dispositivo",
+        "body": "Únicamente el texto que buscas (o el código de barras) cuando pulsas «Buscar en Open Food Facts y USDA». Va a nuestro servidor intermedio, que lo reenvía a esas bases de datos y guarda temporalmente el resultado de la búsqueda (no quién la hizo). Nunca se envían tu perfil ni tus comidas. El proveedor de alojamiento puede registrar datos técnicos, como la dirección IP, según su propia política."
+      },
+      "analytics": {
+        "title": "Cookies y analítica",
+        "body": "No usamos cookies ni analítica. Si algún día se añade una analítica respetuosa con la privacidad, será opcional y te pediremos permiso antes."
+      },
+      "rights": {
+        "title": "Tus derechos",
+        "body": "Puedes descargar todos tus datos (Ajustes → Exportar mis datos) y borrarlos por completo (Ajustes → Borrar todos mis datos) en cualquier momento."
+      },
+      "age": {
+        "title": "Edad mínima",
+        "body": "La app es para mayores de 18 años."
+      },
+      "medical": {
+        "title": "No es consejo médico",
+        "body": "Los objetivos y avisos son orientativos. Si tienes una condición de salud, estás embarazada o has tenido problemas con la comida, consulta a un profesional sanitario."
+      },
+      "controller": {
+        "title": "Responsable",
+        "body": "Proyecto en desarrollo. Antes de publicarlo hay que indicar aquí el nombre y el contacto del responsable del tratamiento."
+      }
+    }
+  },
+  "credits": {
+    "title": "Créditos y licencias",
+    "back": "Volver",
+    "dataTitle": "Datos",
+    "softwareTitle": "Software",
+    "off": "Datos de productos de Open Food Facts, disponibles bajo la Open Database License (ODbL); los contenidos de la base, bajo la Database Contents License (DbCL).",
+    "openPrices": "Algunos precios se han contrastado con Open Prices (Open Food Facts), bajo licencia ODbL.",
+    "usda": "Alimentos genéricos de USDA FoodData Central, de dominio público (CC0).",
+    "seed": "Alimentos curados, recetas y precios estimados preparados para esta app a partir de tablas de composición (BEDCA/USDA) y precios publicados de supermercados. Valores orientativos.",
+    "met": "Gasto de la actividad estimado con valores MET del Compendium of Physical Activities (Ainsworth et al.).",
+    "software": "Hecho con React, React Router, i18next y react-i18next, Zustand, Tailwind CSS, vite-plugin-pwa y Workbox (licencia MIT), Dexie (Apache-2.0) y javascript-lp-solver (Unlicense).",
+    "licenseLink": "Ver licencia",
+    "siteLink": "Visitar"
   }
 }
