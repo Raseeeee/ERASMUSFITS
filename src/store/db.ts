@@ -2,6 +2,7 @@ import Dexie, { type EntityTable } from 'dexie';
 import type { Food } from '../domain/foods';
 import { defaultMealForHour, type DayRecord, type LogEntry } from '../domain/log';
 import { seedFoods } from '../data/foods';
+import type { WeightEntry } from '../domain/progress';
 
 /** Fila clave-valor para ajustes/perfil. */
 export interface KvRow {
@@ -18,6 +19,7 @@ export interface FoodCacheRow {
 
 export class AppDB extends Dexie {
   foodCache!: EntityTable<FoodCacheRow, 'key'>;
+  weights!: EntityTable<WeightEntry, 'date'>;
   kv!: EntityTable<KvRow, 'key'>;
   entries!: EntityTable<LogEntry, 'id'>;
   days!: EntityTable<DayRecord, 'date'>;
@@ -50,6 +52,8 @@ export class AppDB extends Dexie {
       });
     // v4: caché de búsquedas externas.
     this.version(4).stores({ foodCache: 'key, fetchedAt' });
+    // v5: pesos (uno por fecha).
+    this.version(5).stores({ weights: 'date' });
   }
 }
 

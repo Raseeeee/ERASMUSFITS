@@ -115,7 +115,9 @@
       "macrosMismatch": "Calories from macros don't match the kcal target."
     },
     "helpResources": "If you're trying to eat very little, you don't have to deal with it alone. You can talk to your doctor or an eating-disorder support organisation in your country.",
-    "start": "Get started"
+    "start": "Get started",
+    "adjustment": "Coach adjustment you accepted: {{kcal}} kcal/day on every day type.",
+    "resetAdjustment": "Remove adjustment"
   },
   "dayTypes": {
     "rest": "Rest",

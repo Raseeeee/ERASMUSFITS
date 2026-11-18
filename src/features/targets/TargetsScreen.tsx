@@ -12,21 +12,22 @@ import {
 } from '../../domain/targets';
 import type { DayType, Targets } from '../../domain/types';
 import { useAppStore } from '../../store/appStore';
+import { RULES } from '../../domain/coach';
 
 const METRICS: (keyof Targets)[] = [
   'kcal', 'protein', 'carbs', 'fat', 'fiber', 'saltMax', 'sugarMax', 'sugarIdeal', 'waterGlasses',
 ];
 /** Intentos de kcal bajo el suelo a partir de los cuales mostramos recursos de ayuda. */
-const HELP_AFTER_LOW_ATTEMPTS = 2;
+const HELP_AFTER_LOW_ATTEMPTS = RULES.helpAfterLowAttempts;
 
 export function TargetsScreen({ onboarding = false }: { onboarding?: boolean }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { profile, overrides, setOverride, completeOnboarding } = useAppStore();
+  const { profile, overrides, setOverride, completeOnboarding, lowTargetAttempts: lowAttempts, recordLowTargetAttempt, resetKcalAdjustment } =
+    useAppStore();
   const [editing, setEditing] = useState<DayType | null>(null);
   const [draft, setDraft] = useState<Record<string, string>>({});
   const [issues, setIssues] = useState<OverrideIssue[]>([]);
-  const [lowAttempts, setLowAttempts] = useState(0);
 
   const computed = useMemo(() => (profile ? computeAllTargets(profile) : []), [profile]);
   if (!profile) return <Navigate to="/onboarding/profile" replace />;
@@ -45,7 +46,7 @@ export function TargetsScreen({ onboarding = false }: { onboarding?: boolean }) 
     if (!editing || !profile) return;
     const values = Object.fromEntries(METRICS.map((m) => [m, Number(draft[m]) || 0])) as unknown as Targets;
     const r = checkOverride(profile, values);
-    if (r.issues.includes('kcalBelowFloor')) setLowAttempts((n) => n + 1);
+    if (r.issues.includes('kcalBelowFloor')) await recordLowTargetAttempt();
     await setOverride(editing, r.accepted);
     setIssues(r.issues);
     if (r.issues.length === 0) setEditing(null);
@@ -61,6 +62,14 @@ export function TargetsScreen({ onboarding = false }: { onboarding?: boolean }) 
     <Screen title={t('targets.title')}>
       <p className="mb-1 text-mu">{t('targets.subtitle')}</p>
       <p className="mb-4 text-sm text-mu">{t('targets.maintenance', { kcal: maintenanceKcal(profile) })}</p>
+      {!!profile.kcalAdjustment && (
+        <Card>
+          <p className="mb-2 text-sm" data-testid="kcal-adjustment">
+            {t('targets.adjustment', { kcal: (profile.kcalAdjustment > 0 ? '+' : '') + profile.kcalAdjustment })}
+          </p>
+          <Button onClick={() => void resetKcalAdjustment()}>{t('targets.resetAdjustment')}</Button>
+        </Card>
+      )}
 
       {warnings.length > 0 && (
         <Card className="border-wr">

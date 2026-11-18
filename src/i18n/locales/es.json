@@ -115,7 +115,9 @@
       "macrosMismatch": "Las calorías de los macros no cuadran con el objetivo de kcal."
     },
     "helpResources": "Si estás intentando comer muy poco, no tienes por qué hacerlo en solitario. Puedes hablar con tu médico o con una asociación de apoyo a los trastornos de la conducta alimentaria de tu país.",
-    "start": "Empezar"
+    "start": "Empezar",
+    "adjustment": "Ajuste propuesto por el coach y aceptado: {{kcal}} kcal/día en todos los tipos de día.",
+    "resetAdjustment": "Quitar ajuste"
   },
   "dayTypes": {
     "rest": "Descanso",
