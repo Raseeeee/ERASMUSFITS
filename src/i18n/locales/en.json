@@ -1,0 +1,127 @@
+{
+  "app": { "name": "ErasmusEats" },
+  "common": {
+    "continue": "Continue",
+    "back": "Back",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "reset": "Reset",
+    "yes": "Yes",
+    "no": "No",
+    "kcal": "kcal",
+    "g": "g",
+    "glasses": "glasses"
+  },
+  "disclaimer": {
+    "title": "Not medical advice",
+    "body": "Targets are estimates based on general formulas. If you have a health condition, are pregnant or have had difficulties with food, please talk to a healthcare professional."
+  },
+  "countries": {
+    "ES": "Spain",
+    "IT": "Italy",
+    "DE": "Germany",
+    "PL": "Poland",
+    "TR": "Türkiye"
+  },
+  "languages": { "es": "Español", "en": "English" },
+  "welcome": {
+    "title": "Welcome!",
+    "subtitle": "Eat cheap and reach your goal, wherever you are.",
+    "language": "Language",
+    "erasmusQuestion": "Are you going on Erasmus?",
+    "origin": "Home country",
+    "destination": "Destination country",
+    "nationality": "Nationality",
+    "sameCountry": "Destination must be different from your home country."
+  },
+  "profile": {
+    "title": "Your profile",
+    "sex": "Sex (for calculation only)",
+    "sexHelp": "Energy expenditure formulas differ by sex. If you'd rather not say, we use the average of both.",
+    "sexes": { "male": "Male", "female": "Female", "unspecified": "Prefer not to say" },
+    "age": "Age",
+    "weight": "Weight (kg)",
+    "height": "Height (cm)",
+    "underage": "This app is for people aged 18 or over. If you're under 18, please talk to your family or a healthcare professional before changing how you eat.",
+    "outOfRange": "Please check this value ({{min}}–{{max}}).",
+    "goal": "Goal",
+    "goals": {
+      "lose": "Lose fat",
+      "maintain": "Maintain",
+      "gain": "Gain weight / muscle",
+      "recomp": "Recomposition"
+    },
+    "loseBlocked": "With your current BMI ({{bmi}}) we don't recommend a weight-loss goal. You can choose maintain or gain.",
+    "activity": "Usual activity",
+    "activities": {
+      "sedentary": "Sedentary",
+      "light": "Light",
+      "moderate": "Moderate",
+      "high": "High"
+    },
+    "sports": "Planned sports",
+    "sportsList": {
+      "gym": "Gym",
+      "running": "Running",
+      "triathlon": "Triathlon",
+      "other": "Other"
+    },
+    "daysPerWeek": "Days/week"
+  },
+  "targets": {
+    "title": "Your daily targets",
+    "subtitle": "By day type. You can edit them.",
+    "maintenance": "Estimated maintenance (typical week): {{kcal}} kcal",
+    "metric": "Target",
+    "metrics": {
+      "kcal": "Calories (kcal)",
+      "protein": "Protein (g)",
+      "carbs": "Carbs (g)",
+      "fat": "Fat (g)",
+      "fiber": "Fibre (g)",
+      "saltMax": "Salt, max (g)",
+      "sugarMax": "Free sugars, max (g)",
+      "sugarIdeal": "Free sugars, ideal (g)",
+      "waterGlasses": "Water (250 ml glasses)"
+    },
+    "edited": "edited",
+    "editTitle": "Edit targets: {{day}}",
+    "warnings": {
+      "floorApplied": "We applied the minimum safe calorie level.",
+      "loseBlockedLowBmi": "Your BMI is low: calculated as “maintain”.",
+      "macrosExceedKcal": "Minimum protein and fat already cover the calories; carbs set to 0."
+    },
+    "issues": {
+      "kcalBelowFloor": "Calories were below the safe minimum; we set them to the minimum ({{floor}} kcal).",
+      "kcalTooHigh": "Calories are very high for your profile.",
+      "proteinLow": "Protein is low (under 0.8 g/kg).",
+      "proteinHigh": "Protein is very high (over 3 g/kg).",
+      "fatLow": "Fat is low (under 0.5 g/kg); you need it for hormonal health.",
+      "saltAboveMax": "Salt is above the recommended 5 g/day limit.",
+      "macrosMismatch": "Calories from macros don't match the kcal target."
+    },
+    "helpResources": "If you're trying to eat very little, you don't have to deal with it alone. You can talk to your doctor or an eating-disorder support organisation in your country.",
+    "start": "Get started"
+  },
+  "dayTypes": {
+    "rest": "Rest",
+    "light": "Light",
+    "gym": "Gym",
+    "run": "Run",
+    "long_endurance": "Long endurance"
+  },
+  "today": {
+    "title": "Today",
+    "comingSoon": "Food logging arrives in the next phase."
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "editProfile": "Edit profile",
+    "editTargets": "View targets",
+    "deleteAll": "Delete all my data",
+    "deleteConfirm": "Are you sure? All your data on this device will be deleted. This can't be undone."
+  },
+  "nav": { "today": "Today", "targets": "Targets", "settings": "Settings" }
+}

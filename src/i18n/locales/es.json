@@ -1,0 +1,127 @@
+{
+  "app": { "name": "ErasmusEats" },
+  "common": {
+    "continue": "Continuar",
+    "back": "Atrás",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "reset": "Restablecer",
+    "yes": "Sí",
+    "no": "No",
+    "kcal": "kcal",
+    "g": "g",
+    "glasses": "vasos"
+  },
+  "disclaimer": {
+    "title": "No es consejo médico",
+    "body": "Los objetivos son orientativos y se calculan con fórmulas generales. Si tienes una condición de salud, estás embarazada o has tenido problemas con la comida, consulta a un profesional sanitario."
+  },
+  "countries": {
+    "ES": "España",
+    "IT": "Italia",
+    "DE": "Alemania",
+    "PL": "Polonia",
+    "TR": "Turquía"
+  },
+  "languages": { "es": "Español", "en": "English" },
+  "welcome": {
+    "title": "¡Bienvenido/a!",
+    "subtitle": "Come barato y cumple tu objetivo, estés donde estés.",
+    "language": "Idioma",
+    "erasmusQuestion": "¿Vas de Erasmus?",
+    "origin": "País de origen",
+    "destination": "País de destino",
+    "nationality": "Nacionalidad",
+    "sameCountry": "El destino debe ser distinto del país de origen."
+  },
+  "profile": {
+    "title": "Tu perfil",
+    "sex": "Sexo (solo para el cálculo)",
+    "sexHelp": "Las fórmulas de gasto energético distinguen por sexo. Si prefieres no decirlo, usamos la media de ambas.",
+    "sexes": { "male": "Hombre", "female": "Mujer", "unspecified": "Prefiero no decirlo" },
+    "age": "Edad",
+    "weight": "Peso (kg)",
+    "height": "Estatura (cm)",
+    "underage": "Esta app es para personas de 18 años o más. Si tienes menos de 18, habla con tu familia o con un profesional sanitario antes de cambiar tu alimentación.",
+    "outOfRange": "Revisa este valor ({{min}}–{{max}}).",
+    "goal": "Objetivo",
+    "goals": {
+      "lose": "Perder grasa",
+      "maintain": "Mantener",
+      "gain": "Ganar peso / músculo",
+      "recomp": "Recomposición"
+    },
+    "loseBlocked": "Con tu IMC actual ({{bmi}}) no recomendamos un objetivo de pérdida. Puedes elegir mantener o ganar.",
+    "activity": "Actividad habitual",
+    "activities": {
+      "sedentary": "Sedentaria",
+      "light": "Ligera",
+      "moderate": "Moderada",
+      "high": "Alta"
+    },
+    "sports": "Deportes previstos",
+    "sportsList": {
+      "gym": "Gimnasio",
+      "running": "Running",
+      "triathlon": "Triatlón",
+      "other": "Otros"
+    },
+    "daysPerWeek": "Días/semana"
+  },
+  "targets": {
+    "title": "Tus objetivos diarios",
+    "subtitle": "Según el tipo de día. Puedes editarlos.",
+    "maintenance": "Mantenimiento estimado (semana tipo): {{kcal}} kcal",
+    "metric": "Objetivo",
+    "metrics": {
+      "kcal": "Calorías (kcal)",
+      "protein": "Proteína (g)",
+      "carbs": "Carbohidratos (g)",
+      "fat": "Grasa (g)",
+      "fiber": "Fibra (g)",
+      "saltMax": "Sal, tope (g)",
+      "sugarMax": "Azúcares libres, tope (g)",
+      "sugarIdeal": "Azúcares libres, ideal (g)",
+      "waterGlasses": "Agua (vasos de 250 ml)"
+    },
+    "edited": "editado",
+    "editTitle": "Editar objetivos: {{day}}",
+    "warnings": {
+      "floorApplied": "Hemos aplicado el mínimo de seguridad de calorías.",
+      "loseBlockedLowBmi": "Tu IMC es bajo: calculamos como «mantener».",
+      "macrosExceedKcal": "La proteína y la grasa mínimas ya cubren las calorías; carbohidratos a 0."
+    },
+    "issues": {
+      "kcalBelowFloor": "Las calorías estaban por debajo del mínimo seguro; las hemos ajustado al mínimo ({{floor}} kcal).",
+      "kcalTooHigh": "Las calorías son muy altas para tu perfil.",
+      "proteinLow": "La proteína es baja (menos de 0,8 g/kg).",
+      "proteinHigh": "La proteína es muy alta (más de 3 g/kg).",
+      "fatLow": "La grasa es baja (menos de 0,5 g/kg); es necesaria para tu salud hormonal.",
+      "saltAboveMax": "La sal supera el tope recomendado de 5 g/día.",
+      "macrosMismatch": "Las calorías de los macros no cuadran con el objetivo de kcal."
+    },
+    "helpResources": "Si estás intentando comer muy poco, no tienes por qué hacerlo en solitario. Puedes hablar con tu médico o con una asociación de apoyo a los trastornos de la conducta alimentaria de tu país.",
+    "start": "Empezar"
+  },
+  "dayTypes": {
+    "rest": "Descanso",
+    "light": "Ligero",
+    "gym": "Gimnasio",
+    "run": "Carrera",
+    "long_endurance": "Fondo largo"
+  },
+  "today": {
+    "title": "Hoy",
+    "comingSoon": "El registro de comidas llega en la siguiente fase."
+  },
+  "settings": {
+    "title": "Ajustes",
+    "language": "Idioma",
+    "editProfile": "Editar perfil",
+    "editTargets": "Ver objetivos",
+    "deleteAll": "Borrar todos mis datos",
+    "deleteConfirm": "¿Seguro? Se borrarán todos tus datos de este dispositivo. No se puede deshacer."
+  },
+  "nav": { "today": "Hoy", "targets": "Objetivos", "settings": "Ajustes" }
+}
