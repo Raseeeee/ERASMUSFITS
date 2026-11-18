@@ -1,0 +1,1328 @@
+[
+  {
+    "id": "chicken_breast",
+    "names": {
+      "es": "Pechuga de pollo",
+      "en": "Chicken breast"
+    },
+    "category": "meat",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 156,
+      "p": 31,
+      "c": 0,
+      "f": 3.6,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0.2
+    },
+    "unit": {
+      "name": {
+        "es": "filete",
+        "en": "fillet"
+      },
+      "grams": 130
+    },
+    "source": "seed"
+  },
+  {
+    "id": "beef_lean",
+    "names": {
+      "es": "Ternera magra",
+      "en": "Lean beef"
+    },
+    "category": "meat",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 198,
+      "p": 27,
+      "c": 0,
+      "f": 10,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0.15
+    },
+    "unit": {
+      "name": {
+        "es": "filete",
+        "en": "steak"
+      },
+      "grams": 150
+    },
+    "source": "seed"
+  },
+  {
+    "id": "pork_loin",
+    "names": {
+      "es": "Lomo de cerdo",
+      "en": "Pork loin"
+    },
+    "category": "meat",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 180,
+      "p": 27,
+      "c": 0,
+      "f": 8,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0.15
+    },
+    "unit": {
+      "name": {
+        "es": "filete",
+        "en": "fillet"
+      },
+      "grams": 120
+    },
+    "source": "seed"
+  },
+  {
+    "id": "minced_beef",
+    "names": {
+      "es": "Carne picada de ternera",
+      "en": "Minced beef"
+    },
+    "category": "meat",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 239,
+      "p": 26,
+      "c": 0,
+      "f": 15,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0.2
+    },
+    "unit": {
+      "name": {
+        "es": "ración",
+        "en": "portion"
+      },
+      "grams": 125
+    },
+    "source": "seed"
+  },
+  {
+    "id": "turkey_slices",
+    "names": {
+      "es": "Pechuga de pavo en lonchas",
+      "en": "Sliced turkey breast"
+    },
+    "category": "meat",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 100,
+      "p": 20,
+      "c": 1.5,
+      "f": 1.5,
+      "fiber": 0,
+      "sugar": 1,
+      "salt": 2
+    },
+    "unit": {
+      "name": {
+        "es": "loncha",
+        "en": "slice"
+      },
+      "grams": 15
+    },
+    "source": "seed"
+  },
+  {
+    "id": "egg",
+    "names": {
+      "es": "Huevo",
+      "en": "Egg"
+    },
+    "category": "egg",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 146,
+      "p": 13,
+      "c": 1,
+      "f": 10,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0.35
+    },
+    "unit": {
+      "name": {
+        "es": "huevo",
+        "en": "egg"
+      },
+      "grams": 60
+    },
+    "source": "seed"
+  },
+  {
+    "id": "tuna_canned",
+    "names": {
+      "es": "Atún al natural",
+      "en": "Canned tuna in water"
+    },
+    "category": "fish",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 113,
+      "p": 26,
+      "c": 0,
+      "f": 1,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0.9
+    },
+    "unit": {
+      "name": {
+        "es": "lata",
+        "en": "can"
+      },
+      "grams": 80
+    },
+    "source": "seed"
+  },
+  {
+    "id": "salmon",
+    "names": {
+      "es": "Salmón",
+      "en": "Salmon"
+    },
+    "category": "fish",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 205,
+      "p": 22,
+      "c": 0,
+      "f": 13,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0.15
+    },
+    "unit": {
+      "name": {
+        "es": "filete",
+        "en": "fillet"
+      },
+      "grams": 150
+    },
+    "source": "seed"
+  },
+  {
+    "id": "hake",
+    "names": {
+      "es": "Merluza",
+      "en": "Hake"
+    },
+    "category": "fish",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 86,
+      "p": 18,
+      "c": 0,
+      "f": 1.5,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0.3
+    },
+    "unit": {
+      "name": {
+        "es": "filete",
+        "en": "fillet"
+      },
+      "grams": 150
+    },
+    "source": "seed"
+  },
+  {
+    "id": "sardines_canned",
+    "names": {
+      "es": "Sardinas en aceite (escurridas)",
+      "en": "Sardines in oil (drained)"
+    },
+    "category": "fish",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 195,
+      "p": 24,
+      "c": 0,
+      "f": 11,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0.9
+    },
+    "unit": {
+      "name": {
+        "es": "lata",
+        "en": "can"
+      },
+      "grams": 85
+    },
+    "source": "seed"
+  },
+  {
+    "id": "rice_cooked",
+    "names": {
+      "es": "Arroz cocido",
+      "en": "Cooked rice"
+    },
+    "category": "grain",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 126,
+      "p": 2.7,
+      "c": 28,
+      "f": 0.3,
+      "fiber": 0.4,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "taza",
+        "en": "cup"
+      },
+      "grams": 150
+    },
+    "source": "seed"
+  },
+  {
+    "id": "rice_raw",
+    "names": {
+      "es": "Arroz (crudo)",
+      "en": "Rice (raw)"
+    },
+    "category": "grain",
+    "state": "raw",
+    "per100g": {
+      "kcal": 349,
+      "p": 7,
+      "c": 78,
+      "f": 0.7,
+      "fiber": 1.3,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "ración",
+        "en": "portion"
+      },
+      "grams": 80
+    },
+    "source": "seed"
+  },
+  {
+    "id": "pasta_cooked",
+    "names": {
+      "es": "Pasta cocida",
+      "en": "Cooked pasta"
+    },
+    "category": "pasta",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 157,
+      "p": 5,
+      "c": 31,
+      "f": 1,
+      "fiber": 1.8,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "plato",
+        "en": "plate"
+      },
+      "grams": 250
+    },
+    "source": "seed"
+  },
+  {
+    "id": "pasta_raw",
+    "names": {
+      "es": "Pasta (seca)",
+      "en": "Pasta (dry)"
+    },
+    "category": "pasta",
+    "state": "raw",
+    "per100g": {
+      "kcal": 350,
+      "p": 12.5,
+      "c": 70,
+      "f": 1.5,
+      "fiber": 3,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "ración",
+        "en": "portion"
+      },
+      "grams": 80
+    },
+    "source": "seed"
+  },
+  {
+    "id": "bulgur_cooked",
+    "names": {
+      "es": "Bulgur cocido",
+      "en": "Cooked bulgur"
+    },
+    "category": "grain",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 79,
+      "p": 3.1,
+      "c": 14,
+      "f": 0.2,
+      "fiber": 4.5,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "taza",
+        "en": "cup"
+      },
+      "grams": 180
+    },
+    "source": "seed"
+  },
+  {
+    "id": "buckwheat_cooked",
+    "names": {
+      "es": "Trigo sarraceno cocido (kasza)",
+      "en": "Cooked buckwheat (kasza)"
+    },
+    "category": "grain",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 96,
+      "p": 3.4,
+      "c": 18,
+      "f": 0.6,
+      "fiber": 2.7,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "taza",
+        "en": "cup"
+      },
+      "grams": 170
+    },
+    "source": "seed"
+  },
+  {
+    "id": "oats",
+    "names": {
+      "es": "Copos de avena",
+      "en": "Rolled oats"
+    },
+    "category": "grain",
+    "state": "raw",
+    "per100g": {
+      "kcal": 367,
+      "p": 13,
+      "c": 58,
+      "f": 7,
+      "fiber": 10,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "tazón",
+        "en": "bowl"
+      },
+      "grams": 50
+    },
+    "source": "seed"
+  },
+  {
+    "id": "bread_white",
+    "names": {
+      "es": "Pan blanco",
+      "en": "White bread"
+    },
+    "category": "bread",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 264,
+      "p": 9,
+      "c": 49,
+      "f": 3,
+      "fiber": 2.7,
+      "sugar": 3,
+      "salt": 1.2
+    },
+    "unit": {
+      "name": {
+        "es": "rebanada",
+        "en": "slice"
+      },
+      "grams": 30
+    },
+    "source": "seed"
+  },
+  {
+    "id": "bread_whole",
+    "names": {
+      "es": "Pan integral",
+      "en": "Wholemeal bread"
+    },
+    "category": "bread",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 250,
+      "p": 10,
+      "c": 41,
+      "f": 3.5,
+      "fiber": 7,
+      "sugar": 3,
+      "salt": 1.1
+    },
+    "unit": {
+      "name": {
+        "es": "rebanada",
+        "en": "slice"
+      },
+      "grams": 30
+    },
+    "source": "seed"
+  },
+  {
+    "id": "simit",
+    "names": {
+      "es": "Simit",
+      "en": "Simit"
+    },
+    "category": "bread",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 282,
+      "p": 10,
+      "c": 50,
+      "f": 4,
+      "fiber": 3,
+      "sugar": 4,
+      "salt": 1.2
+    },
+    "unit": {
+      "name": {
+        "es": "unidad",
+        "en": "piece"
+      },
+      "grams": 110
+    },
+    "source": "seed"
+  },
+  {
+    "id": "potato_boiled",
+    "names": {
+      "es": "Patata cocida",
+      "en": "Boiled potato"
+    },
+    "category": "potato",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 81,
+      "p": 2,
+      "c": 17,
+      "f": 0.1,
+      "fiber": 1.8,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "unidad",
+        "en": "piece"
+      },
+      "grams": 150
+    },
+    "source": "seed"
+  },
+  {
+    "id": "sweet_potato",
+    "names": {
+      "es": "Boniato asado",
+      "en": "Baked sweet potato"
+    },
+    "category": "potato",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 88,
+      "p": 2,
+      "c": 18,
+      "f": 0.2,
+      "fiber": 3.3,
+      "sugar": 0,
+      "salt": 0.1
+    },
+    "unit": {
+      "name": {
+        "es": "unidad",
+        "en": "piece"
+      },
+      "grams": 150
+    },
+    "source": "seed"
+  },
+  {
+    "id": "lentils_cooked",
+    "names": {
+      "es": "Lentejas cocidas",
+      "en": "Cooked lentils"
+    },
+    "category": "legume",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 104,
+      "p": 9,
+      "c": 12,
+      "f": 0.4,
+      "fiber": 8,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "plato",
+        "en": "plate"
+      },
+      "grams": 250
+    },
+    "source": "seed"
+  },
+  {
+    "id": "chickpeas_cooked",
+    "names": {
+      "es": "Garbanzos cocidos",
+      "en": "Cooked chickpeas"
+    },
+    "category": "legume",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 150,
+      "p": 8.9,
+      "c": 19,
+      "f": 2.6,
+      "fiber": 7.6,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "plato",
+        "en": "plate"
+      },
+      "grams": 250
+    },
+    "source": "seed"
+  },
+  {
+    "id": "beans_canned",
+    "names": {
+      "es": "Alubias cocidas (bote)",
+      "en": "Canned beans (drained)"
+    },
+    "category": "legume",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 97,
+      "p": 7,
+      "c": 13,
+      "f": 0.5,
+      "fiber": 6,
+      "sugar": 0,
+      "salt": 0.5
+    },
+    "unit": {
+      "name": {
+        "es": "bote",
+        "en": "jar"
+      },
+      "grams": 250
+    },
+    "source": "seed"
+  },
+  {
+    "id": "greek_yogurt",
+    "names": {
+      "es": "Yogur griego natural",
+      "en": "Plain Greek yogurt"
+    },
+    "category": "dairy",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 97,
+      "p": 9,
+      "c": 4,
+      "f": 5,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0.1
+    },
+    "unit": {
+      "name": {
+        "es": "unidad",
+        "en": "pot"
+      },
+      "grams": 125
+    },
+    "source": "seed"
+  },
+  {
+    "id": "yogurt_plain",
+    "names": {
+      "es": "Yogur natural",
+      "en": "Plain yogurt"
+    },
+    "category": "dairy",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 63,
+      "p": 3.5,
+      "c": 4.7,
+      "f": 3.3,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0.1
+    },
+    "unit": {
+      "name": {
+        "es": "unidad",
+        "en": "pot"
+      },
+      "grams": 125
+    },
+    "source": "seed"
+  },
+  {
+    "id": "quark",
+    "names": {
+      "es": "Quark desnatado",
+      "en": "Low-fat quark"
+    },
+    "category": "dairy",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 66,
+      "p": 12,
+      "c": 4,
+      "f": 0.2,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0.1
+    },
+    "unit": {
+      "name": {
+        "es": "tarrina",
+        "en": "tub"
+      },
+      "grams": 250
+    },
+    "source": "seed"
+  },
+  {
+    "id": "milk_semi",
+    "names": {
+      "es": "Leche semidesnatada",
+      "en": "Semi-skimmed milk"
+    },
+    "category": "dairy",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 47,
+      "p": 3.4,
+      "c": 4.8,
+      "f": 1.6,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0.1
+    },
+    "unit": {
+      "name": {
+        "es": "vaso",
+        "en": "glass"
+      },
+      "grams": 250
+    },
+    "source": "seed"
+  },
+  {
+    "id": "fresh_cheese_0",
+    "names": {
+      "es": "Queso fresco batido 0%",
+      "en": "Fat-free fresh cheese"
+    },
+    "category": "dairy",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 50,
+      "p": 8,
+      "c": 4,
+      "f": 0.2,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0.1
+    },
+    "unit": {
+      "name": {
+        "es": "tarrina",
+        "en": "tub"
+      },
+      "grams": 125
+    },
+    "source": "seed"
+  },
+  {
+    "id": "cheese_hard",
+    "names": {
+      "es": "Queso curado",
+      "en": "Hard cheese"
+    },
+    "category": "dairy",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 372,
+      "p": 25,
+      "c": 0.5,
+      "f": 30,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 1.6
+    },
+    "unit": {
+      "name": {
+        "es": "loncha",
+        "en": "slice"
+      },
+      "grams": 20
+    },
+    "source": "seed"
+  },
+  {
+    "id": "white_cheese",
+    "names": {
+      "es": "Queso blanco (feta, beyaz peynir)",
+      "en": "White cheese (feta)"
+    },
+    "category": "dairy",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 242,
+      "p": 14,
+      "c": 1.5,
+      "f": 20,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 2.5
+    },
+    "unit": {
+      "name": {
+        "es": "porción",
+        "en": "portion"
+      },
+      "grams": 40
+    },
+    "source": "seed"
+  },
+  {
+    "id": "banana",
+    "names": {
+      "es": "Plátano",
+      "en": "Banana"
+    },
+    "category": "fruit",
+    "state": "raw",
+    "per100g": {
+      "kcal": 92,
+      "p": 1.1,
+      "c": 20,
+      "f": 0.3,
+      "fiber": 2.6,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "unidad",
+        "en": "piece"
+      },
+      "grams": 120
+    },
+    "source": "seed"
+  },
+  {
+    "id": "apple",
+    "names": {
+      "es": "Manzana",
+      "en": "Apple"
+    },
+    "category": "fruit",
+    "state": "raw",
+    "per100g": {
+      "kcal": 56,
+      "p": 0.3,
+      "c": 12,
+      "f": 0.2,
+      "fiber": 2.4,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "unidad",
+        "en": "piece"
+      },
+      "grams": 180
+    },
+    "source": "seed"
+  },
+  {
+    "id": "orange",
+    "names": {
+      "es": "Naranja",
+      "en": "Orange"
+    },
+    "category": "fruit",
+    "state": "raw",
+    "per100g": {
+      "kcal": 45,
+      "p": 0.9,
+      "c": 9,
+      "f": 0.1,
+      "fiber": 2.2,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "unidad",
+        "en": "piece"
+      },
+      "grams": 150
+    },
+    "source": "seed"
+  },
+  {
+    "id": "tomato",
+    "names": {
+      "es": "Tomate",
+      "en": "Tomato"
+    },
+    "category": "vegetable",
+    "state": "raw",
+    "per100g": {
+      "kcal": 19,
+      "p": 0.9,
+      "c": 2.7,
+      "f": 0.2,
+      "fiber": 1.2,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "unidad",
+        "en": "piece"
+      },
+      "grams": 120
+    },
+    "source": "seed"
+  },
+  {
+    "id": "salad",
+    "names": {
+      "es": "Ensalada mixta",
+      "en": "Mixed salad"
+    },
+    "category": "salad",
+    "state": "raw",
+    "per100g": {
+      "kcal": 21,
+      "p": 1,
+      "c": 3,
+      "f": 0.2,
+      "fiber": 1.8,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "plato",
+        "en": "plate"
+      },
+      "grams": 150
+    },
+    "source": "seed"
+  },
+  {
+    "id": "veg_cooked",
+    "names": {
+      "es": "Verdura cocinada",
+      "en": "Cooked vegetables"
+    },
+    "category": "vegetable",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 33,
+      "p": 2,
+      "c": 4,
+      "f": 0.3,
+      "fiber": 3,
+      "sugar": 0,
+      "salt": 0.1
+    },
+    "unit": {
+      "name": {
+        "es": "ración",
+        "en": "portion"
+      },
+      "grams": 200
+    },
+    "source": "seed"
+  },
+  {
+    "id": "broccoli_cooked",
+    "names": {
+      "es": "Brócoli cocido",
+      "en": "Cooked broccoli"
+    },
+    "category": "vegetable",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 36,
+      "p": 2.4,
+      "c": 4,
+      "f": 0.4,
+      "fiber": 3.3,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "ración",
+        "en": "portion"
+      },
+      "grams": 150
+    },
+    "source": "seed"
+  },
+  {
+    "id": "crushed_tomato",
+    "names": {
+      "es": "Tomate triturado",
+      "en": "Crushed tomatoes"
+    },
+    "category": "vegetable",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 26,
+      "p": 1.3,
+      "c": 4,
+      "f": 0.2,
+      "fiber": 1.5,
+      "sugar": 0,
+      "salt": 0.3
+    },
+    "unit": {
+      "name": {
+        "es": "ración",
+        "en": "portion"
+      },
+      "grams": 100
+    },
+    "source": "seed"
+  },
+  {
+    "id": "olive_oil",
+    "names": {
+      "es": "Aceite de oliva",
+      "en": "Olive oil"
+    },
+    "category": "fat",
+    "state": "raw",
+    "per100g": {
+      "kcal": 900,
+      "p": 0,
+      "c": 0,
+      "f": 100,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "cucharada",
+        "en": "tbsp"
+      },
+      "grams": 10
+    },
+    "source": "seed"
+  },
+  {
+    "id": "butter",
+    "names": {
+      "es": "Mantequilla",
+      "en": "Butter"
+    },
+    "category": "fat",
+    "state": "raw",
+    "per100g": {
+      "kcal": 734,
+      "p": 0.7,
+      "c": 0.6,
+      "f": 81,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0.05
+    },
+    "unit": {
+      "name": {
+        "es": "porción",
+        "en": "pat"
+      },
+      "grams": 10
+    },
+    "source": "seed"
+  },
+  {
+    "id": "nuts",
+    "names": {
+      "es": "Frutos secos (almendras, nueces)",
+      "en": "Nuts (almonds, walnuts)"
+    },
+    "category": "nuts",
+    "state": "raw",
+    "per100g": {
+      "kcal": 598,
+      "p": 20,
+      "c": 8,
+      "f": 52,
+      "fiber": 9,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "puñado",
+        "en": "handful"
+      },
+      "grams": 30
+    },
+    "source": "seed"
+  },
+  {
+    "id": "peanut_butter",
+    "names": {
+      "es": "Crema de cacahuete",
+      "en": "Peanut butter"
+    },
+    "category": "nuts",
+    "state": "raw",
+    "per100g": {
+      "kcal": 620,
+      "p": 25,
+      "c": 14,
+      "f": 50,
+      "fiber": 7,
+      "sugar": 3,
+      "salt": 0.5
+    },
+    "unit": {
+      "name": {
+        "es": "cucharada",
+        "en": "tbsp"
+      },
+      "grams": 16
+    },
+    "source": "seed"
+  },
+  {
+    "id": "doner_wrap",
+    "names": {
+      "es": "Döner de pollo (dürüm)",
+      "en": "Chicken döner wrap"
+    },
+    "category": "prepared",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 200,
+      "p": 12,
+      "c": 17,
+      "f": 9,
+      "fiber": 1.5,
+      "sugar": 1,
+      "salt": 1.4
+    },
+    "unit": {
+      "name": {
+        "es": "dürüm",
+        "en": "wrap"
+      },
+      "grams": 230
+    },
+    "source": "seed"
+  },
+  {
+    "id": "kofte",
+    "names": {
+      "es": "Köfte",
+      "en": "Köfte (meatballs)"
+    },
+    "category": "prepared",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 247,
+      "p": 17,
+      "c": 4,
+      "f": 18,
+      "fiber": 0.5,
+      "sugar": 0,
+      "salt": 1.3
+    },
+    "unit": {
+      "name": {
+        "es": "ración",
+        "en": "portion"
+      },
+      "grams": 150
+    },
+    "source": "seed"
+  },
+  {
+    "id": "pizza_margherita",
+    "names": {
+      "es": "Pizza margarita",
+      "en": "Margherita pizza"
+    },
+    "category": "prepared",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 258,
+      "p": 11,
+      "c": 30,
+      "f": 10,
+      "fiber": 2,
+      "sugar": 2,
+      "salt": 1.3
+    },
+    "unit": {
+      "name": {
+        "es": "porción",
+        "en": "slice"
+      },
+      "grams": 110
+    },
+    "source": "seed"
+  },
+  {
+    "id": "whey",
+    "names": {
+      "es": "Proteína whey",
+      "en": "Whey protein"
+    },
+    "category": "supplement",
+    "state": "raw",
+    "per100g": {
+      "kcal": 390,
+      "p": 78,
+      "c": 6,
+      "f": 6,
+      "fiber": 0,
+      "sugar": 4,
+      "salt": 0.5
+    },
+    "unit": {
+      "name": {
+        "es": "scoop",
+        "en": "scoop"
+      },
+      "grams": 30
+    },
+    "source": "seed"
+  },
+  {
+    "id": "honey",
+    "names": {
+      "es": "Miel",
+      "en": "Honey"
+    },
+    "category": "sweet",
+    "state": "raw",
+    "per100g": {
+      "kcal": 329,
+      "p": 0.3,
+      "c": 82,
+      "f": 0,
+      "fiber": 0,
+      "sugar": 82,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "cucharadita",
+        "en": "tsp"
+      },
+      "grams": 7
+    },
+    "source": "seed"
+  },
+  {
+    "id": "milk_chocolate",
+    "names": {
+      "es": "Chocolate con leche",
+      "en": "Milk chocolate"
+    },
+    "category": "sweet",
+    "state": "raw",
+    "per100g": {
+      "kcal": 526,
+      "p": 7,
+      "c": 56,
+      "f": 30,
+      "fiber": 2,
+      "sugar": 52,
+      "salt": 0.2
+    },
+    "unit": {
+      "name": {
+        "es": "onza",
+        "en": "square"
+      },
+      "grams": 10
+    },
+    "source": "seed"
+  },
+  {
+    "id": "soft_drink",
+    "names": {
+      "es": "Refresco azucarado",
+      "en": "Sugary soft drink"
+    },
+    "category": "sweet",
+    "state": "raw",
+    "per100g": {
+      "kcal": 42,
+      "p": 0,
+      "c": 10.6,
+      "f": 0,
+      "fiber": 0,
+      "sugar": 10.6,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "lata",
+        "en": "can"
+      },
+      "grams": 330
+    },
+    "source": "seed"
+  }
+]
