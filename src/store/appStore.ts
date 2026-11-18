@@ -75,7 +75,7 @@ export const useAppStore = create<AppState>((set, get) => ({
     await put('onboarded', true);
   },
   deleteAll: async () => {
-    await db.kv.clear();
+    await Promise.all(db.tables.map((t) => t.clear()));
     set({ ...initial, hydrated: true });
   },
 }));
