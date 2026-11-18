@@ -7,6 +7,7 @@ import { ProfileScreen } from './features/onboarding/ProfileScreen';
 import { TargetsScreen } from './features/targets/TargetsScreen';
 import { TodayScreen } from './features/today/TodayScreen';
 import { SettingsScreen } from './features/settings/SettingsScreen';
+import { AddFoodScreen } from './features/food/AddFoodScreen';
 
 function RequireOnboarded({ children }: { children: ReactNode }) {
   const onboarded = useAppStore((s) => s.onboarded);
@@ -71,6 +72,7 @@ export default function App() {
           }
         >
           <Route path="/today" element={<TodayScreen />} />
+          <Route path="/add" element={<AddFoodScreen />} />
           <Route path="/targets" element={<TargetsScreen />} />
           <Route path="/settings" element={<SettingsScreen />} />
         </Route>
