@@ -1,21 +1,96 @@
 /** Registro diario: entradas, totales, progreso. Lógica pura. */
-import type { CookingContext, LocalizedText, Nutrients } from './foods';
-import { sumNutrients } from './foods';
+import type { CookingContext, Food, LocalizedText, Nutrients } from './foods';
+import { nutrientsFor, sumNutrients } from './foods';
 import { computeDayTargets } from './targets';
 import type { BodyProfile, DayType, Targets } from './types';
+
+export const MEALS = ['breakfast', 'lunch', 'dinner', 'snack'] as const;
+/** Desayuno, comida, cena y snacks (media mañana, merienda…). */
+export type Meal = (typeof MEALS)[number];
 
 export interface LogEntry {
   id: string;
   /** Fecha local YYYY-MM-DD. */
   date: string;
+  meal: Meal;
   foodId: string;
   /** Copia del nombre en el momento de registrar (el alimento puede cambiar). */
   name: LocalizedText;
+  /**
+   * Copia del alimento al registrar: permite editar la entrada aunque el
+   * alimento original cambie, se borre o venga de una fuente externa.
+   */
+  food?: Food;
   grams: number;
   context: CookingContext;
   /** Nutrientes ya calculados para esos gramos y contexto. */
   nutrients: Nutrients;
   createdAt: number;
+}
+
+/**
+ * Comida por defecto según la hora local: 5–10 desayuno, 11–12 snack (media
+ * mañana), 13–16 comida, 17–19 snack (merienda), 20–4 cena.
+ */
+export function defaultMealForHour(hour: number): Meal {
+  if (hour >= 5 && hour < 11) return 'breakfast';
+  if (hour >= 11 && hour < 13) return 'snack';
+  if (hour >= 13 && hour < 17) return 'lunch';
+  if (hour >= 17 && hour < 20) return 'snack';
+  return 'dinner';
+}
+
+export function isMeal(s: string | null | undefined): s is Meal {
+  return !!s && (MEALS as readonly string[]).includes(s);
+}
+
+export interface MealGroup {
+  meal: Meal;
+  entries: LogEntry[];
+  totals: Nutrients;
+}
+
+/** Agrupa las entradas por comida, en orden fijo (también las vacías). */
+export function groupByMeal(entries: LogEntry[]): MealGroup[] {
+  return MEALS.map((meal) => {
+    const list = entries.filter((e) => e.meal === meal);
+    return { meal, entries: list, totals: sumNutrients(list.map((e) => e.nutrients)) };
+  });
+}
+
+export interface Remaining {
+  kcal: number;
+  p: number;
+  c: number;
+  f: number;
+}
+
+/** Lo que falta para el objetivo (negativo si se ha pasado). */
+export function remaining(totals: Nutrients, t: Targets): Remaining {
+  const r1 = (n: number) => Math.round(n * 10) / 10;
+  return {
+    kcal: Math.round(t.kcal - totals.kcal),
+    p: r1(t.protein - totals.p),
+    c: r1(t.carbs - totals.c),
+    f: r1(t.fat - totals.f),
+  };
+}
+
+/** Recalcula una entrada con nuevos gramos/contexto/comida a partir de su copia del alimento. */
+export function editEntry(
+  entry: LogEntry,
+  food: Food,
+  changes: { grams: number; context: CookingContext; meal: Meal },
+): LogEntry {
+  return {
+    ...entry,
+    ...changes,
+    grams: Math.round(changes.grams),
+    foodId: food.id,
+    food,
+    name: { ...food.names },
+    nutrients: nutrientsFor(food, changes.grams, changes.context),
+  };
 }
 
 export interface DayRecord {

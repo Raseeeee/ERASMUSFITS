@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { addDays, dayTotals, isISODate, localISODate, progressRows, targetsForDay, type LogEntry } from './log';
+import { seedFoods } from '../data/foods';
+import { nutrientsFor } from './foods';
+import {
+  addDays, dayTotals, defaultMealForHour, editEntry, groupByMeal, isISODate, localISODate,
+  progressRows, remaining, targetsForDay, type LogEntry,
+} from './log';
 import { computeDayTargets } from './targets';
 import type { BodyProfile } from './types';
 
@@ -7,7 +12,7 @@ const profile: BodyProfile = {
   sex: 'male', age: 25, weightKg: 80, heightCm: 180, goal: 'maintain', activity: 'moderate', sports: [],
 };
 const entry = (kcal: number, p: number, salt = 0): LogEntry => ({
-  id: String(Math.random()), date: '2026-11-18', foodId: 'x', name: { es: 'x', en: 'x' },
+  id: String(Math.random()), date: '2026-11-18', meal: 'lunch', foodId: 'x', name: { es: 'x', en: 'x' },
   grams: 100, context: 'home', createdAt: 0,
   nutrients: { kcal, p, c: 10, f: 5, fiber: 2, sugar: 1, salt },
 });
@@ -49,5 +54,42 @@ describe('totales y progreso', () => {
     expect(by.salt.kind).toBe('cap');
     expect(by.sugar.over).toBe(true);
     expect(by.fiber.over).toBe(false);
+  });
+});
+
+describe('comidas del día', () => {
+  it('comida por defecto según la hora', () => {
+    expect(defaultMealForHour(8)).toBe('breakfast');
+    expect(defaultMealForHour(11)).toBe('snack');
+    expect(defaultMealForHour(14)).toBe('lunch');
+    expect(defaultMealForHour(18)).toBe('snack');
+    expect(defaultMealForHour(21)).toBe('dinner');
+    expect(defaultMealForHour(2)).toBe('dinner');
+  });
+  it('agrupa en orden fijo, con subtotales y grupos vacíos', () => {
+    const a = { ...entry(300, 20), meal: 'lunch' as const };
+    const b = { ...entry(100, 5), meal: 'lunch' as const };
+    const c = { ...entry(200, 10), meal: 'breakfast' as const };
+    const g = groupByMeal([a, b, c]);
+    expect(g.map((x) => x.meal)).toEqual(['breakfast', 'lunch', 'dinner', 'snack']);
+    expect(g[1].entries).toHaveLength(2);
+    expect(g[1].totals.kcal).toBe(400);
+    expect(g[2].entries).toHaveLength(0);
+    expect(g[2].totals.kcal).toBe(0);
+  });
+  it('faltantes (negativo si se pasa)', () => {
+    const target = targetsForDay(profile, 'gym', {});
+    const r = remaining({ kcal: 2000, p: 140, c: 300, f: 50, fiber: 0, sugar: 0, salt: 0 }, target);
+    expect(r).toEqual({ kcal: 798, p: -12, c: 97, f: 28 });
+  });
+  it('editar entrada recalcula nutrientes y conserva id y fecha', () => {
+    const chicken = seedFoods.find((f) => f.id === 'chicken_breast')!;
+    const e = { ...entry(0, 0), meal: 'lunch' as const };
+    const edited = editEntry(e, chicken, { grams: 200, context: 'canteen', meal: 'dinner' });
+    expect(edited.id).toBe(e.id);
+    expect(edited.date).toBe(e.date);
+    expect(edited.meal).toBe('dinner');
+    expect(edited.nutrients).toEqual(nutrientsFor(chicken, 200, 'canteen'));
+    expect(edited.food?.id).toBe('chicken_breast');
   });
 });
