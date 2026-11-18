@@ -20,13 +20,12 @@ import { MEALS, defaultMealForHour, isMeal, type Meal } from '../../domain/log';
 import { addEntry, deleteEntry, getEntry, listMyFoods, updateEntry } from '../../store/logRepo';
 import { useSelectedDate } from '../today/useSelectedDate';
 import { MyFoodEditor } from './MyFoodEditor';
+import { FoodRow, QualityBadge, SourceBadge } from './FoodRow';
+import { ExternalResults, type ExternalState } from './ExternalResults';
+import { searchExternal } from '../../store/externalFoods';
+import { useAppStore } from '../../store/appStore';
+import { activeCountry } from '../../domain/profile';
 
-const SOURCE_BADGE: Record<Food['source'], string> = {
-  mine: 'bg-ac text-ac-tx',
-  seed: 'border border-ac text-ac',
-  off: 'border border-bd text-mu',
-  usda: 'border border-bd text-mu',
-};
 
 export function AddFoodScreen() {
   const { t, i18n } = useTranslation();
@@ -69,6 +68,20 @@ export function AddFoodScreen() {
   const backToToday = () => navigate(`/today?date=${date}`);
 
   const myFoods = useLiveQuery(listMyFoods, []) ?? [];
+  const trip = useAppStore((s) => s.trip);
+  const [external, setExternal] = useState<ExternalState>({ phase: 'idle' });
+  const overriddenIds = useMemo(
+    () => new Set(myFoods.map((f) => f.overridesId).filter((id): id is string => !!id)),
+    [myFoods],
+  );
+
+  async function runExternal() {
+    const q = query.trim();
+    if (!q) return;
+    setExternal({ phase: 'loading', query: q });
+    const results = await searchExternal(q, lang, seedFoods);
+    setExternal({ phase: 'done', query: q, results });
+  }
   const results = useMemo(
     () => searchFoods(debounced, [...myFoods, ...seedFoods], lang, 30),
     [debounced, myFoods, lang],
@@ -135,13 +148,19 @@ export function AddFoodScreen() {
         <Card>
           <div className="mb-2 flex items-start justify-between gap-2">
             <h2 className="text-lg font-semibold">{foodName(selected, lang)}</h2>
-            <span className={`shrink-0 rounded px-2 py-0.5 text-xs ${SOURCE_BADGE[selected.source]}`}>
-              {t(`food.sources.${selected.source}`)}
-            </span>
+            <SourceBadge food={selected} />
           </div>
           <p className="mb-3 rounded-lg bg-bg p-2 text-sm" role="note">
             {t(`food.stateHint.${selected.state}`)}
           </p>
+          {(selected.brand || selected.quality === 'incomplete' || selected.sugarIsTotal) && (
+            <div className="mb-3 text-sm text-mu">
+              {selected.brand && <p>{selected.brand}</p>}
+              <QualityBadge food={selected} />
+              {selected.quality === 'incomplete' && <p>{t('food.incompleteHint')}</p>}
+              {selected.sugarIsTotal && <p>{t('food.sugarTotalHint')}</p>}
+            </div>
+          )}
           <div className="flex gap-2">
             <div className="flex-1">
               <Field label={t('food.quantity')}>
@@ -223,39 +242,46 @@ export function AddFoodScreen() {
 
   return (
     <Screen title={title}>
-      <Field label={t('food.search')}>
-        {(a) => (
-          <input
-            {...a}
-            type="search"
-            autoFocus
-            className={inputClass}
-            placeholder={t('food.searchPlaceholder')}
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-        )}
-      </Field>
+      <form
+        role="search"
+        onSubmit={(e) => {
+          e.preventDefault();
+          void runExternal();
+        }}
+      >
+        <Field label={t('food.search')}>
+          {(a) => (
+            <input
+              {...a}
+              type="search"
+              autoFocus
+              enterKeyHint="search"
+              className={inputClass}
+              placeholder={t('food.searchPlaceholder')}
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          )}
+        </Field>
+      </form>
       {results.length === 0 && debounced.trim() !== '' && (
         <p className="mb-3 text-mu">{t('food.noResults', { q: debounced })}</p>
       )}
-      <ul className="mb-4 divide-y divide-bd rounded-xl border border-bd bg-card" aria-label={t('food.results')}>
-        {results.map((f) => (
-          <li key={f.id}>
-            <button className="flex min-h-14 w-full items-center gap-2 px-3 py-2 text-left" onClick={() => select(f)}>
-              <span className="min-w-0 flex-1">
-                <span className="block truncate font-medium">{foodName(f, lang)}</span>
-                <span className="block text-sm text-mu">
-                  {t('food.per100', { kcal: f.per100g.kcal })} · {t(`food.states.${f.state}`)}
-                </span>
-              </span>
-              <span className={`shrink-0 rounded px-2 py-0.5 text-xs ${SOURCE_BADGE[f.source]}`}>
-                {t(`food.sources.${f.source}`)}
-              </span>
-            </button>
-          </li>
-        ))}
-      </ul>
+      {results.length > 0 && (
+        <ul className="mb-4 divide-y divide-bd rounded-xl border border-bd bg-card" aria-label={t('food.results')}>
+          {results.map((f) => (
+            <FoodRow key={f.id} food={f} onSelect={select} />
+          ))}
+        </ul>
+      )}
+      <ExternalResults
+        query={query}
+        state={external}
+        country={trip ? activeCountry(trip) : undefined}
+        excludeIds={overriddenIds}
+        onSearch={() => void runExternal()}
+        onSelect={select}
+      />
       <Button className="w-full" onClick={() => setEditor({})}>
         {t('food.createNew')}
       </Button>

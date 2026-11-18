@@ -107,8 +107,10 @@ test.describe('añadir comida', () => {
     await page.getByRole('button', { name: 'Cambiar alimento' }).click();
     await page.getByLabel('Buscar alimento').fill('huevo');
     const results = page.getByRole('list', { name: 'Resultados' }).getByRole('listitem');
-    await expect(results).toHaveCount(1);
     await expect(results.first()).toContainText('Mío');
+    // El «Huevo» curado queda oculto por mi corrección (sí aparecen otros, como «Claras de huevo»).
+    await expect(results.filter({ hasText: /^Huevo/ })).toHaveCount(1);
+    await expect(results.filter({ hasText: /^Huevo.*Curado/ })).toHaveCount(0);
   });
 
   test('crear alimento nuevo desde la búsqueda', async ({ page }) => {

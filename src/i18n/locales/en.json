@@ -238,7 +238,34 @@
     "editTitle": "Edit food",
     "saveChanges": "Save changes",
     "deleteEntry": "Remove from this day",
-    "entryNotFound": "We couldn't find this entry."
+    "entryNotFound": "We couldn't find this entry.",
+    "external": {
+      "title": "Supermarket and external databases",
+      "hint": "For branded products or anything not in the list. Needs a connection.",
+      "searchButton": "Search Open Food Facts and USDA",
+      "barcodeButton": "Look up barcode",
+      "loading": "Searching…",
+      "none": "No results in external databases.",
+      "status": {
+        "offline": "You're offline: showing local foods and saved searches only.",
+        "rate_limited": "{{source}} is getting too many searches. Try again in a minute.",
+        "not_configured": "{{source}} isn't configured on the server.",
+        "not_found": "Product not found in {{source}}.",
+        "error": "Couldn't reach {{source}}."
+      },
+      "cached": "saved"
+    },
+    "quality": {
+      "curated": "Curated",
+      "complete": "Complete data",
+      "incomplete": "Incomplete data"
+    },
+    "sugarTotalHint": "Sugars for this product are total sugars (including natural ones from milk or fruit).",
+    "incompleteHint": "This product is missing fibre, sugars or salt; they count as 0.",
+    "attribution": {
+      "off": "Data from Open Food Facts (ODbL licence).",
+      "usda": "Data from USDA FoodData Central (public domain)."
+    }
   },
   "meals": {
     "breakfast": "Breakfast",
