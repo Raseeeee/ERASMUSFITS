@@ -148,12 +148,24 @@
     "waterCount": "{{count}} / {{target}} glasses",
     "addGlass": "Add a glass of water",
     "removeGlass": "Remove a glass of water",
-    "meals": "Today's food",
     "empty": "You haven't logged anything for this day yet.",
-    "addFood": "Add food",
     "deleteEntry": "Delete {{name}}",
     "total": "Total",
-    "entryLine": "{{grams}} g · {{context}} · {{kcal}} kcal · P {{p}} · C {{c}} · F {{f}}"
+    "entryLine": "{{grams}} g · {{context}} · {{kcal}} kcal · P {{p}} · C {{c}} · F {{f}}",
+    "remainingTitle": "Remaining",
+    "remainingKcal": "{{value}} kcal",
+    "overKcal": "{{value}} kcal over",
+    "remainingMacro": "{{value}} g",
+    "overMacro": "+{{value}} g",
+    "macros": {
+      "p": "Protein",
+      "c": "Carbs",
+      "f": "Fat"
+    },
+    "mealTotals": "{{kcal}} kcal · P {{p}} · C {{c}} · F {{f}}",
+    "addToMeal": "Add to {{meal}}",
+    "editEntry": "Edit {{name}}",
+    "mealEmpty": "Nothing logged."
   },
   "settings": {
     "title": "Settings",
@@ -221,6 +233,20 @@
     "kcalAuto": "Calculated calories: {{kcal}} kcal / 100 g",
     "invalidMacros": "Macros per 100 g cannot add up to more than 100 g.",
     "saveMine": "Save as mine",
-    "results": "Results"
+    "results": "Results",
+    "meal": "Which meal?",
+    "editTitle": "Edit food",
+    "saveChanges": "Save changes",
+    "deleteEntry": "Remove from this day",
+    "entryNotFound": "We couldn't find this entry."
+  },
+  "meals": {
+    "breakfast": "Breakfast",
+    "lunch": "Lunch",
+    "dinner": "Dinner",
+    "snack": "Snacks"
+  },
+  "mealHints": {
+    "snack": "Mid-morning, afternoon snack…"
   }
 }

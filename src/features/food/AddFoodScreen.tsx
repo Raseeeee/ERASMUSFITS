@@ -1,7 +1,7 @@
 import { useLiveQuery } from 'dexie-react-hooks';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router';
+import { useNavigate, useSearchParams } from 'react-router';
 import { Button, Card, Field, Screen, Segmented, inputClass } from '../../components/ui';
 import { fmt } from '../../components/format';
 import { useDebounced } from '../../components/useDebounced';
@@ -16,7 +16,8 @@ import {
   type CookingContext,
   type Food,
 } from '../../domain/foods';
-import { addEntry, listMyFoods } from '../../store/logRepo';
+import { MEALS, defaultMealForHour, isMeal, type Meal } from '../../domain/log';
+import { addEntry, deleteEntry, getEntry, listMyFoods, updateEntry } from '../../store/logRepo';
 import { useSelectedDate } from '../today/useSelectedDate';
 import { MyFoodEditor } from './MyFoodEditor';
 
@@ -32,6 +33,9 @@ export function AddFoodScreen() {
   const lang = i18n.language;
   const navigate = useNavigate();
   const [date] = useSelectedDate();
+  const [params] = useSearchParams();
+  const editId = params.get('edit');
+  const mealParam = params.get('meal');
 
   const [query, setQuery] = useState('');
   const debounced = useDebounced(query, 300);
@@ -40,6 +44,29 @@ export function AddFoodScreen() {
   const [unit, setUnit] = useState<'g' | 'unit'>('g');
   const [context, setContext] = useState<CookingContext>('home');
   const [editor, setEditor] = useState<null | { base?: Food }>(null);
+  const [meal, setMeal] = useState<Meal>(isMeal(mealParam) ? mealParam : defaultMealForHour(new Date().getHours()));
+
+  // Modo edición: carga la entrada una sola vez y rellena el formulario.
+  const entry = useLiveQuery(() => (editId ? getEntry(editId).then((e) => e ?? null) : null), [editId]);
+  const [loadedId, setLoadedId] = useState<string | null>(null);
+  useEffect(() => {
+    if (!entry || entry.id === loadedId) return;
+    setLoadedId(entry.id);
+    const food = entry.food ?? seedFoods.find((f) => f.id === entry.foodId);
+    if (!food) return;
+    setSelected(food);
+    setContext(entry.context);
+    setMeal(entry.meal);
+    if (food.unit && entry.grams % food.unit.grams === 0) {
+      setUnit('unit');
+      setQty(String(entry.grams / food.unit.grams));
+    } else {
+      setUnit('g');
+      setQty(String(entry.grams));
+    }
+  }, [entry, loadedId]);
+  const editing = !!editId;
+  const backToToday = () => navigate(`/today?date=${date}`);
 
   const myFoods = useLiveQuery(listMyFoods, []) ?? [];
   const results = useMemo(
@@ -65,13 +92,33 @@ export function AddFoodScreen() {
 
   async function add() {
     if (!selected || !preview) return;
-    await addEntry(date, selected, grams, context);
-    navigate(`/today${date ? `?date=${date}` : ''}`);
+    if (editId) await updateEntry(editId, selected, { grams, context, meal });
+    else await addEntry(date, meal, selected, grams, context);
+    backToToday();
   }
+
+  async function remove() {
+    if (!editId) return;
+    await deleteEntry(editId);
+    backToToday();
+  }
+
+  const title = editing ? t('food.editTitle') : t('food.addTitle');
+
+  if (editing && entry === null) {
+    return (
+      <Screen title={title}>
+        <p className="mb-3 text-mu">{t('food.entryNotFound')}</p>
+        <Button onClick={backToToday}>{t('common.back')}</Button>
+      </Screen>
+    );
+  }
+
+  if (editing && (entry === undefined || (entry && loadedId !== entry.id))) return null;
 
   if (editor) {
     return (
-      <Screen title={t('food.addTitle')}>
+      <Screen title={title}>
         <MyFoodEditor
           base={editor.base}
           initialName={editor.base ? '' : query}
@@ -84,7 +131,7 @@ export function AddFoodScreen() {
 
   if (selected) {
     return (
-      <Screen title={t('food.addTitle')}>
+      <Screen title={title}>
         <Card>
           <div className="mb-2 flex items-start justify-between gap-2">
             <h2 className="text-lg font-semibold">{foodName(selected, lang)}</h2>
@@ -138,6 +185,13 @@ export function AddFoodScreen() {
           {context === 'canteen' && canteenExtraFat(selected) > 0 && (
             <p className="-mt-1 mb-3 text-sm text-mu">{t('food.canteenHint', { fat: canteenExtraFat(selected) })}</p>
           )}
+          <Segmented
+            name="meal"
+            legend={t('food.meal')}
+            value={meal}
+            options={MEALS.map((m) => ({ value: m, label: t(`meals.${m}`) }))}
+            onChange={setMeal}
+          />
           <p className="mb-3 font-medium tabular-nums" data-testid="preview" aria-live="polite">
             {preview &&
               t('food.preview', {
@@ -150,20 +204,25 @@ export function AddFoodScreen() {
           </p>
           <div className="flex flex-wrap gap-2">
             <Button variant="primary" className="flex-1" disabled={!preview} onClick={add}>
-              {t('food.add')}
+              {editing ? t('food.saveChanges') : t('food.add')}
             </Button>
             <Button onClick={() => setSelected(null)}>{t('food.change')}</Button>
           </div>
           <Button className="mt-2 w-full" onClick={() => setEditor({ base: selected })}>
             {t('food.editMacros')}
           </Button>
+          {editing && (
+            <Button variant="danger" className="mt-2 w-full" onClick={remove}>
+              {t('food.deleteEntry')}
+            </Button>
+          )}
         </Card>
       </Screen>
     );
   }
 
   return (
-    <Screen title={t('food.addTitle')}>
+    <Screen title={title}>
       <Field label={t('food.search')}>
         {(a) => (
           <input

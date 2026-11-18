@@ -1,23 +1,25 @@
 import { useLiveQuery } from 'dexie-react-hooks';
 import { useTranslation } from 'react-i18next';
-import { Link, Navigate } from 'react-router';
+import { Navigate } from 'react-router';
 import { Button, Card, Screen, inputClass } from '../../components/ui';
 import { fmt } from '../../components/format';
-import { localized } from '../../domain/foods';
 import {
   addDays,
   dayTotals,
   emptyDay,
+  groupByMeal,
   isISODate,
   localISODate,
   progressRows,
+  remaining,
   targetsForDay,
   type ProgressRow,
 } from '../../domain/log';
 import { DAY_TYPES, type DayType } from '../../domain/types';
-import { changeWater, deleteEntry, getDay, listEntries, setDayType } from '../../store/logRepo';
+import { changeWater, getDay, listEntries, setDayType } from '../../store/logRepo';
 import { useAppStore } from '../../store/appStore';
 import { useSelectedDate } from './useSelectedDate';
+import { MealSections, RemainingCounter } from './MealSections';
 
 function Bar({ row }: { row: ProgressRow }) {
   const { t, i18n } = useTranslation();
@@ -61,8 +63,7 @@ function Bar({ row }: { row: ProgressRow }) {
 }
 
 export function TodayScreen() {
-  const { t, i18n } = useTranslation();
-  const lang = i18n.language;
+  const { t } = useTranslation();
   const { profile, overrides } = useAppStore();
   const [date, setDate] = useSelectedDate();
 
@@ -75,6 +76,7 @@ export function TodayScreen() {
   const totals = dayTotals(entries);
   const rows = progressRows(totals, targets);
   const isToday = date === localISODate();
+  const groups = groupByMeal(entries);
 
   return (
     <Screen title={t('today.title')}>
@@ -111,6 +113,10 @@ export function TodayScreen() {
         </label>
       </Card>
 
+      <RemainingCounter r={remaining(totals, targets)} />
+
+      <MealSections groups={groups} date={date} />
+
       <Card>
         <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-mu">{t('today.progress')}</h2>
         {rows.map((r) => (
@@ -145,49 +151,6 @@ export function TodayScreen() {
             </Button>
           </div>
         </div>
-      </Card>
-
-      <Card>
-        <h2 className="mb-2 font-semibold">{t('today.meals')}</h2>
-        {entries.length === 0 ? (
-          <p className="mb-3 text-mu">{t('today.empty')}</p>
-        ) : (
-          <ul className="mb-3 divide-y divide-bd" aria-label={t('today.meals')}>
-            {entries.map((e) => {
-              const name = localized(e.name, lang);
-              return (
-                <li key={e.id} className="flex items-center gap-2 py-2">
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate font-medium">{name}</p>
-                    <p className="text-sm text-mu tabular-nums">
-                      {t('today.entryLine', {
-                        grams: e.grams,
-                        context: t(`food.contexts.${e.context}`),
-                        kcal: e.nutrients.kcal,
-                        p: fmt(e.nutrients.p, lang),
-                        c: fmt(e.nutrients.c, lang),
-                        f: fmt(e.nutrients.f, lang),
-                      })}
-                    </p>
-                  </div>
-                  <button
-                    className="min-h-11 min-w-11 rounded-lg text-wr"
-                    aria-label={t('today.deleteEntry', { name })}
-                    onClick={() => void deleteEntry(e.id)}
-                  >
-                    ✕
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        )}
-        <Link
-          to={`/add?date=${date}`}
-          className="flex min-h-11 items-center justify-center rounded-lg border border-ac bg-ac px-4 font-medium text-ac-tx"
-        >
-          {t('today.addFood')}
-        </Link>
       </Card>
     </Screen>
   );
