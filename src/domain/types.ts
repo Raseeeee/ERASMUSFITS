@@ -39,6 +39,8 @@ export interface BodyProfile {
   sports: SportPlan[];
   /** Déficit para `lose`, en fracción (0.15 por defecto, máx. 0.25). */
   loseDeficit?: number;
+  /** Ajuste de kcal aceptado por el usuario a propuesta del coach (±500 máx.). */
+  kcalAdjustment?: number;
 }
 
 export interface Targets {

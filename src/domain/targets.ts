@@ -133,6 +133,7 @@ export function computeDayTargets(p: BodyProfile, dayType: DayType): DayTargets 
 
   const base = bmr(p.sex, p.weightKg, p.heightCm, p.age);
   let kcal = base * DAY_FACTORS[dayType] * (1 + goalAdjustment(goal, dayType, p.loseDeficit));
+  kcal += p.kcalAdjustment ?? 0; // propuesto por el coach y confirmado por el usuario
   const floor = kcalFloor(p.sex, base);
   if (kcal < floor) {
     kcal = floor;
