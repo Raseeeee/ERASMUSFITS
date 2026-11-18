@@ -90,3 +90,43 @@ Registro de decisiones tomadas ante ambigüedades de `SPEC.md`. Formato: decisi�
 
 ### Pendiente
 - Recientes/favoritos en el buscador.
+
+## Fase 3 — Base ampliada
+
+### Proxy serverless (`api/`)
+- **Vercel Functions** con firma web (`export function GET(request: Request)`), porque la spec ya fija la carpeta `api/`. Utilidades compartidas en `api/_lib/` (Vercel no publica como función lo que empieza por `_`).
+- Endpoints: `GET /api/off-search?q=&lang=`, `GET /api/off-product?barcode=`, `GET /api/usda-search?q=`. Devuelven `Food` ya normalizados (la lógica de normalización es pura, en `src/domain/external.ts`, y se comparte con el cliente y los tests).
+- **En desarrollo** no hace falta la CLI de Vercel: `vite-plugins/api-dev.ts` sirve `api/*.ts` dentro de `npm run dev` y carga `USDA_API_KEY` y `OFF_CONTACT` de `.env` solo en Node (sin prefijo `VITE_`, así nunca llegan al bundle del cliente).
+- **Clave de USDA** solo en el servidor y enviada en la cabecera `X-Api-Key` (no en la URL, para que no salga en logs). Sin clave → 503 `not_configured` y la UI lo explica.
+- **Caché**: en memoria por instancia (OFF 7 días, USDA 30 días) + cabeceras `s-maxage`/`stale-while-revalidate` para la CDN + caché en IndexedDB en el cliente (7 días, tabla `foodCache`, Dexie v4). Así funciona offline con lo ya buscado.
+- **Límites**: OFF permite 10 búsquedas/min y 15 lecturas de producto/min por IP; USDA 1000/h. El proxy aplica 10/min, 12/min y 900/h por instancia y responde 429 antes de pasarse. **Ojo en producción**: todas las peticiones salen desde la IP del servidor, así que el límite de OFF se comparte entre todos los usuarios. Cuando haya tráfico real conviene: (a) llamar a OFF directamente desde el navegador (cada usuario usa su IP; OFF admite CORS) y dejar el proxy solo para USDA, o (b) usar los volcados diarios de OFF. Queda anotado para la Fase 6.
+- **User-Agent** de OFF: `ErasmusEats/0.1 (OFF_CONTACT)`. OFF pide un email de contacto; no he puesto el tuyo. Define `OFF_CONTACT` en `.env` / Vercel con el contacto que quieras usar; sin él se envía `ErasmusEats/0.1`.
+
+### Open Food Facts
+- La búsqueda por texto usa **Search-a-licious** (`search.openfoodfacts.org/search`), que es lo que OFF recomienda ahora (la v2 no tiene búsqueda por texto y `cgi/search.pl` es legacy). Está en beta: si cambia, solo hay que tocar `api/off-search.ts`.
+- **Búsqueda explícita**: OFF prohíbe usar su búsqueda "mientras escribes". El debounce de 300 ms de la spec se aplica a la búsqueda **local**; la externa se lanza con Enter o con el botón "Buscar en Open Food Facts y USDA".
+- Normalización: descarta productos sin kcal o sin alguno de P/C/G, o con P + C + G > 101 g. kcal de `energy-kcal_100g` o, si falta, de kJ / 4,184. Sal de `salt_100g` o sodio × 2,5. Se queda la primera marca; los países se traducen a ISO (ES, IT, DE, PL, TR y algunos más).
+- **Calidad**: `complete` si trae fibra, azúcares y sal; `incomplete` si falta alguno (cuenta como 0 y se avisa). Orden en la UI: curado/mío → completos (primero los vendidos en tu país de destino, OFF antes que USDA) → incompletos.
+- **Azúcares**: OFF y USDA dan azúcares **totales**; se marcan con `sugarIsTotal` y la UI lo avisa al seleccionarlos. Siguen sumando al tope de azúcares libres (estimación conservadora).
+- Estado `raw` por defecto ("tal como se vende"): en OFF casi todo se pesa tal cual sale del envase.
+- **Código de barras**: si escribes 8, 12, 13 o 14 dígitos, se busca el producto. El escáner con cámara queda para más adelante (BarcodeDetector o Capacitor).
+
+### USDA FoodData Central
+- Solo `Foundation` y `SR Legacy` (genéricos, sin marcas, que ya cubre OFF).
+- Carbohidratos "by difference" − fibra = carbohidratos disponibles (convención UE de la semilla). Sodio mg × 2,5 / 1000 = sal g. kcal de 1008 o Atwater (2048/2047); si no hay, desde macros.
+- Estado `cooked` si la descripción dice cooked/boiled/roasted…; categoría deducida de `foodCategory` para la grasa extra en cantina.
+- **Traducción**: USDA solo está en inglés. Si la búsqueda coincide (exacta o por prefijo) con un alias de la semilla en cualquier idioma, se usa su nombre en inglés ("mercimek" → "Lentils (dry)"); si no, se envía tal cual.
+- Los nombres de USDA se muestran en inglés (no hay traducción fiable).
+
+### Semilla y alias
+- **173 alimentos** con nombres en **es/en/it/de/pl/tr** (antes 51 en es/en), incluidos básicos y platos típicos de los 5 países (kasza, twaróg, pierogi, sucuk, mantı, lahmacun, börek, currywurst, schnitzel, paella, tortilla…). Las unidades siguen en es/en, como dice el esquema de la spec.
+- Sin alcohol por ahora: sus kcal (7 kcal/g) no encajan en la fórmula de macros de la semilla.
+- Búsqueda local: a igual coincidencia, los básicos van antes que los platos preparados y dulces, y después los nombres más cortos ("pollo" → pechuga antes que nuggets).
+
+### Entradas de fuentes externas
+- Los productos de OFF/USDA no se guardan como alimentos locales: al añadirlos, la entrada guarda una copia (`food`), así que se pueden editar después aunque no haya conexión. Si quieres corregir uno, "Editar macros" lo guarda como tuyo y oculta el original.
+
+### Tests
+- Normalizadores probados con respuestas reales recortadas (`src/domain/__fixtures__/`), obtenidas con una sola consulta a cada API.
+- Proxy: validación, caché, límites, 429/502/503, User-Agent y que la clave nunca aparece en la URL ni en la respuesta.
+- E2E con el proxy simulado (`page.route`): no se llama a OFF/USDA reales al ejecutar los tests.

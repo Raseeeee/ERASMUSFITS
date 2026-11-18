@@ -21,10 +21,13 @@ Vite + React + TypeScript + Tailwind v4 · React Router · i18next · Zustand ·
 - `src/i18n` — recursos es/en. **Ningún texto visible hardcodeado** en componentes: siempre `t('...')`.
 - `src/store` — Zustand + persistencia Dexie.
 - `src/config/flags.ts` — feature flags (premium, affiliate, ads), todo desactivado.
-- `api/` — funciones serverless.
+- `api/` — funciones serverless (Vercel, firma `GET(Request)`): `off-search`, `off-product`, `usda-search`. Compartido en `api/_lib/`. En dev las sirve `vite-plugins/api-dev.ts` dentro de `npm run dev`.
+- `scripts/build-seed.mjs` — genera `src/data/foods.seed.json` (editar la tabla y ejecutar `node scripts/build-seed.mjs`).
 
 ## Convenciones
-- Sin claves ni secretos en el repo: `.env` (ignorado) y `.env.example` con nombres vacíos.
+- Sin claves ni secretos en el repo: `.env` (ignorado). Variables: `USDA_API_KEY` (obligatoria para USDA), `OFF_CONTACT` (opcional, contacto para el User-Agent de OFF). Nunca con prefijo `VITE_`.
+- Tests E2E nunca llaman a APIs reales: simular `/api/*` con `page.route`.
+- OFF: no buscar mientras se escribe (10 búsquedas/min por IP); la búsqueda externa es explícita.
 - Trabajo por fases (SPEC §12). Commits pequeños. No pasar de fase sin tests en verde.
 - Ambigüedad → elegir valor razonable, anotarlo en `DECISIONS.md`.
 - Accesibilidad: objetivos táctiles ≥ 44 px, contraste AA, modo oscuro.
