@@ -1,5 +1,7 @@
 {
-  "app": { "name": "ErasmusEats" },
+  "app": {
+    "name": "ErasmusEats"
+  },
   "common": {
     "continue": "Continuar",
     "back": "Atrás",
@@ -11,7 +13,8 @@
     "no": "No",
     "kcal": "kcal",
     "g": "g",
-    "glasses": "vasos"
+    "glasses": "vasos",
+    "choose": "Elige…"
   },
   "disclaimer": {
     "title": "No es consejo médico",
@@ -24,7 +27,10 @@
     "PL": "Polonia",
     "TR": "Turquía"
   },
-  "languages": { "es": "Español", "en": "English" },
+  "languages": {
+    "es": "Español",
+    "en": "English"
+  },
   "welcome": {
     "title": "¡Bienvenido/a!",
     "subtitle": "Come barato y cumple tu objetivo, estés donde estés.",
@@ -39,7 +45,11 @@
     "title": "Tu perfil",
     "sex": "Sexo (solo para el cálculo)",
     "sexHelp": "Las fórmulas de gasto energético distinguen por sexo. Si prefieres no decirlo, usamos la media de ambas.",
-    "sexes": { "male": "Hombre", "female": "Mujer", "unspecified": "Prefiero no decirlo" },
+    "sexes": {
+      "male": "Hombre",
+      "female": "Mujer",
+      "unspecified": "Prefiero no decirlo"
+    },
     "age": "Edad",
     "weight": "Peso (kg)",
     "height": "Estatura (cm)",
@@ -67,7 +77,10 @@
       "triathlon": "Triatlón",
       "other": "Otros"
     },
-    "daysPerWeek": "Días/semana"
+    "daysPerWeek": "Días/semana",
+    "errors": {
+      "required": "Completa este campo."
+    }
   },
   "targets": {
     "title": "Tus objetivos diarios",
@@ -123,5 +136,9 @@
     "deleteAll": "Borrar todos mis datos",
     "deleteConfirm": "¿Seguro? Se borrarán todos tus datos de este dispositivo. No se puede deshacer."
   },
-  "nav": { "today": "Hoy", "targets": "Objetivos", "settings": "Ajustes" }
+  "nav": {
+    "today": "Hoy",
+    "targets": "Objetivos",
+    "settings": "Ajustes"
+  }
 }

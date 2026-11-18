@@ -1,5 +1,7 @@
 {
-  "app": { "name": "ErasmusEats" },
+  "app": {
+    "name": "ErasmusEats"
+  },
   "common": {
     "continue": "Continue",
     "back": "Back",
@@ -11,7 +13,8 @@
     "no": "No",
     "kcal": "kcal",
     "g": "g",
-    "glasses": "glasses"
+    "glasses": "glasses",
+    "choose": "Choose…"
   },
   "disclaimer": {
     "title": "Not medical advice",
@@ -24,7 +27,10 @@
     "PL": "Poland",
     "TR": "Türkiye"
   },
-  "languages": { "es": "Español", "en": "English" },
+  "languages": {
+    "es": "Español",
+    "en": "English"
+  },
   "welcome": {
     "title": "Welcome!",
     "subtitle": "Eat cheap and reach your goal, wherever you are.",
@@ -39,7 +45,11 @@
     "title": "Your profile",
     "sex": "Sex (for calculation only)",
     "sexHelp": "Energy expenditure formulas differ by sex. If you'd rather not say, we use the average of both.",
-    "sexes": { "male": "Male", "female": "Female", "unspecified": "Prefer not to say" },
+    "sexes": {
+      "male": "Male",
+      "female": "Female",
+      "unspecified": "Prefer not to say"
+    },
     "age": "Age",
     "weight": "Weight (kg)",
     "height": "Height (cm)",
@@ -67,7 +77,10 @@
       "triathlon": "Triathlon",
       "other": "Other"
     },
-    "daysPerWeek": "Days/week"
+    "daysPerWeek": "Days/week",
+    "errors": {
+      "required": "Please fill in this field."
+    }
   },
   "targets": {
     "title": "Your daily targets",
@@ -123,5 +136,9 @@
     "deleteAll": "Delete all my data",
     "deleteConfirm": "Are you sure? All your data on this device will be deleted. This can't be undone."
   },
-  "nav": { "today": "Today", "targets": "Targets", "settings": "Settings" }
+  "nav": {
+    "today": "Today",
+    "targets": "Targets",
+    "settings": "Settings"
+  }
 }
