@@ -130,3 +130,47 @@ Registro de decisiones tomadas ante ambigüedades de `SPEC.md`. Formato: decisi�
 - Normalizadores probados con respuestas reales recortadas (`src/domain/__fixtures__/`), obtenidas con una sola consulta a cada API.
 - Proxy: validación, caché, límites, 429/502/503, User-Agent y que la clave nunca aparece en la URL ni en la respuesta.
 - E2E con el proxy simulado (`page.route`): no se llama a OFF/USDA reales al ejecutar los tests.
+
+### Seguridad de la clave (tras la Fase 3)
+- La clave de USDA y `OFF_CONTACT` acabaron por error en `.env.example`, que git sí sube (no llegó a commitearse). Se copiaron a `.env` (ignorado) y `.env.example` volvió a ser una plantilla vacía con `OFF_CONTACT=` documentado. Comprobado que la clave no está en ningún archivo seguido por git ni en `dist/`.
+
+## Fase 4 — Países, precios y recetas
+
+### Países (`src/data/countries.json`)
+- Por país: moneda, supermercados principales y **30 básicos** (ids de la semilla).
+- **Equivalencias**: en vez de escribir a mano las 20 combinaciones origen→destino, se definen **grupos de sustitución** (almidones, panes, legumbres, lácteos proteicos, yogures/leches, quesos, carne, embutido, pescado, grasas) y se calculan solas: para cada básico de tu país de origen, se muestra si se vende en destino y la alternativa más barata del mismo grupo, **por 1000 kcal** (almidones, panes, grasas) o **por 100 g de proteína** (el resto). Ejemplo ES→TR: arroz → bulgur; lentejas → mercimek (lenteja roja); garbanzos → existen allí (nohut), pero la lenteja roja es más barata.
+- Las recetas con ≥ 50 % de ingredientes que son básicos de tu país de origen llevan la etiqueta "Ingredientes de casa". Puedes ver las recetas de cualquier país; los precios siempre son los del país donde compras.
+
+### Precios (`src/data/prices/{ES,IT,DE,PL,TR}.json`, generados con `scripts/build-prices.mjs`)
+- **`pricePerKg` es del producto tal como se compra** (crudo, en seco, escurrido en conservas, por litro en líquidos). Campo extra **`yield`** (peso registrado / peso comprado) para lo que la semilla registra cocinado: carne ~0,7–0,75; pescado 0,8; huevo 0,88 (cáscara); cuscús/quinoa/mijo/cebada ~2,5–2,8 (absorben agua). La lista de la compra dice cuánto **comprar** (crudo/en seco), no cuánto comer.
+- **Fuentes**: búsqueda web con artículos y folletos fechados (El Confidencial, oct-2026, comparativa Mercadona/Lidl; lidl.it, nov-2026; folletos de Lidl IT; Biedronka, nov-2026; aktüel de BİM/A101, nov-2026) y **Open Prices** (API pública, ODbL). Se marca `verificado` solo si hay un precio por kg con fecha (o una mediana de Open Prices con n ≥ 2); lo demás es `estimado`, coherente con esas referencias. En la UI se muestran la fecha, la tienda y cuántos precios están verificados.
+- Open Prices tiene poca cobertura de productos frescos sin código de barras y su filtro por país no funciona en la API: se pidieron 8 categorías (fruta, verdura, pollo, huevos) y se filtró por país en local. Solo se usaron medianas con n ≥ 2. No se ha hecho scraping de webs de supermercados.
+- **Turquía**: con la inflación, los precios en TRY caducan rápido; conviene revisarlos cada 1–2 meses (`node scripts/build-prices.mjs` tras editar la tabla).
+- Unos 50–80 alimentos con precio por país: los básicos y los ingredientes de las recetas. Un test comprueba que todas las recetas tienen todos sus ingredientes con precio.
+
+### Recetas (`src/data/recipes/{país}.json`, generadas con `scripts/build-recipes.mjs`)
+- 12 por país (4 desayuno/snack + 8 comida/cena), ≤ 20 min, solo placa/microondas/hervidor, ≤ 6 ingredientes, con platos locales (menemen, mercimek çorbası, kısır, pasta e ceci, kasza z jajkiem, Pellkartoffeln mit Quark, arroz con huevo y atún…).
+- **Ingredientes en crudo/seco** cuando se compran así (arroz, pasta, bulgur, lenteja roja…), para que macros y coste cuadren con lo que se compra; legumbre "de bote" (escurrida) donde es lo habitual.
+- Macros y coste **se calculan** (nunca se escriben). Sal, especias, limón y hierbas no se cuentan.
+- Campos extra frente al esquema de la spec: `kind` (desayuno/comida) y `equipment`. Las etiquetas nutricionales también **se calculan**: vegetariana (sin carne ni pescado), alta en proteína (≥ 20 g y ≥ 25 % de las kcal) y objetivos (lose ≤ 600 kcal y ≥ 20 % de proteína; gain ≥ 450 kcal en comida o ≥ 350 en desayuno; recomp ≥ 25 % de proteína). Las etiquetas manuales (`tags`) solo describen ("local").
+- **Orden de sugerencias**: encaje con lo que queda hoy (premia cubrir la proteína pendiente y penaliza pasarse de kcal o grasa), en tramos de 0,1, y luego el coste por ración.
+- "Añadir al día" registra **cada ingrediente** como una entrada (escalado por las raciones que comes) en la comida elegida; así se pueden editar uno a uno.
+
+### Optimizador (`src/domain/optimizer.ts`, `javascript-lp-solver` 1.x)
+- Programación lineal entera mixta: gramos por semana de cada alimento con precio, binaria "entra o no en la cesta". Minimiza el coste.
+- **Objetivo semanal** = suma de los 7 días de una **semana tipo** (días de entreno según tus deportes; el resto, ligeros), con tus overrides de objetivos.
+- **Restricciones**: kcal, P, C y G a ±5 %; máximo por alimento y día (p. ej. carne 250 g, verdura 200 g, cereal en seco 150 g, aceite 35 g…); topes por grupo (legumbre seca ≤ 120 g/día, de bote ≤ 350, grasas ≤ 35, frutos secos ≤ 50); mínimo de 150 g/semana si un alimento entra (50 g en aceites); **≥ 8 alimentos distintos**; **fruta + verdura ≥ 400 g/día** (≥ 150 de fruta y ≥ 200 de verdura, recomendación OMS). Sin estos límites la solución óptima eran 2,8 kg de tomate triturado y casi todo legumbre seca.
+- Solo categorías básicas (sin platos preparados, dulces, suplementos ni bebidas).
+- **Preferencias**: vegetariana, alergias (gluten, lactosa, frutos secos, huevo, pescado, soja; tabla orientativa en `src/domain/allergens.ts`), alimentos excluidos y "solo cocina rápida" (sin legumbre seca). Se guardan en IndexedDB.
+- **Si no hay solución**, relaja por pasos y lo dice: macros ±10 % (kcal siguen ±5 %) → variedad 5 → fruta/verdura 200 g → solo kcal y proteína. Si aun así no hay, explica si es por pocos alimentos o por las restricciones.
+- Rendimiento: < 50 ms por cesta en los 5 países (tests con límite de 8 s).
+- La lista se redondea a 50 g hacia arriba y se calcula el coste de lo que compras (por eso el total puede ser algo mayor que el óptimo teórico).
+
+### UI y navegación
+- Pestañas: **Hoy · Recetas · Compra · Ajustes**. "Objetivos" se abre desde Ajustes (y en el onboarding).
+- Recetas, detalle y Compra se cargan bajo demanda (`React.lazy`): el bundle inicial se mantiene en ~170 KB gz.
+- El plan freemium (3 recetas/día en gratis) no se aplica: `flags.premium` está desactivado.
+
+### Pendiente
+- Fase 5: el coach debería usar también las recetas para sugerir cómo cubrir la proteína que falta.
+- Los precios de Turquía necesitan revisión frecuente.

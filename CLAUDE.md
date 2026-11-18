@@ -22,10 +22,11 @@ Vite + React + TypeScript + Tailwind v4 · React Router · i18next · Zustand ·
 - `src/store` — Zustand + persistencia Dexie.
 - `src/config/flags.ts` — feature flags (premium, affiliate, ads), todo desactivado.
 - `api/` — funciones serverless (Vercel, firma `GET(Request)`): `off-search`, `off-product`, `usda-search`. Compartido en `api/_lib/`. En dev las sirve `vite-plugins/api-dev.ts` dentro de `npm run dev`.
-- `scripts/build-seed.mjs` — genera `src/data/foods.seed.json` (editar la tabla y ejecutar `node scripts/build-seed.mjs`).
+- `scripts/build-seed.mjs`, `build-prices.mjs`, `build-recipes.mjs` — generan los JSON de `src/data` (alimentos, precios por país, recetas). Edita la tabla del script y ejecútalo con `node scripts/<script>`; no edites los JSON a mano.
 
 ## Convenciones
 - Sin claves ni secretos en el repo: `.env` (ignorado). Variables: `USDA_API_KEY` (obligatoria para USDA), `OFF_CONTACT` (opcional, contacto para el User-Agent de OFF). Nunca con prefijo `VITE_`.
+- Macros y coste de recetas se calculan siempre (nunca se escriben). Precios: `pricePerKg` del producto tal como se compra + `yield` si se registra cocinado.
 - Tests E2E nunca llaman a APIs reales: simular `/api/*` con `page.route`.
 - OFF: no buscar mientras se escribe (10 búsquedas/min por IP); la búsqueda externa es explícita.
 - Trabajo por fases (SPEC §12). Commits pequeños. No pasar de fase sin tests en verde.
