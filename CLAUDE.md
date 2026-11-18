@@ -10,8 +10,8 @@ Vite + React + TypeScript + Tailwind v4 · React Router · i18next · Zustand ·
 ## Comandos
 - `npm run dev` — servidor de desarrollo
 - `npm test` — tests unitarios (Vitest)
-- `npm run test:e2e` — tests Playwright
-- `npm run build` — typecheck + build de producción
+- `npm run test:e2e` — tests Playwright (proyecto `mobile-chrome` contra dev; proyecto `pwa` contra el build: offline y LCP)
+- `npm run build` — typecheck + build de producción + prerender de la bienvenida (`scripts/prerender.mjs`) + service worker
 - `npm run lint` — typecheck (`tsc --noEmit`)
 
 ## Estructura
@@ -31,5 +31,7 @@ Vite + React + TypeScript + Tailwind v4 · React Router · i18next · Zustand ·
 - OFF: no buscar mientras se escribe (10 búsquedas/min por IP); la búsqueda externa es explícita.
 - Trabajo por fases (SPEC §12). Commits pequeños. No pasar de fase sin tests en verde.
 - Ambigüedad → elegir valor razonable, anotarlo en `DECISIONS.md`.
-- Accesibilidad: objetivos táctiles ≥ 44 px, contraste AA, modo oscuro.
+- Accesibilidad: objetivos táctiles ≥ 44 px, contraste AA, modo oscuro. `e2e/a11y.spec.ts` audita todas las pantallas con axe: añade cada pantalla nueva ahí.
+- Rendimiento: rutas con `React.lazy` salvo la bienvenida; no importes la semilla ni datos pesados desde módulos de arranque (store, db, App). LCP < 2,5 s lo vigila `e2e/pwa.spec.ts`.
+- Gráficas: color `--color-chart` (validado), una serie por gráfica, tooltip + tabla alternativa.
 - Tono amable, sin mensajes de ayuno/castigo. Aviso "no es consejo médico" en onboarding y ajustes.

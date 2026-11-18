@@ -213,3 +213,43 @@ Registro de decisiones tomadas ante ambigüedades de `SPEC.md`. Formato: decisi�
 - **Sube el objetivo de ese día**: kcal extra = (MET − 1) × peso × horas × 0,75, con MET de 3, 5 y 8 según la intensidad (Compendium, redondeado) y un tope de 800 kcal. Se resta 1 MET porque el reposo ya está en el objetivo, y se cuenta solo el 75 % porque las estimaciones por MET suelen pasarse. Las kcal extra van a **carbohidratos**; proteína y grasa no cambian; fibra y tope de azúcares se recalculan; agua +1 vaso desde 30 min y +2 desde 90.
 - Se suma también sobre un override manual del tipo de día.
 - La casilla responde al instante (estado optimista) y se guarda en IndexedDB en segundo plano.
+
+## Fase 6 — Pulido
+
+### PWA y offline
+- `vite-plugin-pwa` (2.x, compatible con Vite 8) con `registerType: 'autoUpdate'`: el service worker se actualiza solo en la siguiente visita.
+- **Precaché de toda la app**, incluidas las pantallas diferidas, recetas, precios y semilla (~775 KB), así que funciona offline desde la primera visita completa. `/api/*` nunca pasa por el service worker (`NetworkOnly`): las búsquedas externas ya se cachean en IndexedDB y sin conexión la UI dice "Sin conexión".
+- **Iconos** generados con `scripts/build-icons.mjs` (PNG sin dependencias: plato con un brote, 192/512, maskable y apple-touch) y favicon SVG. Son provisionales hasta tener marca.
+- Manifiesto en español (`lang: es`), `display: standalone`, `orientation: portrait`, colores de la marca.
+
+### Rendimiento (LCP < 2,5 s en móvil)
+- Medido en Playwright contra el build de producción con limitación tipo Lighthouse (4G lento: 1,6 Mbps y 150 ms; CPU ×4). Inicial: **2,9 s**.
+- Diagnóstico: el JS terminaba de bajar a ~1,2 s, pero no se pintaba nada hasta ~2,8 s (ejecución de React/Router/Dexie/i18next con CPU lenta, más la espera a IndexedDB).
+- Cambios: todas las rutas con `React.lazy` **salvo la bienvenida** (dividirlo todo, incluidos los idiomas, empeoró a 3,2 s por la cascada de peticiones, así que los dos idiomas siguen en el bundle: ~12 KB gz); la semilla de alimentos fuera del arranque (la migración v3 ya no la importa); **bienvenida prerenderizada** en el HTML en el build (es y en, `src/prerender.tsx` + `scripts/prerender.mjs`); y los usuarios nuevos no esperan a IndexedDB para pintar.
+- Resultado: **LCP ≈ 1,0–1,1 s**, vigilado por `e2e/pwa.spec.ts` (falla si pasa de 2,5 s). Bundle inicial ≈ 140 KB gz.
+- El HTML prerenderizado solo se muestra en `/` y `/onboarding` y **nunca** a quien ya completó el onboarding (indicador `ee.onboarded` en `localStorage`; no es un dato sensible y se borra con "Borrar todos mis datos"). Así un usuario recurrente no ve la bienvenida un instante antes de Hoy.
+- La migración v3 de Dexie ya no rellena la copia del alimento para los de la semilla: se resuelve al abrir la edición (como ya hacía la pantalla); para "mis alimentos" sí se copia.
+
+### Accesibilidad
+- `e2e/a11y.spec.ts` audita con **axe** (WCAG 2.1 A/AA) las 12 pantallas en **modo claro y oscuro**: sin violaciones graves ni críticas (contraste AA incluido), más una comprobación de objetivos táctiles ≥ 44 px en Hoy.
+- Se corrigió lo que encontró axe: los puntos táctiles de las gráficas tenían `aria-label` sin rol. Ahora tienen `role="img"`, y el `<svg>` contenedor es `role="group"` para que los lectores de pantalla anuncien cada punto.
+- Modo oscuro por `prefers-color-scheme` (los colores se eligieron para cada modo, no se invierten).
+
+### Privacidad, legal y datos
+- **Política de privacidad** (`/privacy`, enlazada desde la bienvenida y Ajustes): qué datos (incluidos datos de salud, art. 9 RGPD), dónde (solo en el dispositivo), qué sale (solo el texto buscado en OFF/USDA, vía proxy), sin cookies ni analítica, derechos (exportar/borrar), edad mínima y aviso médico. **El responsable del tratamiento queda pendiente** (texto marcado) hasta que se publique.
+- **Créditos y licencias** (`/credits`): Open Food Facts (ODbL/DbCL), Open Prices (ODbL), USDA (dominio público), origen de la semilla, recetas y precios, Compendium MET y licencias de las librerías (MIT, Apache-2.0, Unlicense), con enlaces.
+- **Exportar mis datos**: descarga un JSON (`erasmus-eats-AAAA-MM-DD.json`) con ajustes, comidas, días, mis alimentos y pesos (no la caché de búsquedas). Importar queda para más adelante.
+- Sin analítica: ninguna dependencia ni petición de terceros desde el navegador.
+
+### Ajustes
+- Idioma, país (lleva a la bienvenida para cambiar Erasmus/país), perfil, objetivos, **unidades** (solo métricas: son las de los 5 países; las imperiales no aportan en este alcance), exportar, borrar todo, privacidad, créditos y versión (`__APP_VERSION__` desde `package.json`, ahora **0.9.0**: MVP completo a falta de los datos legales y la marca).
+
+### Despliegue
+- `vercel.json`: framework Vite, `npm run build`, salida `dist`, fallback de la SPA excluyendo `/api/`, `sw.js` sin caché, assets inmutables y cabeceras de seguridad básicas. Instrucciones en el README.
+- **No se ha desplegado** (no hay cuenta de Vercel en este entorno): la configuración está, pero falta comprobarla en un despliegue real.
+
+### Pendiente / siguientes pasos
+- Responsable del tratamiento en la privacidad, nombre y marca definitivos.
+- OFF desde el navegador si hay tráfico real (límite por IP compartido en el proxy).
+- Revisar los precios (TR cada 1–2 meses).
+- Importar copia de seguridad; escáner de código de barras con cámara; Capacitor para las tiendas.
