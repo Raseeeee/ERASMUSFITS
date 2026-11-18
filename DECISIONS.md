@@ -208,7 +208,7 @@ Registro de decisiones tomadas ante ambigüedades de `SPEC.md`. Formato: decisi�
 - Las fechas de la lista de pesajes se muestran en ISO; se pueden localizar en la Fase 6.
 
 ### Otra actividad (pedido tras revisar la Fase 5)
-- Casilla en Hoy, **«He hecho otra actividad»**, con tipo (andar, bici, deporte, otra), minutos (1–600) e intensidad (suave, moderada, intensa). Se guarda en el día () y vale para cualquier tipo de día.
+- Casilla en Hoy, **«He hecho otra actividad»**, con tipo (andar, bici, deporte, otra), minutos (1–600) e intensidad (suave, moderada, intensa). Se guarda en el día (`DayRecord.extraActivity`) y vale para cualquier tipo de día.
 - **Cuenta como día activo** para el coach (desaparece el aviso de inactividad) y para Progreso.
 - **Sube el objetivo de ese día**: kcal extra = (MET − 1) × peso × horas × 0,75, con MET de 3, 5 y 8 según la intensidad (Compendium, redondeado) y un tope de 800 kcal. Se resta 1 MET porque el reposo ya está en el objetivo, y se cuenta solo el 75 % porque las estimaciones por MET suelen pasarse. Las kcal extra van a **carbohidratos**; proteína y grasa no cambian; fibra y tope de azúcares se recalculan; agua +1 vaso desde 30 min y +2 desde 90.
 - Se suma también sobre un override manual del tipo de día.
