@@ -76,7 +76,7 @@ export function TargetsScreen({ onboarding = false }: { onboarding?: boolean }) 
         <table className="w-full border-collapse text-sm" aria-label={t('targets.title')}>
           <thead>
             <tr>
-              <th scope="col" className="p-2 text-left">{t('targets.metric')}</th>
+              <th scope="col" className="sticky left-0 bg-card p-2 text-left">{t('targets.metric')}</th>
               {computed.map(({ dayType: d }) => (
                 <th key={d} scope="col" className="p-2 text-right">
                   {t(`dayTypes.${d}`)}
@@ -88,7 +88,7 @@ export function TargetsScreen({ onboarding = false }: { onboarding?: boolean }) 
           <tbody>
             {METRICS.map((m) => (
               <tr key={m} className="border-t border-bd">
-                <th scope="row" className="p-2 text-left font-normal">{t(`targets.metrics.${m}`)}</th>
+                <th scope="row" className="sticky left-0 bg-card p-2 text-left font-normal">{t(`targets.metrics.${m}`)}</th>
                 {computed.map(({ dayType: d, targets: c }) => (
                   <td key={d} className="p-2 text-right tabular-nums" data-testid={`target-${d}-${m}`}>
                     {effective(d, c)[m]}
@@ -97,7 +97,7 @@ export function TargetsScreen({ onboarding = false }: { onboarding?: boolean }) 
               </tr>
             ))}
             <tr className="border-t border-bd">
-              <td />
+              <td className="sticky left-0 bg-card" />
               {computed.map(({ dayType: d, targets: c }) => (
                 <td key={d} className="p-2 text-right">
                   <Button className="px-3 text-sm" onClick={() => startEdit(d, effective(d, c))}>
