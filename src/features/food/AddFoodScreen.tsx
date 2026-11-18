@@ -180,7 +180,7 @@ export function AddFoodScreen() {
       {results.length === 0 && debounced.trim() !== '' && (
         <p className="mb-3 text-mu">{t('food.noResults', { q: debounced })}</p>
       )}
-      <ul className="mb-4 divide-y divide-bd rounded-xl border border-bd bg-card" aria-label={t('food.search')}>
+      <ul className="mb-4 divide-y divide-bd rounded-xl border border-bd bg-card" aria-label={t('food.results')}>
         {results.map((f) => (
           <li key={f.id}>
             <button className="flex min-h-14 w-full items-center gap-2 px-3 py-2 text-left" onClick={() => select(f)}>

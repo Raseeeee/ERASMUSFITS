@@ -220,6 +220,7 @@
     },
     "kcalAuto": "Calorías calculadas: {{kcal}} kcal / 100 g",
     "invalidMacros": "Los macros por 100 g no pueden sumar más de 100 g.",
-    "saveMine": "Guardar como mío"
+    "saveMine": "Guardar como mío",
+    "results": "Resultados"
   }
 }

@@ -220,6 +220,7 @@
     },
     "kcalAuto": "Calculated calories: {{kcal}} kcal / 100 g",
     "invalidMacros": "Macros per 100 g cannot add up to more than 100 g.",
-    "saveMine": "Save as mine"
+    "saveMine": "Save as mine",
+    "results": "Results"
   }
 }
