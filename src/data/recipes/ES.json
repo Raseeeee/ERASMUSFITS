@@ -1,0 +1,558 @@
+[
+  {
+    "id": "es_tostada_tomate_jamon",
+    "country": "ES",
+    "kind": "breakfast",
+    "title": {
+      "es": "Tostada con tomate y jamón",
+      "en": "Toast with tomato and cured ham"
+    },
+    "tags": [],
+    "minutes": 5,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "bread_white",
+        "grams": 60
+      },
+      {
+        "foodId": "tomato",
+        "grams": 80
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 5
+      },
+      {
+        "foodId": "serrano_ham",
+        "grams": 30
+      }
+    ],
+    "steps": {
+      "es": [
+        "Tuesta el pan en una sartén sin aceite.",
+        "Ralla el tomate y úntalo con el aceite y una pizca de sal.",
+        "Pon el jamón por encima."
+      ],
+      "en": [
+        "Toast the bread in a dry pan.",
+        "Grate the tomato and spread it with the oil and a pinch of salt.",
+        "Top with the ham."
+      ]
+    }
+  },
+  {
+    "id": "es_avena_platano",
+    "country": "ES",
+    "kind": "breakfast",
+    "title": {
+      "es": "Avena con leche y plátano",
+      "en": "Oats with milk and banana"
+    },
+    "tags": [],
+    "minutes": 5,
+    "servings": 1,
+    "equipment": [
+      "microwave"
+    ],
+    "ingredients": [
+      {
+        "foodId": "oats",
+        "grams": 50
+      },
+      {
+        "foodId": "milk_semi",
+        "grams": 250
+      },
+      {
+        "foodId": "banana",
+        "grams": 120
+      }
+    ],
+    "steps": {
+      "es": [
+        "Mezcla la avena con la leche en un bol grande.",
+        "Calienta 2–3 min en el microondas, removiendo a mitad.",
+        "Añade el plátano en rodajas."
+      ],
+      "en": [
+        "Mix the oats and milk in a large bowl.",
+        "Microwave 2–3 min, stirring halfway.",
+        "Top with sliced banana."
+      ]
+    }
+  },
+  {
+    "id": "es_yogur_manzana_nueces",
+    "country": "ES",
+    "kind": "breakfast",
+    "title": {
+      "es": "Yogur griego con manzana y nueces",
+      "en": "Greek yogurt with apple and walnuts"
+    },
+    "tags": [],
+    "minutes": 3,
+    "servings": 1,
+    "equipment": [],
+    "ingredients": [
+      {
+        "foodId": "greek_yogurt",
+        "grams": 125
+      },
+      {
+        "foodId": "apple",
+        "grams": 150
+      },
+      {
+        "foodId": "walnuts",
+        "grams": 15
+      }
+    ],
+    "steps": {
+      "es": [
+        "Trocea la manzana.",
+        "Mézclala con el yogur y las nueces partidas."
+      ],
+      "en": [
+        "Dice the apple.",
+        "Mix with the yogurt and chopped walnuts."
+      ]
+    }
+  },
+  {
+    "id": "es_revuelto_pan",
+    "country": "ES",
+    "kind": "breakfast",
+    "title": {
+      "es": "Revuelto de huevos con pan integral",
+      "en": "Scrambled eggs with wholemeal bread"
+    },
+    "tags": [],
+    "minutes": 8,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "egg",
+        "grams": 120
+      },
+      {
+        "foodId": "bread_whole",
+        "grams": 60
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 5
+      }
+    ],
+    "steps": {
+      "es": [
+        "Bate los huevos con sal.",
+        "Cuájalos a fuego medio en la sartén con el aceite, removiendo.",
+        "Sírvelos con el pan."
+      ],
+      "en": [
+        "Beat the eggs with salt.",
+        "Cook over medium heat in the oiled pan, stirring.",
+        "Serve with the bread."
+      ]
+    }
+  },
+  {
+    "id": "es_arroz_huevo_atun",
+    "country": "ES",
+    "kind": "main",
+    "title": {
+      "es": "Arroz con huevo y atún",
+      "en": "Rice with egg and tuna"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "rice_raw",
+        "grams": 80
+      },
+      {
+        "foodId": "egg",
+        "grams": 60
+      },
+      {
+        "foodId": "tuna_canned",
+        "grams": 80
+      },
+      {
+        "foodId": "crushed_tomato",
+        "grams": 100
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 5
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece el arroz en agua con sal 15–18 min y escúrrelo.",
+        "Mientras, calienta el tomate con el aceite 5 min.",
+        "Fríe o cuece el huevo.",
+        "Sirve el arroz con el tomate, el atún escurrido y el huevo."
+      ],
+      "en": [
+        "Boil the rice in salted water for 15–18 min and drain.",
+        "Meanwhile, simmer the tomato with the oil for 5 min.",
+        "Fry or boil the egg.",
+        "Serve the rice with the tomato, drained tuna and egg."
+      ]
+    }
+  },
+  {
+    "id": "es_lentejas_rapidas",
+    "country": "ES",
+    "kind": "main",
+    "title": {
+      "es": "Lentejas rápidas de bote",
+      "en": "Quick lentil stew (jarred lentils)"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 15,
+    "servings": 2,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "lentils_cooked",
+        "grams": 400
+      },
+      {
+        "foodId": "carrot",
+        "grams": 100
+      },
+      {
+        "foodId": "onion",
+        "grams": 80
+      },
+      {
+        "foodId": "crushed_tomato",
+        "grams": 150
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 10
+      }
+    ],
+    "steps": {
+      "es": [
+        "Pica la cebolla y la zanahoria y sofríelas 5 min con el aceite.",
+        "Añade el tomate y pimentón al gusto, 3 min.",
+        "Echa las lentejas lavadas y un vaso de agua; hierve 5 min."
+      ],
+      "en": [
+        "Chop the onion and carrot and fry 5 min in the oil.",
+        "Add the tomato and paprika to taste, 3 min.",
+        "Add the rinsed lentils and a glass of water; simmer 5 min."
+      ]
+    }
+  },
+  {
+    "id": "es_tortilla_francesa_ensalada",
+    "country": "ES",
+    "kind": "main",
+    "title": {
+      "es": "Tortilla francesa con ensalada",
+      "en": "French omelette with salad"
+    },
+    "tags": [],
+    "minutes": 10,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "egg",
+        "grams": 120
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 5
+      },
+      {
+        "foodId": "lettuce",
+        "grams": 80
+      },
+      {
+        "foodId": "tomato",
+        "grams": 100
+      },
+      {
+        "foodId": "bread_white",
+        "grams": 40
+      }
+    ],
+    "steps": {
+      "es": [
+        "Bate los huevos con sal y cuájalos en la sartén con el aceite, doblando la tortilla.",
+        "Prepara la ensalada con lechuga y tomate (vinagre al gusto).",
+        "Sirve con el pan."
+      ],
+      "en": [
+        "Beat the eggs with salt and cook in the oiled pan, folding the omelette.",
+        "Make the salad with lettuce and tomato (vinegar to taste).",
+        "Serve with the bread."
+      ]
+    }
+  },
+  {
+    "id": "es_garbanzos_espinacas",
+    "country": "ES",
+    "kind": "main",
+    "title": {
+      "es": "Garbanzos con espinacas y huevo",
+      "en": "Chickpeas with spinach and egg"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 15,
+    "servings": 2,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "chickpeas_cooked",
+        "grams": 400
+      },
+      {
+        "foodId": "spinach",
+        "grams": 300
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 15
+      },
+      {
+        "foodId": "egg",
+        "grams": 120
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece los huevos 10 min en agua hirviendo.",
+        "Saltea las espinacas con el aceite y comino 3 min.",
+        "Añade los garbanzos lavados, un poco de agua y calienta 5 min.",
+        "Sirve con el huevo duro troceado."
+      ],
+      "en": [
+        "Boil the eggs for 10 min.",
+        "Sauté the spinach in the oil with cumin for 3 min.",
+        "Add the rinsed chickpeas and a splash of water; heat 5 min.",
+        "Serve with the chopped boiled egg."
+      ]
+    }
+  },
+  {
+    "id": "es_pollo_patata_pimiento",
+    "country": "ES",
+    "kind": "main",
+    "title": {
+      "es": "Pollo a la plancha con patata y pimiento",
+      "en": "Grilled chicken with potato and pepper"
+    },
+    "tags": [],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove",
+      "microwave"
+    ],
+    "ingredients": [
+      {
+        "foodId": "chicken_breast",
+        "grams": 130
+      },
+      {
+        "foodId": "potato_boiled",
+        "grams": 250
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 5
+      },
+      {
+        "foodId": "bell_pepper",
+        "grams": 100
+      }
+    ],
+    "steps": {
+      "es": [
+        "Pincha la patata y hazla en el microondas 7–8 min dándole la vuelta.",
+        "Haz el pollo en la sartén con el aceite, 4 min por lado.",
+        "Saltea el pimiento en tiras en la misma sartén."
+      ],
+      "en": [
+        "Prick the potato and microwave it 7–8 min, turning once.",
+        "Pan-fry the chicken in the oil, 4 min per side.",
+        "Sauté the pepper strips in the same pan."
+      ]
+    }
+  },
+  {
+    "id": "es_merluza_arroz_verduras",
+    "country": "ES",
+    "kind": "main",
+    "title": {
+      "es": "Merluza con arroz y verduras",
+      "en": "Hake with rice and vegetables"
+    },
+    "tags": [],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove",
+      "microwave"
+    ],
+    "ingredients": [
+      {
+        "foodId": "hake",
+        "grams": 150
+      },
+      {
+        "foodId": "rice_raw",
+        "grams": 70
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 5
+      },
+      {
+        "foodId": "frozen_veg_mix",
+        "grams": 150
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece el arroz 15–18 min.",
+        "Pon la merluza en un plato con el aceite, sal y un chorrito de agua; tápala y microondas 3–4 min.",
+        "Calienta las verduras congeladas 4–5 min en el microondas."
+      ],
+      "en": [
+        "Boil the rice for 15–18 min.",
+        "Put the hake on a plate with the oil, salt and a splash of water; cover and microwave 3–4 min.",
+        "Microwave the frozen vegetables for 4–5 min."
+      ]
+    }
+  },
+  {
+    "id": "es_macarrones_carne",
+    "country": "ES",
+    "kind": "main",
+    "title": {
+      "es": "Macarrones con tomate y carne picada",
+      "en": "Macaroni with tomato and minced meat"
+    },
+    "tags": [],
+    "minutes": 20,
+    "servings": 2,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "pasta_raw",
+        "grams": 180
+      },
+      {
+        "foodId": "minced_mixed",
+        "grams": 200
+      },
+      {
+        "foodId": "crushed_tomato",
+        "grams": 300
+      },
+      {
+        "foodId": "onion",
+        "grams": 80
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 10
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece la pasta según el paquete.",
+        "Sofríe la cebolla picada con el aceite 4 min y añade la carne hasta que se dore.",
+        "Añade el tomate y cocina 8 min.",
+        "Mezcla con la pasta escurrida."
+      ],
+      "en": [
+        "Cook the pasta as per the packet.",
+        "Fry the chopped onion in the oil 4 min, then brown the meat.",
+        "Add the tomato and cook 8 min.",
+        "Mix with the drained pasta."
+      ]
+    }
+  },
+  {
+    "id": "es_ensalada_alubias_atun",
+    "country": "ES",
+    "kind": "main",
+    "title": {
+      "es": "Ensalada de alubias con atún",
+      "en": "Bean and tuna salad"
+    },
+    "tags": [],
+    "minutes": 10,
+    "servings": 1,
+    "equipment": [],
+    "ingredients": [
+      {
+        "foodId": "beans_canned",
+        "grams": 200
+      },
+      {
+        "foodId": "tuna_canned",
+        "grams": 80
+      },
+      {
+        "foodId": "tomato",
+        "grams": 100
+      },
+      {
+        "foodId": "onion",
+        "grams": 30
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 10
+      }
+    ],
+    "steps": {
+      "es": [
+        "Lava y escurre las alubias.",
+        "Pica el tomate y la cebolla.",
+        "Mezcla todo con el atún, el aceite, vinagre y sal."
+      ],
+      "en": [
+        "Rinse and drain the beans.",
+        "Chop the tomato and onion.",
+        "Mix everything with the tuna, oil, vinegar and salt."
+      ]
+    }
+  }
+]

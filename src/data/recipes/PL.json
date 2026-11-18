@@ -1,0 +1,552 @@
+[
+  {
+    "id": "pl_owsianka_jablko",
+    "country": "PL",
+    "kind": "breakfast",
+    "title": {
+      "es": "Gachas de avena con manzana (owsianka)",
+      "en": "Porridge with apple (owsianka)"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 5,
+    "servings": 1,
+    "equipment": [
+      "microwave"
+    ],
+    "ingredients": [
+      {
+        "foodId": "oats",
+        "grams": 50
+      },
+      {
+        "foodId": "milk_semi",
+        "grams": 250
+      },
+      {
+        "foodId": "apple",
+        "grams": 150
+      }
+    ],
+    "steps": {
+      "es": [
+        "Mezcla la avena con la leche.",
+        "Microondas 2–3 min, removiendo a mitad.",
+        "Añade la manzana rallada y canela."
+      ],
+      "en": [
+        "Mix the oats with the milk.",
+        "Microwave 2–3 min, stirring halfway.",
+        "Add grated apple and cinnamon."
+      ]
+    }
+  },
+  {
+    "id": "pl_twarozek_chleb",
+    "country": "PL",
+    "kind": "breakfast",
+    "title": {
+      "es": "Twaróg con pepino sobre pan de centeno",
+      "en": "Twaróg with cucumber on rye bread"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 5,
+    "servings": 1,
+    "equipment": [],
+    "ingredients": [
+      {
+        "foodId": "twarog",
+        "grams": 150
+      },
+      {
+        "foodId": "cucumber",
+        "grams": 100
+      },
+      {
+        "foodId": "bread_rye",
+        "grams": 70
+      },
+      {
+        "foodId": "yogurt_plain",
+        "grams": 30
+      }
+    ],
+    "steps": {
+      "es": [
+        "Aplasta el twaróg con el yogur, sal y pimienta.",
+        "Añade el pepino picado (y cebollino si tienes).",
+        "Úntalo sobre el pan."
+      ],
+      "en": [
+        "Mash the twaróg with the yogurt, salt and pepper.",
+        "Add chopped cucumber (and chives if you have them).",
+        "Spread on the bread."
+      ]
+    }
+  },
+  {
+    "id": "pl_jajecznica_pomidor",
+    "country": "PL",
+    "kind": "breakfast",
+    "title": {
+      "es": "Huevos revueltos con tomate y pan",
+      "en": "Scrambled eggs with tomato and bread"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 8,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "egg",
+        "grams": 120
+      },
+      {
+        "foodId": "tomato",
+        "grams": 100
+      },
+      {
+        "foodId": "bread_white",
+        "grams": 60
+      },
+      {
+        "foodId": "butter",
+        "grams": 5
+      }
+    ],
+    "steps": {
+      "es": [
+        "Derrite la mantequilla y saltea el tomate picado 2 min.",
+        "Añade los huevos batidos y remueve hasta que cuajen.",
+        "Sirve con el pan."
+      ],
+      "en": [
+        "Melt the butter and sauté the chopped tomato for 2 min.",
+        "Add the beaten eggs and stir until set.",
+        "Serve with the bread."
+      ]
+    }
+  },
+  {
+    "id": "pl_kefir_owoce",
+    "country": "PL",
+    "kind": "breakfast",
+    "title": {
+      "es": "Kéfir con frutos rojos y avena",
+      "en": "Kefir with berries and oats"
+    },
+    "tags": [],
+    "minutes": 3,
+    "servings": 1,
+    "equipment": [
+      "microwave"
+    ],
+    "ingredients": [
+      {
+        "foodId": "kefir",
+        "grams": 250
+      },
+      {
+        "foodId": "frozen_berries",
+        "grams": 100
+      },
+      {
+        "foodId": "oats",
+        "grams": 30
+      }
+    ],
+    "steps": {
+      "es": [
+        "Descongela la fruta 1 min.",
+        "Mézclala con el kéfir y la avena (o bátelo todo)."
+      ],
+      "en": [
+        "Thaw the fruit for 1 min.",
+        "Mix with the kefir and oats (or blend it all)."
+      ]
+    }
+  },
+  {
+    "id": "pl_salatka_ryz_tunczyk",
+    "country": "PL",
+    "kind": "main",
+    "title": {
+      "es": "Ensalada de arroz con atún",
+      "en": "Rice salad with tuna"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "rice_raw",
+        "grams": 70
+      },
+      {
+        "foodId": "tuna_canned",
+        "grams": 80
+      },
+      {
+        "foodId": "corn_canned",
+        "grams": 70
+      },
+      {
+        "foodId": "pickled_cucumber",
+        "grams": 60
+      },
+      {
+        "foodId": "yogurt_plain",
+        "grams": 50
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece el arroz y enfríalo bajo el grifo.",
+        "Mezcla con el atún, el maíz y el pepinillo picado.",
+        "Aliña con el yogur, sal y pimienta."
+      ],
+      "en": [
+        "Cook the rice and cool it under the tap.",
+        "Mix with the tuna, corn and chopped gherkin.",
+        "Dress with the yogurt, salt and pepper."
+      ]
+    }
+  },
+  {
+    "id": "pl_kasza_jajko",
+    "country": "PL",
+    "kind": "main",
+    "title": {
+      "es": "Kasza de trigo sarraceno con huevo y pepinillo",
+      "en": "Buckwheat kasza with egg and pickles"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "buckwheat_raw",
+        "grams": 70
+      },
+      {
+        "foodId": "egg",
+        "grams": 120
+      },
+      {
+        "foodId": "pickled_cucumber",
+        "grams": 80
+      },
+      {
+        "foodId": "butter",
+        "grams": 5
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece la kasza en el doble de agua con sal 15 min, tapada.",
+        "Cuece o fríe los huevos.",
+        "Mezcla la kasza con la mantequilla y sirve con los huevos y los pepinillos."
+      ],
+      "en": [
+        "Simmer the kasza covered in twice its volume of salted water for 15 min.",
+        "Boil or fry the eggs.",
+        "Stir the butter into the kasza and serve with the eggs and pickles."
+      ]
+    }
+  },
+  {
+    "id": "pl_kurczak_ziemniaki_mizeria",
+    "country": "PL",
+    "kind": "main",
+    "title": {
+      "es": "Pollo con patatas y mizeria",
+      "en": "Chicken with potatoes and mizeria"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "chicken_breast",
+        "grams": 130
+      },
+      {
+        "foodId": "potato_boiled",
+        "grams": 250
+      },
+      {
+        "foodId": "cucumber",
+        "grams": 150
+      },
+      {
+        "foodId": "yogurt_plain",
+        "grams": 60
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece las patatas troceadas 12–15 min.",
+        "Haz el pollo en la sartén, 4 min por lado.",
+        "Mizeria: pepino en rodajas finas con el yogur, sal y eneldo."
+      ],
+      "en": [
+        "Boil the cut potatoes for 12–15 min.",
+        "Pan-fry the chicken, 4 min per side.",
+        "Mizeria: thinly sliced cucumber with the yogurt, salt and dill."
+      ]
+    }
+  },
+  {
+    "id": "pl_makaron_twarog",
+    "country": "PL",
+    "kind": "main",
+    "title": {
+      "es": "Pasta con twaróg",
+      "en": "Pasta with twaróg"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 15,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "pasta_raw",
+        "grams": 80
+      },
+      {
+        "foodId": "twarog",
+        "grams": 120
+      },
+      {
+        "foodId": "butter",
+        "grams": 5
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece la pasta.",
+        "Escúrrela y mézclala con la mantequilla.",
+        "Desmenuza el twaróg por encima (salado con pimienta, o dulce con canela)."
+      ],
+      "en": [
+        "Cook the pasta.",
+        "Drain and toss with the butter.",
+        "Crumble the twaróg on top (savoury with pepper, or sweet with cinnamon)."
+      ]
+    }
+  },
+  {
+    "id": "pl_kapusta_kielbasa",
+    "country": "PL",
+    "kind": "main",
+    "title": {
+      "es": "Chucrut con kiełbasa y patatas",
+      "en": "Sauerkraut with kiełbasa and potatoes"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "sauerkraut",
+        "grams": 200
+      },
+      {
+        "foodId": "kielbasa",
+        "grams": 80
+      },
+      {
+        "foodId": "potato_boiled",
+        "grams": 200
+      },
+      {
+        "foodId": "onion",
+        "grams": 40
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece las patatas troceadas 12–15 min.",
+        "Dora la cebolla y la kiełbasa en rodajas 5 min.",
+        "Añade el chucrut con un poco de agua y cocina 8 min."
+      ],
+      "en": [
+        "Boil the cut potatoes for 12–15 min.",
+        "Brown the onion and sliced kiełbasa for 5 min.",
+        "Add the sauerkraut with a little water and cook 8 min."
+      ]
+    }
+  },
+  {
+    "id": "pl_kasza_pieczarki",
+    "country": "PL",
+    "kind": "main",
+    "title": {
+      "es": "Kasza con champiñones y cebolla",
+      "en": "Kasza with mushrooms and onion"
+    },
+    "tags": [],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "buckwheat_raw",
+        "grams": 70
+      },
+      {
+        "foodId": "mushrooms",
+        "grams": 200
+      },
+      {
+        "foodId": "onion",
+        "grams": 60
+      },
+      {
+        "foodId": "sunflower_oil",
+        "grams": 10
+      },
+      {
+        "foodId": "yogurt_plain",
+        "grams": 60
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece la kasza 15 min tapada.",
+        "Saltea la cebolla y los champiñones con el aceite 8 min.",
+        "Mezcla y sirve con el yogur por encima."
+      ],
+      "en": [
+        "Simmer the kasza covered for 15 min.",
+        "Sauté the onion and mushrooms in the oil for 8 min.",
+        "Mix and serve topped with the yogurt."
+      ]
+    }
+  },
+  {
+    "id": "pl_zupa_soczewica",
+    "country": "PL",
+    "kind": "main",
+    "title": {
+      "es": "Sopa de lentejas rojas",
+      "en": "Red lentil soup"
+    },
+    "tags": [],
+    "minutes": 20,
+    "servings": 2,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "red_lentils_raw",
+        "grams": 140
+      },
+      {
+        "foodId": "carrot",
+        "grams": 150
+      },
+      {
+        "foodId": "onion",
+        "grams": 100
+      },
+      {
+        "foodId": "crushed_tomato",
+        "grams": 200
+      },
+      {
+        "foodId": "sunflower_oil",
+        "grams": 10
+      }
+    ],
+    "steps": {
+      "es": [
+        "Sofríe la cebolla y la zanahoria picadas 4 min.",
+        "Añade las lentejas lavadas, el tomate y 800 ml de agua.",
+        "Hierve 15 min removiendo; tritura si quieres."
+      ],
+      "en": [
+        "Fry the chopped onion and carrot for 4 min.",
+        "Add the rinsed lentils, tomato and 800 ml water.",
+        "Simmer 15 min, stirring; blend if you like."
+      ]
+    }
+  },
+  {
+    "id": "pl_buraki_feta",
+    "country": "PL",
+    "kind": "main",
+    "title": {
+      "es": "Ensalada de remolacha con queso feta",
+      "en": "Beetroot and feta salad"
+    },
+    "tags": [],
+    "minutes": 10,
+    "servings": 1,
+    "equipment": [],
+    "ingredients": [
+      {
+        "foodId": "beetroot_cooked",
+        "grams": 200
+      },
+      {
+        "foodId": "white_cheese",
+        "grams": 50
+      },
+      {
+        "foodId": "walnuts",
+        "grams": 15
+      },
+      {
+        "foodId": "bread_rye",
+        "grams": 60
+      }
+    ],
+    "steps": {
+      "es": [
+        "Corta la remolacha cocida en dados.",
+        "Añade el queso desmenuzado y las nueces.",
+        "Aliña con vinagre y sirve con el pan."
+      ],
+      "en": [
+        "Dice the cooked beetroot.",
+        "Add the crumbled cheese and walnuts.",
+        "Dress with vinegar and serve with the bread."
+      ]
+    }
+  }
+]

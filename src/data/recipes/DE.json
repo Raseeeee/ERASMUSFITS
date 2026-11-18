@@ -1,0 +1,540 @@
+[
+  {
+    "id": "de_quark_hafer_apfel",
+    "country": "DE",
+    "kind": "breakfast",
+    "title": {
+      "es": "Quark con avena y manzana",
+      "en": "Quark with oats and apple"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 5,
+    "servings": 1,
+    "equipment": [],
+    "ingredients": [
+      {
+        "foodId": "quark",
+        "grams": 250
+      },
+      {
+        "foodId": "oats",
+        "grams": 40
+      },
+      {
+        "foodId": "apple",
+        "grams": 150
+      }
+    ],
+    "steps": {
+      "es": [
+        "Remueve el quark con un poco de agua o leche hasta que esté cremoso.",
+        "Añade la avena y la manzana troceada (canela al gusto)."
+      ],
+      "en": [
+        "Stir the quark with a splash of water or milk until creamy.",
+        "Add the oats and chopped apple (cinnamon to taste)."
+      ]
+    }
+  },
+  {
+    "id": "de_roggenbrot_ei_gurke",
+    "country": "DE",
+    "kind": "breakfast",
+    "title": {
+      "es": "Pan de centeno con huevo y pepino",
+      "en": "Rye bread with egg and cucumber"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 10,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "bread_rye",
+        "grams": 80
+      },
+      {
+        "foodId": "egg",
+        "grams": 120
+      },
+      {
+        "foodId": "cucumber",
+        "grams": 100
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece los huevos 8–9 min.",
+        "Pélalos y córtalos en rodajas sobre el pan.",
+        "Acompaña con el pepino."
+      ],
+      "en": [
+        "Boil the eggs for 8–9 min.",
+        "Peel and slice them onto the bread.",
+        "Serve with the cucumber."
+      ]
+    }
+  },
+  {
+    "id": "de_skyr_beeren",
+    "country": "DE",
+    "kind": "breakfast",
+    "title": {
+      "es": "Skyr con frutos rojos",
+      "en": "Skyr with berries"
+    },
+    "tags": [],
+    "minutes": 3,
+    "servings": 1,
+    "equipment": [
+      "microwave"
+    ],
+    "ingredients": [
+      {
+        "foodId": "skyr",
+        "grams": 200
+      },
+      {
+        "foodId": "frozen_berries",
+        "grams": 100
+      },
+      {
+        "foodId": "oats",
+        "grams": 20
+      }
+    ],
+    "steps": {
+      "es": [
+        "Descongela la fruta 1 min en el microondas.",
+        "Mézclala con el skyr y la avena."
+      ],
+      "en": [
+        "Thaw the fruit for 1 min in the microwave.",
+        "Mix with the skyr and oats."
+      ]
+    }
+  },
+  {
+    "id": "de_brot_kaese_tomate",
+    "country": "DE",
+    "kind": "breakfast",
+    "title": {
+      "es": "Pan integral con queso y tomate",
+      "en": "Wholemeal bread with cheese and tomato"
+    },
+    "tags": [],
+    "minutes": 5,
+    "servings": 1,
+    "equipment": [],
+    "ingredients": [
+      {
+        "foodId": "bread_whole",
+        "grams": 60
+      },
+      {
+        "foodId": "cheese_hard",
+        "grams": 30
+      },
+      {
+        "foodId": "tomato",
+        "grams": 100
+      }
+    ],
+    "steps": {
+      "es": [
+        "Pon el queso sobre el pan.",
+        "Añade el tomate en rodajas con sal y pimienta."
+      ],
+      "en": [
+        "Put the cheese on the bread.",
+        "Add sliced tomato with salt and pepper."
+      ]
+    }
+  },
+  {
+    "id": "de_pellkartoffeln_quark",
+    "country": "DE",
+    "kind": "main",
+    "title": {
+      "es": "Patatas cocidas con quark de hierbas",
+      "en": "Boiled potatoes with herb quark"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "potato_boiled",
+        "grams": 300
+      },
+      {
+        "foodId": "quark",
+        "grams": 200
+      },
+      {
+        "foodId": "cucumber",
+        "grams": 100
+      },
+      {
+        "foodId": "onion",
+        "grams": 20
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece las patatas con piel 18–20 min (troceadas van más rápido).",
+        "Mezcla el quark con la cebolla picada, sal, pimienta y hierbas.",
+        "Sirve con el pepino."
+      ],
+      "en": [
+        "Boil the potatoes in their skins for 18–20 min (cut them to speed up).",
+        "Mix the quark with chopped onion, salt, pepper and herbs.",
+        "Serve with the cucumber."
+      ]
+    }
+  },
+  {
+    "id": "de_haehnchen_reis_gemuese",
+    "country": "DE",
+    "kind": "main",
+    "title": {
+      "es": "Pollo con arroz y verduras",
+      "en": "Chicken with rice and vegetables"
+    },
+    "tags": [],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "chicken_breast",
+        "grams": 130
+      },
+      {
+        "foodId": "rice_raw",
+        "grams": 70
+      },
+      {
+        "foodId": "frozen_veg_mix",
+        "grams": 200
+      },
+      {
+        "foodId": "sunflower_oil",
+        "grams": 5
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece el arroz.",
+        "Saltea el pollo en tiras con el aceite 5 min.",
+        "Añade las verduras congeladas y salsa de soja al gusto; 5 min más."
+      ],
+      "en": [
+        "Cook the rice.",
+        "Stir-fry the chicken strips in the oil for 5 min.",
+        "Add the frozen vegetables and soy sauce to taste; 5 more min."
+      ]
+    }
+  },
+  {
+    "id": "de_linsensuppe",
+    "country": "DE",
+    "kind": "main",
+    "title": {
+      "es": "Sopa rápida de lentejas",
+      "en": "Quick lentil soup"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 20,
+    "servings": 2,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "lentils_cooked",
+        "grams": 400
+      },
+      {
+        "foodId": "potato_boiled",
+        "grams": 250
+      },
+      {
+        "foodId": "carrot",
+        "grams": 150
+      },
+      {
+        "foodId": "onion",
+        "grams": 80
+      },
+      {
+        "foodId": "sunflower_oil",
+        "grams": 10
+      }
+    ],
+    "steps": {
+      "es": [
+        "Sofríe la cebolla 3 min.",
+        "Añade la patata y la zanahoria en dados y 700 ml de agua; hierve 12 min.",
+        "Añade las lentejas y un chorrito de vinagre; 3 min más."
+      ],
+      "en": [
+        "Fry the onion for 3 min.",
+        "Add the diced potato and carrot and 700 ml water; boil 12 min.",
+        "Add the lentils and a splash of vinegar; 3 more min."
+      ]
+    }
+  },
+  {
+    "id": "de_nudeln_hack",
+    "country": "DE",
+    "kind": "main",
+    "title": {
+      "es": "Pasta con salsa de carne picada",
+      "en": "Pasta with meat sauce"
+    },
+    "tags": [],
+    "minutes": 20,
+    "servings": 2,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "pasta_raw",
+        "grams": 180
+      },
+      {
+        "foodId": "minced_mixed",
+        "grams": 200
+      },
+      {
+        "foodId": "crushed_tomato",
+        "grams": 300
+      },
+      {
+        "foodId": "onion",
+        "grams": 80
+      },
+      {
+        "foodId": "sunflower_oil",
+        "grams": 10
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece la pasta.",
+        "Dora la cebolla y la carne con el aceite 6 min.",
+        "Añade el tomate y cocina 8 min; mezcla con la pasta."
+      ],
+      "en": [
+        "Cook the pasta.",
+        "Brown the onion and meat in the oil for 6 min.",
+        "Add the tomato and cook 8 min; toss with the pasta."
+      ]
+    }
+  },
+  {
+    "id": "de_bratwurst_sauerkraut",
+    "country": "DE",
+    "kind": "main",
+    "title": {
+      "es": "Bratwurst con chucrut y patatas",
+      "en": "Bratwurst with sauerkraut and potatoes"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 15,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "bratwurst",
+        "grams": 100
+      },
+      {
+        "foodId": "sauerkraut",
+        "grams": 150
+      },
+      {
+        "foodId": "potato_boiled",
+        "grams": 200
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece las patatas troceadas 12 min.",
+        "Haz la salchicha en la sartén sin aceite, 8–10 min girándola.",
+        "Calienta el chucrut en un cazo 5 min."
+      ],
+      "en": [
+        "Boil the cut potatoes for 12 min.",
+        "Pan-fry the sausage without oil for 8–10 min, turning.",
+        "Heat the sauerkraut in a pot for 5 min."
+      ]
+    }
+  },
+  {
+    "id": "de_kichererbsen_spinat",
+    "country": "DE",
+    "kind": "main",
+    "title": {
+      "es": "Sartén de garbanzos y espinacas con arroz",
+      "en": "Chickpea and spinach pan with rice"
+    },
+    "tags": [],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "chickpeas_cooked",
+        "grams": 200
+      },
+      {
+        "foodId": "spinach",
+        "grams": 150
+      },
+      {
+        "foodId": "crushed_tomato",
+        "grams": 100
+      },
+      {
+        "foodId": "sunflower_oil",
+        "grams": 10
+      },
+      {
+        "foodId": "rice_raw",
+        "grams": 50
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece el arroz.",
+        "Saltea los garbanzos con el aceite y curry 3 min.",
+        "Añade el tomate y las espinacas; 5 min."
+      ],
+      "en": [
+        "Cook the rice.",
+        "Fry the chickpeas in the oil with curry powder for 3 min.",
+        "Add the tomato and spinach; 5 min."
+      ]
+    }
+  },
+  {
+    "id": "de_haehnchen_wrap",
+    "country": "DE",
+    "kind": "main",
+    "title": {
+      "es": "Wrap de pollo",
+      "en": "Chicken wrap"
+    },
+    "tags": [],
+    "minutes": 15,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "tortilla_wrap",
+        "grams": 120
+      },
+      {
+        "foodId": "chicken_breast",
+        "grams": 100
+      },
+      {
+        "foodId": "lettuce",
+        "grams": 50
+      },
+      {
+        "foodId": "tomato",
+        "grams": 80
+      },
+      {
+        "foodId": "quark",
+        "grams": 50
+      }
+    ],
+    "steps": {
+      "es": [
+        "Haz el pollo en tiras en la sartén 5–6 min.",
+        "Calienta las tortillas 20 s por lado.",
+        "Unta el quark con sal y pimentón, rellena con pollo, lechuga y tomate, y enrolla."
+      ],
+      "en": [
+        "Cook the chicken strips in the pan for 5–6 min.",
+        "Warm the tortillas 20 s per side.",
+        "Spread the quark seasoned with salt and paprika, fill with chicken, lettuce and tomato, and roll up."
+      ]
+    }
+  },
+  {
+    "id": "de_thunfischsalat_brot",
+    "country": "DE",
+    "kind": "main",
+    "title": {
+      "es": "Ensalada de atún con pan de centeno",
+      "en": "Tuna salad with rye bread"
+    },
+    "tags": [],
+    "minutes": 10,
+    "servings": 1,
+    "equipment": [],
+    "ingredients": [
+      {
+        "foodId": "tuna_canned",
+        "grams": 80
+      },
+      {
+        "foodId": "corn_canned",
+        "grams": 70
+      },
+      {
+        "foodId": "cucumber",
+        "grams": 100
+      },
+      {
+        "foodId": "yogurt_plain",
+        "grams": 50
+      },
+      {
+        "foodId": "bread_rye",
+        "grams": 60
+      }
+    ],
+    "steps": {
+      "es": [
+        "Escurre el atún y el maíz.",
+        "Mezcla con el pepino en dados y el yogur (sal, pimienta, mostaza al gusto).",
+        "Sirve sobre el pan."
+      ],
+      "en": [
+        "Drain the tuna and corn.",
+        "Mix with the diced cucumber and yogurt (salt, pepper, mustard to taste).",
+        "Serve on the bread."
+      ]
+    }
+  }
+]

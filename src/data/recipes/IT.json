@@ -1,0 +1,557 @@
+[
+  {
+    "id": "it_yogurt_avena_frutti",
+    "country": "IT",
+    "kind": "breakfast",
+    "title": {
+      "es": "Yogur con avena y frutos rojos",
+      "en": "Yogurt with oats and berries"
+    },
+    "tags": [],
+    "minutes": 5,
+    "servings": 1,
+    "equipment": [
+      "microwave"
+    ],
+    "ingredients": [
+      {
+        "foodId": "yogurt_plain",
+        "grams": 250
+      },
+      {
+        "foodId": "oats",
+        "grams": 40
+      },
+      {
+        "foodId": "frozen_berries",
+        "grams": 100
+      }
+    ],
+    "steps": {
+      "es": [
+        "Descongela los frutos rojos 1 min en el microondas.",
+        "Mezcla el yogur con la avena.",
+        "Pon la fruta por encima."
+      ],
+      "en": [
+        "Thaw the berries for 1 min in the microwave.",
+        "Mix the yogurt with the oats.",
+        "Top with the fruit."
+      ]
+    }
+  },
+  {
+    "id": "it_pane_uova_pomodoro",
+    "country": "IT",
+    "kind": "breakfast",
+    "title": {
+      "es": "Pan tostado con huevos y tomate",
+      "en": "Toast with eggs and tomato"
+    },
+    "tags": [],
+    "minutes": 8,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "bread_whole",
+        "grams": 60
+      },
+      {
+        "foodId": "egg",
+        "grams": 120
+      },
+      {
+        "foodId": "tomato",
+        "grams": 80
+      }
+    ],
+    "steps": {
+      "es": [
+        "Tuesta el pan en la sartén.",
+        "Haz los huevos a la plancha o revueltos.",
+        "Sirve con el tomate en rodajas, sal y orégano."
+      ],
+      "en": [
+        "Toast the bread in the pan.",
+        "Fry or scramble the eggs.",
+        "Serve with sliced tomato, salt and oregano."
+      ]
+    }
+  },
+  {
+    "id": "it_fiocchi_pera_noci",
+    "country": "IT",
+    "kind": "breakfast",
+    "title": {
+      "es": "Queso cottage con pera y nueces",
+      "en": "Cottage cheese with pear and walnuts"
+    },
+    "tags": [],
+    "minutes": 3,
+    "servings": 1,
+    "equipment": [],
+    "ingredients": [
+      {
+        "foodId": "cottage_cheese",
+        "grams": 200
+      },
+      {
+        "foodId": "pear",
+        "grams": 170
+      },
+      {
+        "foodId": "walnuts",
+        "grams": 10
+      }
+    ],
+    "steps": {
+      "es": [
+        "Trocea la pera.",
+        "Mézclala con el queso y las nueces."
+      ],
+      "en": [
+        "Dice the pear.",
+        "Mix with the cheese and walnuts."
+      ]
+    }
+  },
+  {
+    "id": "it_frittata_zucchine",
+    "country": "IT",
+    "kind": "breakfast",
+    "title": {
+      "es": "Frittata de calabacín",
+      "en": "Courgette frittata"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 12,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "egg",
+        "grams": 120
+      },
+      {
+        "foodId": "zucchini",
+        "grams": 150
+      },
+      {
+        "foodId": "parmesan",
+        "grams": 10
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 5
+      }
+    ],
+    "steps": {
+      "es": [
+        "Ralla o corta fino el calabacín y saltéalo 4 min con el aceite.",
+        "Bate los huevos con el parmesano y viértelos.",
+        "Tapa y cuaja a fuego bajo 5 min; dale la vuelta con un plato."
+      ],
+      "en": [
+        "Grate or thinly slice the courgette and sauté 4 min in the oil.",
+        "Beat the eggs with the parmesan and pour in.",
+        "Cover and cook on low heat 5 min; flip using a plate."
+      ]
+    }
+  },
+  {
+    "id": "it_pasta_tonno_pomodoro",
+    "country": "IT",
+    "kind": "main",
+    "title": {
+      "es": "Pasta con atún y tomate",
+      "en": "Pasta with tuna and tomato"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 15,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "pasta_raw",
+        "grams": 90
+      },
+      {
+        "foodId": "tuna_canned",
+        "grams": 80
+      },
+      {
+        "foodId": "crushed_tomato",
+        "grams": 150
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 5
+      },
+      {
+        "foodId": "onion",
+        "grams": 30
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece la pasta.",
+        "Sofríe la cebolla 3 min, añade el tomate y cocina 6 min.",
+        "Apaga el fuego, añade el atún escurrido y mezcla con la pasta."
+      ],
+      "en": [
+        "Cook the pasta.",
+        "Fry the onion 3 min, add the tomato and cook 6 min.",
+        "Turn off the heat, add the drained tuna and toss with the pasta."
+      ]
+    }
+  },
+  {
+    "id": "it_pasta_e_ceci",
+    "country": "IT",
+    "kind": "main",
+    "title": {
+      "es": "Pasta e ceci",
+      "en": "Pasta e ceci (pasta with chickpeas)"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 20,
+    "servings": 2,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "pasta_raw",
+        "grams": 140
+      },
+      {
+        "foodId": "chickpeas_cooked",
+        "grams": 300
+      },
+      {
+        "foodId": "crushed_tomato",
+        "grams": 150
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 15
+      },
+      {
+        "foodId": "onion",
+        "grams": 60
+      }
+    ],
+    "steps": {
+      "es": [
+        "Sofríe la cebolla con el aceite y romero 3 min.",
+        "Añade los garbanzos, el tomate y 600 ml de agua; hierve 5 min.",
+        "Echa la pasta corta y cuécela en el caldo, removiendo, hasta que esté al dente."
+      ],
+      "en": [
+        "Fry the onion in the oil with rosemary for 3 min.",
+        "Add the chickpeas, tomato and 600 ml water; boil 5 min.",
+        "Add short pasta and cook it in the broth, stirring, until al dente."
+      ]
+    }
+  },
+  {
+    "id": "it_riso_piselli",
+    "country": "IT",
+    "kind": "main",
+    "title": {
+      "es": "Arroz con guisantes y parmesano",
+      "en": "Rice with peas and parmesan"
+    },
+    "tags": [],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "rice_raw",
+        "grams": 80
+      },
+      {
+        "foodId": "green_peas",
+        "grams": 120
+      },
+      {
+        "foodId": "parmesan",
+        "grams": 15
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 5
+      },
+      {
+        "foodId": "onion",
+        "grams": 30
+      }
+    ],
+    "steps": {
+      "es": [
+        "Sofríe la cebolla 2 min, añade el arroz y nácaralo 1 min.",
+        "Añade agua caliente del hervidor poco a poco durante 15 min, con los guisantes a mitad.",
+        "Apaga y mezcla con el parmesano."
+      ],
+      "en": [
+        "Fry the onion 2 min, add the rice and toast 1 min.",
+        "Add hot water from the kettle bit by bit for 15 min, adding the peas halfway.",
+        "Turn off and stir in the parmesan."
+      ]
+    }
+  },
+  {
+    "id": "it_pollo_insalata_pane",
+    "country": "IT",
+    "kind": "main",
+    "title": {
+      "es": "Pechuga a la sartén con ensalada y pan",
+      "en": "Pan-fried chicken with salad and bread"
+    },
+    "tags": [],
+    "minutes": 15,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "chicken_breast",
+        "grams": 130
+      },
+      {
+        "foodId": "lettuce",
+        "grams": 80
+      },
+      {
+        "foodId": "tomato",
+        "grams": 100
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 10
+      },
+      {
+        "foodId": "bread_white",
+        "grams": 50
+      }
+    ],
+    "steps": {
+      "es": [
+        "Haz el pollo con la mitad del aceite, 4 min por lado, con limón y sal.",
+        "Aliña la ensalada con el resto del aceite.",
+        "Sirve con el pan."
+      ],
+      "en": [
+        "Cook the chicken in half the oil, 4 min per side, with lemon and salt.",
+        "Dress the salad with the rest of the oil.",
+        "Serve with the bread."
+      ]
+    }
+  },
+  {
+    "id": "it_caprese_pane",
+    "country": "IT",
+    "kind": "main",
+    "title": {
+      "es": "Ensalada caprese con pan",
+      "en": "Caprese salad with bread"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 5,
+    "servings": 1,
+    "equipment": [],
+    "ingredients": [
+      {
+        "foodId": "mozzarella",
+        "grams": 125
+      },
+      {
+        "foodId": "tomato",
+        "grams": 200
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 10
+      },
+      {
+        "foodId": "bread_white",
+        "grams": 60
+      }
+    ],
+    "steps": {
+      "es": [
+        "Corta el tomate y la mozzarella en rodajas.",
+        "Alterna, aliña con aceite, sal y orégano o albahaca.",
+        "Sirve con el pan."
+      ],
+      "en": [
+        "Slice the tomato and mozzarella.",
+        "Layer them, dress with oil, salt and oregano or basil.",
+        "Serve with the bread."
+      ]
+    }
+  },
+  {
+    "id": "it_pasta_lenticchie",
+    "country": "IT",
+    "kind": "main",
+    "title": {
+      "es": "Pasta con lentejas",
+      "en": "Pasta with lentils"
+    },
+    "tags": [],
+    "minutes": 20,
+    "servings": 2,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "pasta_raw",
+        "grams": 140
+      },
+      {
+        "foodId": "lentils_cooked",
+        "grams": 300
+      },
+      {
+        "foodId": "carrot",
+        "grams": 100
+      },
+      {
+        "foodId": "crushed_tomato",
+        "grams": 150
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 15
+      }
+    ],
+    "steps": {
+      "es": [
+        "Sofríe la zanahoria picada con el aceite 4 min.",
+        "Añade las lentejas, el tomate y 500 ml de agua; hierve 3 min.",
+        "Echa la pasta y cuécela en el caldo hasta que esté hecha."
+      ],
+      "en": [
+        "Fry the chopped carrot in the oil for 4 min.",
+        "Add the lentils, tomato and 500 ml water; boil 3 min.",
+        "Add the pasta and cook it in the broth until done."
+      ]
+    }
+  },
+  {
+    "id": "it_merluzzo_patate_zucchine",
+    "country": "IT",
+    "kind": "main",
+    "title": {
+      "es": "Bacalao con patata y calabacín",
+      "en": "Cod with potato and courgette"
+    },
+    "tags": [],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove",
+      "microwave"
+    ],
+    "ingredients": [
+      {
+        "foodId": "cod",
+        "grams": 150
+      },
+      {
+        "foodId": "potato_boiled",
+        "grams": 200
+      },
+      {
+        "foodId": "zucchini",
+        "grams": 150
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 10
+      }
+    ],
+    "steps": {
+      "es": [
+        "Haz la patata troceada en el microondas tapada con un poco de agua, 7 min.",
+        "Saltea el calabacín con la mitad del aceite 4 min.",
+        "Haz el bacalao en la sartén con el resto del aceite, 3 min por lado."
+      ],
+      "en": [
+        "Microwave the diced potato covered with a little water for 7 min.",
+        "Sauté the courgette in half the oil for 4 min.",
+        "Pan-fry the cod in the rest of the oil, 3 min per side."
+      ]
+    }
+  },
+  {
+    "id": "it_insalata_fagioli_tonno",
+    "country": "IT",
+    "kind": "main",
+    "title": {
+      "es": "Ensalada de alubias, atún y cebolla",
+      "en": "Bean, tuna and onion salad"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 10,
+    "servings": 1,
+    "equipment": [],
+    "ingredients": [
+      {
+        "foodId": "beans_canned",
+        "grams": 200
+      },
+      {
+        "foodId": "tuna_canned",
+        "grams": 80
+      },
+      {
+        "foodId": "onion",
+        "grams": 40
+      },
+      {
+        "foodId": "tomato",
+        "grams": 100
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 10
+      }
+    ],
+    "steps": {
+      "es": [
+        "Lava y escurre las alubias.",
+        "Corta la cebolla muy fina y el tomate.",
+        "Mezcla con el atún y aliña con aceite, sal y vinagre."
+      ],
+      "en": [
+        "Rinse and drain the beans.",
+        "Thinly slice the onion and chop the tomato.",
+        "Mix with the tuna and dress with oil, salt and vinegar."
+      ]
+    }
+  }
+]

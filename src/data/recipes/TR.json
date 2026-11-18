@@ -1,0 +1,578 @@
+[
+  {
+    "id": "tr_menemen",
+    "country": "TR",
+    "kind": "breakfast",
+    "title": {
+      "es": "Menemen",
+      "en": "Menemen (Turkish scrambled eggs)"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 12,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "egg",
+        "grams": 120
+      },
+      {
+        "foodId": "tomato",
+        "grams": 150
+      },
+      {
+        "foodId": "bell_pepper",
+        "grams": 80
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 5
+      },
+      {
+        "foodId": "bread_white",
+        "grams": 50
+      }
+    ],
+    "steps": {
+      "es": [
+        "Saltea el pimiento picado con el aceite 3 min.",
+        "Añade el tomate picado y cocina 5 min hasta que se deshaga.",
+        "Echa los huevos y remueve suavemente hasta que cuajen. Sirve con pan."
+      ],
+      "en": [
+        "Sauté the chopped pepper in the oil for 3 min.",
+        "Add the chopped tomato and cook 5 min until soft.",
+        "Add the eggs and stir gently until set. Serve with bread."
+      ]
+    }
+  },
+  {
+    "id": "tr_kahvalti_tabagi",
+    "country": "TR",
+    "kind": "breakfast",
+    "title": {
+      "es": "Desayuno turco (kahvaltı)",
+      "en": "Turkish breakfast plate (kahvaltı)"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 10,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "white_cheese",
+        "grams": 50
+      },
+      {
+        "foodId": "olives",
+        "grams": 30
+      },
+      {
+        "foodId": "tomato",
+        "grams": 100
+      },
+      {
+        "foodId": "cucumber",
+        "grams": 100
+      },
+      {
+        "foodId": "bread_whole",
+        "grams": 60
+      },
+      {
+        "foodId": "egg",
+        "grams": 60
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece el huevo 9 min.",
+        "Corta el tomate y el pepino.",
+        "Sirve todo en un plato con el queso, las aceitunas y el pan."
+      ],
+      "en": [
+        "Boil the egg for 9 min.",
+        "Slice the tomato and cucumber.",
+        "Serve everything on a plate with the cheese, olives and bread."
+      ]
+    }
+  },
+  {
+    "id": "tr_yogurt_muz_ceviz",
+    "country": "TR",
+    "kind": "breakfast",
+    "title": {
+      "es": "Yogur con plátano y nueces",
+      "en": "Yogurt with banana and walnuts"
+    },
+    "tags": [],
+    "minutes": 3,
+    "servings": 1,
+    "equipment": [],
+    "ingredients": [
+      {
+        "foodId": "yogurt_plain",
+        "grams": 200
+      },
+      {
+        "foodId": "banana",
+        "grams": 120
+      },
+      {
+        "foodId": "walnuts",
+        "grams": 15
+      }
+    ],
+    "steps": {
+      "es": [
+        "Corta el plátano.",
+        "Mézclalo con el yogur y las nueces."
+      ],
+      "en": [
+        "Slice the banana.",
+        "Mix with the yogurt and walnuts."
+      ]
+    }
+  },
+  {
+    "id": "tr_simit_ayran",
+    "country": "TR",
+    "kind": "breakfast",
+    "title": {
+      "es": "Simit con queso y ayran",
+      "en": "Simit with cheese and ayran"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 2,
+    "servings": 1,
+    "equipment": [],
+    "ingredients": [
+      {
+        "foodId": "simit",
+        "grams": 110
+      },
+      {
+        "foodId": "ayran",
+        "grams": 250
+      },
+      {
+        "foodId": "white_cheese",
+        "grams": 30
+      }
+    ],
+    "steps": {
+      "es": [
+        "Abre el simit y pon el queso.",
+        "Acompaña con el ayran frío."
+      ],
+      "en": [
+        "Split the simit and add the cheese.",
+        "Serve with cold ayran."
+      ]
+    }
+  },
+  {
+    "id": "tr_mercimek_corbasi",
+    "country": "TR",
+    "kind": "main",
+    "title": {
+      "es": "Mercimek çorbası (sopa de lentejas rojas)",
+      "en": "Mercimek çorbası (red lentil soup)"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 20,
+    "servings": 2,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "red_lentils_raw",
+        "grams": 160
+      },
+      {
+        "foodId": "onion",
+        "grams": 100
+      },
+      {
+        "foodId": "carrot",
+        "grams": 120
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 15
+      },
+      {
+        "foodId": "bread_white",
+        "grams": 100
+      }
+    ],
+    "steps": {
+      "es": [
+        "Sofríe la cebolla y la zanahoria picadas 4 min con el aceite.",
+        "Añade las lentejas lavadas y 1 l de agua del hervidor; hierve 15 min.",
+        "Tritura o machaca, añade comino, menta seca y limón. Sirve con pan."
+      ],
+      "en": [
+        "Fry the chopped onion and carrot in the oil for 4 min.",
+        "Add the rinsed lentils and 1 l of water from the kettle; simmer 15 min.",
+        "Blend or mash, add cumin, dried mint and lemon. Serve with bread."
+      ]
+    }
+  },
+  {
+    "id": "tr_bulgur_pilavi_tavuk",
+    "country": "TR",
+    "kind": "main",
+    "title": {
+      "es": "Bulgur pilavı con pollo",
+      "en": "Bulgur pilaf with chicken"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "bulgur_raw",
+        "grams": 80
+      },
+      {
+        "foodId": "chicken_breast",
+        "grams": 130
+      },
+      {
+        "foodId": "tomato",
+        "grams": 80
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 10
+      }
+    ],
+    "steps": {
+      "es": [
+        "Sofríe el tomate rallado con la mitad del aceite 2 min.",
+        "Añade el bulgur y el doble de agua caliente; tapa y cuece 12 min a fuego bajo.",
+        "Haz el pollo en tiras con el resto del aceite y pimentón."
+      ],
+      "en": [
+        "Fry the grated tomato in half the oil for 2 min.",
+        "Add the bulgur and twice its volume of hot water; cover and simmer 12 min.",
+        "Cook the chicken strips in the rest of the oil with paprika."
+      ]
+    }
+  },
+  {
+    "id": "tr_nohutlu_pilav",
+    "country": "TR",
+    "kind": "main",
+    "title": {
+      "es": "Arroz con garbanzos y yogur",
+      "en": "Rice with chickpeas and yogurt (nohutlu pilav)"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "rice_raw",
+        "grams": 70
+      },
+      {
+        "foodId": "chickpeas_cooked",
+        "grams": 150
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 10
+      },
+      {
+        "foodId": "yogurt_plain",
+        "grams": 100
+      }
+    ],
+    "steps": {
+      "es": [
+        "Lava el arroz y sofríelo 1 min con el aceite.",
+        "Añade los garbanzos y 1,5 veces su volumen de agua caliente; tapa y cuece 15 min.",
+        "Sirve con el yogur."
+      ],
+      "en": [
+        "Rinse the rice and toast it in the oil for 1 min.",
+        "Add the chickpeas and 1.5 times its volume of hot water; cover and cook 15 min.",
+        "Serve with the yogurt."
+      ]
+    }
+  },
+  {
+    "id": "tr_kiymali_patates",
+    "country": "TR",
+    "kind": "main",
+    "title": {
+      "es": "Patatas con carne picada",
+      "en": "Potatoes with minced beef (kıymalı patates)"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "minced_beef",
+        "grams": 100
+      },
+      {
+        "foodId": "potato_boiled",
+        "grams": 200
+      },
+      {
+        "foodId": "bell_pepper",
+        "grams": 60
+      },
+      {
+        "foodId": "crushed_tomato",
+        "grams": 100
+      },
+      {
+        "foodId": "sunflower_oil",
+        "grams": 5
+      }
+    ],
+    "steps": {
+      "es": [
+        "Dora la carne con el aceite 4 min.",
+        "Añade la patata en dados pequeños, el pimiento y el tomate con un vaso de agua.",
+        "Tapa y cuece 12–14 min hasta que la patata esté tierna."
+      ],
+      "en": [
+        "Brown the meat in the oil for 4 min.",
+        "Add the small-diced potato, pepper and tomato with a glass of water.",
+        "Cover and simmer 12–14 min until the potato is tender."
+      ]
+    }
+  },
+  {
+    "id": "tr_sucuklu_yumurta",
+    "country": "TR",
+    "kind": "main",
+    "title": {
+      "es": "Huevos con sucuk",
+      "en": "Eggs with sucuk (sucuklu yumurta)"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 10,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "sucuk",
+        "grams": 40
+      },
+      {
+        "foodId": "egg",
+        "grams": 120
+      },
+      {
+        "foodId": "bread_white",
+        "grams": 60
+      },
+      {
+        "foodId": "tomato",
+        "grams": 100
+      }
+    ],
+    "steps": {
+      "es": [
+        "Dora el sucuk en rodajas en la sartén sin aceite 2 min.",
+        "Casca los huevos encima y cuájalos tapados 3–4 min.",
+        "Sirve con pan y tomate."
+      ],
+      "en": [
+        "Brown the sliced sucuk in a dry pan for 2 min.",
+        "Crack the eggs on top and cook covered 3–4 min.",
+        "Serve with bread and tomato."
+      ]
+    }
+  },
+  {
+    "id": "tr_kisir",
+    "country": "TR",
+    "kind": "main",
+    "title": {
+      "es": "Kısır (ensalada de bulgur)",
+      "en": "Kısır (bulgur salad)"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "kettle"
+    ],
+    "ingredients": [
+      {
+        "foodId": "bulgur_raw",
+        "grams": 70
+      },
+      {
+        "foodId": "tomato",
+        "grams": 100
+      },
+      {
+        "foodId": "cucumber",
+        "grams": 100
+      },
+      {
+        "foodId": "onion",
+        "grams": 30
+      },
+      {
+        "foodId": "olive_oil",
+        "grams": 10
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cubre el bulgur con agua hirviendo del hervidor, tapa y deja 15 min.",
+        "Pica muy fino el tomate, el pepino y la cebolla.",
+        "Mezcla con el bulgur, el aceite, limón, sal y pimentón."
+      ],
+      "en": [
+        "Cover the bulgur with boiling water from the kettle, cover and leave 15 min.",
+        "Finely chop the tomato, cucumber and onion.",
+        "Mix with the bulgur, oil, lemon, salt and paprika."
+      ]
+    }
+  },
+  {
+    "id": "tr_tavuk_durum",
+    "country": "TR",
+    "kind": "main",
+    "title": {
+      "es": "Dürüm de pollo casero",
+      "en": "Homemade chicken dürüm"
+    },
+    "tags": [
+      "local"
+    ],
+    "minutes": 15,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "tortilla_wrap",
+        "grams": 60
+      },
+      {
+        "foodId": "chicken_breast",
+        "grams": 120
+      },
+      {
+        "foodId": "tomato",
+        "grams": 80
+      },
+      {
+        "foodId": "onion",
+        "grams": 30
+      },
+      {
+        "foodId": "yogurt_plain",
+        "grams": 60
+      }
+    ],
+    "steps": {
+      "es": [
+        "Haz el pollo en tiras con comino y pimentón 6 min.",
+        "Calienta el lavaş 20 s por lado.",
+        "Unta el yogur, añade pollo, tomate y cebolla, y enrolla."
+      ],
+      "en": [
+        "Cook the chicken strips with cumin and paprika for 6 min.",
+        "Warm the lavash 20 s per side.",
+        "Spread the yogurt, add chicken, tomato and onion, and roll up."
+      ]
+    }
+  },
+  {
+    "id": "tr_hizli_fasulye",
+    "country": "TR",
+    "kind": "main",
+    "title": {
+      "es": "Alubias rápidas con arroz",
+      "en": "Quick bean stew with rice"
+    },
+    "tags": [],
+    "minutes": 20,
+    "servings": 1,
+    "equipment": [
+      "stove"
+    ],
+    "ingredients": [
+      {
+        "foodId": "beans_canned",
+        "grams": 250
+      },
+      {
+        "foodId": "onion",
+        "grams": 40
+      },
+      {
+        "foodId": "crushed_tomato",
+        "grams": 100
+      },
+      {
+        "foodId": "sunflower_oil",
+        "grams": 10
+      },
+      {
+        "foodId": "rice_raw",
+        "grams": 60
+      }
+    ],
+    "steps": {
+      "es": [
+        "Cuece el arroz.",
+        "Sofríe la cebolla 3 min, añade el tomate y pimentón 2 min.",
+        "Añade las alubias escurridas y medio vaso de agua; 8 min."
+      ],
+      "en": [
+        "Cook the rice.",
+        "Fry the onion 3 min, add the tomato and paprika for 2 min.",
+        "Add the drained beans and half a glass of water; 8 min."
+      ]
+    }
+  }
+]
