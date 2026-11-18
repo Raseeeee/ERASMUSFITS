@@ -1,6 +1,6 @@
 /** Acceso a IndexedDB para el registro diario y mis alimentos. */
 import { nutrientsFor, type CookingContext, type Food } from '../domain/foods';
-import { emptyDay, type DayRecord, type LogEntry } from '../domain/log';
+import { editEntry, emptyDay, type DayRecord, type LogEntry, type Meal } from '../domain/log';
 import type { DayType } from '../domain/types';
 import { db } from './db';
 
@@ -14,12 +14,24 @@ export async function listEntries(date: string): Promise<LogEntry[]> {
   return db.entries.where('date').equals(date).sortBy('createdAt');
 }
 
-export async function addEntry(date: string, food: Food, grams: number, context: CookingContext): Promise<LogEntry> {
+export async function getEntry(id: string): Promise<LogEntry | undefined> {
+  return db.entries.get(id);
+}
+
+export async function addEntry(
+  date: string,
+  meal: Meal,
+  food: Food,
+  grams: number,
+  context: CookingContext,
+): Promise<LogEntry> {
   const entry: LogEntry = {
     id: newId(),
     date,
+    meal,
     foodId: food.id,
     name: { ...food.names },
+    food,
     grams: Math.round(grams),
     context,
     nutrients: nutrientsFor(food, grams, context),
@@ -27,6 +39,19 @@ export async function addEntry(date: string, food: Food, grams: number, context:
   };
   await db.entries.add(entry);
   return entry;
+}
+
+/** Edita gramos, contexto y comida de una entrada ya registrada. */
+export async function updateEntry(
+  id: string,
+  food: Food,
+  changes: { grams: number; context: CookingContext; meal: Meal },
+): Promise<LogEntry> {
+  const current = await db.entries.get(id);
+  if (!current) throw new Error(`Entry ${id} not found`);
+  const updated = editEntry(current, food, changes);
+  await db.entries.put(updated);
+  return updated;
 }
 
 export async function deleteEntry(id: string): Promise<void> {

@@ -1,3 +1,5 @@
+import Dexie from 'dexie';
+import { AppDB } from './db';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { seedFoods } from '../data/foods';
 import { makeMyFood } from '../domain/foods';
@@ -7,6 +9,8 @@ import {
   changeWater,
   deleteEntry,
   getDay,
+  getEntry,
+  updateEntry,
   listEntries,
   listMyFoods,
   saveMyFood,
@@ -26,8 +30,8 @@ describe('logRepo (Dexie)', () => {
   });
 
   it('añade, lista por fecha y borra entradas', async () => {
-    const e = await addEntry(D, chicken, 130, 'canteen');
-    await addEntry('2026-11-19', chicken, 100, 'home');
+    const e = await addEntry(D, 'lunch', chicken, 130, 'canteen');
+    await addEntry('2026-11-19', 'dinner', chicken, 100, 'home');
     expect(e.nutrients.f).toBeCloseTo(4.7 + 5.2, 1);
     expect(e.name.es).toBe('Pechuga de pollo');
     const list = await listEntries(D);
@@ -55,10 +59,51 @@ describe('logRepo (Dexie)', () => {
   });
 
   it('borrar todo limpia también el registro', async () => {
-    await addEntry(D, chicken, 100, 'home');
+    await addEntry(D, 'snack', chicken, 100, 'home');
     await saveMyFood(makeMyFood({ id: 'my-x', name: 'X', p: 1, c: 1, f: 1, state: 'raw' }));
     await useAppStore.getState().deleteAll();
     expect(await listEntries(D)).toHaveLength(0);
     expect(await listMyFoods()).toHaveLength(0);
+  });
+});
+
+describe('editar entrada', () => {
+  beforeEach(async () => {
+    await useAppStore.getState().deleteAll();
+  });
+
+  it('cambia gramos, contexto y comida; guarda copia del alimento', async () => {
+    const e = await addEntry(D, 'lunch', chicken, 130, 'home');
+    expect((await getEntry(e.id))?.food?.id).toBe('chicken_breast');
+    const u = await updateEntry(e.id, chicken, { grams: 200, context: 'canteen', meal: 'dinner' });
+    const stored = await getEntry(e.id);
+    expect(stored).toEqual(u);
+    expect(stored?.grams).toBe(200);
+    expect(stored?.meal).toBe('dinner');
+    expect(stored?.nutrients.f).toBe(15.2);
+    expect(await listEntries(D)).toHaveLength(1);
+  });
+});
+
+describe('migración v2 → v3', () => {
+  it('asigna comida por hora y copia el alimento a entradas antiguas', async () => {
+    const name = 'migration-test';
+    const old = new Dexie(name);
+    old.version(1).stores({ kv: 'key' });
+    old.version(2).stores({ kv: 'key', entries: 'id, date, createdAt', days: 'date', myFoods: 'id, overridesId' });
+    await old.open();
+    await old.table('entries').add({
+      id: 'old-1', date: D, foodId: 'egg', name: { es: 'Huevo', en: 'Egg' }, grams: 60, context: 'home',
+      nutrients: { kcal: 88, p: 7.8, c: 0.6, f: 6, fiber: 0, sugar: 0, salt: 0.2 },
+      createdAt: new Date(2026, 10, 18, 8, 30).getTime(),
+    });
+    old.close();
+
+    const db = new AppDB(name);
+    const e = await db.entries.get('old-1');
+    expect(e?.meal).toBe('breakfast');
+    expect(e?.food?.id).toBe('egg');
+    db.close();
+    await Dexie.delete(name);
   });
 });
