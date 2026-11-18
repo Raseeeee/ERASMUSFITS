@@ -179,7 +179,9 @@
     "today": "Hoy",
     "targets": "Objetivos",
     "settings": "Ajustes",
-    "add": "Añadir"
+    "add": "Añadir",
+    "recipes": "Recetas",
+    "shop": "Compra"
   },
   "food": {
     "addTitle": "Añadir comida",
@@ -275,5 +277,103 @@
   },
   "mealHints": {
     "snack": "Media mañana, merienda…"
+  },
+  "recipes": {
+    "title": "Recetas",
+    "subtitle": "Rápidas (≤ 20 min), con placa, microondas o hervidor. Ordenadas según lo que te queda hoy y su precio.",
+    "country": "Recetas de",
+    "kind": "Tipo",
+    "kinds": {
+      "all": "Todas",
+      "breakfast": "Desayuno / snack",
+      "main": "Comida / cena"
+    },
+    "onlyMyGoal": "Solo las que encajan con mi objetivo",
+    "maxMinutes": "Tiempo máximo",
+    "anyTime": "Cualquiera",
+    "minutesOption": "≤ {{n}} min",
+    "maxCost": "Precio máximo por ración ({{currency}})",
+    "vegetarian": "Vegetariana",
+    "highProtein": "Alta en proteína",
+    "familiar": "Ingredientes de casa",
+    "none": "No hay recetas con estos filtros.",
+    "perServing": "Por ración: {{kcal}} kcal · P {{p}} · C {{c}} · G {{f}}",
+    "minutes": "{{n}} min",
+    "servings_one": "{{count}} ración",
+    "servings_other": "{{count}} raciones",
+    "costPerServing": "{{cost}} / ración",
+    "noPrice": "precio no disponible",
+    "ingredients": "Ingredientes",
+    "steps": "Pasos",
+    "equipment": {
+      "stove": "placa",
+      "microwave": "microondas",
+      "kettle": "hervidor"
+    },
+    "notCounted": "Sal, especias y limón no se cuentan.",
+    "priceNote": "Precios en {{country}} ({{store}}), {{confidence}}, actualizados el {{date}}.",
+    "confidence": {
+      "estimado": "estimados",
+      "verificado": "verificados",
+      "mixed": "en parte verificados"
+    },
+    "addToDay": "Añadir al día",
+    "servingsEaten": "Raciones que comes",
+    "added": "Añadido a {{meal}}.",
+    "notFound": "Receta no encontrada.",
+    "back": "Volver a recetas",
+    "total": "Total receta"
+  },
+  "shop": {
+    "title": "Compra barata",
+    "subtitle": "Cesta semanal más barata que cumple tus objetivos (±5 %) en {{country}}.",
+    "preferences": "Preferencias",
+    "vegetarian": "Vegetariana",
+    "quick": "Solo cocina rápida (sin legumbre seca)",
+    "allergies": "Alergias e intolerancias",
+    "excluded": "Alimentos excluidos",
+    "exclude": "Excluir",
+    "excludePlaceholder": "Elige un alimento…",
+    "removeExcluded": "Quitar {{name}} de excluidos",
+    "calculate": "Calcular cesta",
+    "recalculate": "Recalcular",
+    "week": "Total semana",
+    "perDay": "Por día",
+    "buy": "Comprar",
+    "list": "Lista de la compra",
+    "eats": "{{grams}} g/semana registrados",
+    "totals": "La cesta aporta por semana {{kcal}} kcal · P {{p}} g · C {{c}} g · G {{f}} g (objetivo {{tkcal}} kcal).",
+    "relaxations": {
+      "title": "Para encontrar una cesta hemos relajado:",
+      "macrosWidened": "los macros a ±10 % (las kcal siguen a ±5 %)",
+      "varietyReduced": "la variedad mínima de alimentos",
+      "fruitVegReduced": "la cantidad mínima de fruta y verdura",
+      "onlyKcalProtein": "el reparto de carbohidratos y grasa (solo kcal y proteína)"
+    },
+    "infeasible": {
+      "tooFewFoods": "Con estas preferencias quedan muy pocos alimentos con precio. Quita alguna exclusión o alergia.",
+      "noSolution": "No hemos encontrado una cesta que cumpla tus objetivos con estas preferencias. Prueba a quitar alguna restricción."
+    },
+    "equivalents": "De casa a {{country}}",
+    "equivalentsHint": "Tus básicos de {{origin}}: si se venden aquí y la alternativa más barata del mismo tipo.",
+    "basis": {
+      "kcal": "1000 kcal",
+      "protein": "100 g de proteína"
+    },
+    "sameHere": "Aquí: {{cost}}",
+    "notSoldHere": "Poco habitual aquí",
+    "cheapest": "Más barato: {{name}} · {{cost}}",
+    "itsCheapest": "Ya es la opción más barata",
+    "priceNote": "Precios orientativos de supermercado económico ({{store}}); {{verified}} de {{total}} verificados. Actualizados el {{date}}.",
+    "disclaimer": "Es una cesta orientativa: combínala con las recetas y ajusta a tu gusto.",
+    "perBasis": "por {{basis}}"
+  },
+  "allergens": {
+    "gluten": "Gluten",
+    "lactose": "Lactosa",
+    "nuts": "Frutos secos",
+    "egg": "Huevo",
+    "fish": "Pescado",
+    "soy": "Soja"
   }
 }

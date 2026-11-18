@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { db } from './db';
 import type { BodyProfile, DayType, Language, Targets, Trip } from '../domain/types';
+import type { ShoppingPreferences } from '../domain/optimizer';
 
 export type TargetOverrides = Partial<Record<DayType, Targets>>;
 
@@ -10,6 +11,7 @@ interface PersistedState {
   profile: BodyProfile | null;
   overrides: TargetOverrides;
   onboarded: boolean;
+  shopPrefs: ShoppingPreferences;
 }
 
 interface AppState extends PersistedState {
@@ -20,6 +22,7 @@ interface AppState extends PersistedState {
   setProfile: (p: BodyProfile) => Promise<void>;
   setOverride: (d: DayType, t: Targets | null) => Promise<void>;
   completeOnboarding: () => Promise<void>;
+  setShopPrefs: (p: ShoppingPreferences) => Promise<void>;
   deleteAll: () => Promise<void>;
 }
 
@@ -29,6 +32,7 @@ const initial: PersistedState = {
   profile: null,
   overrides: {},
   onboarded: false,
+  shopPrefs: {},
 };
 
 const KEYS = Object.keys(initial) as (keyof PersistedState)[];
@@ -73,6 +77,10 @@ export const useAppStore = create<AppState>((set, get) => ({
   completeOnboarding: async () => {
     set({ onboarded: true });
     await put('onboarded', true);
+  },
+  setShopPrefs: async (shopPrefs) => {
+    set({ shopPrefs });
+    await put('shopPrefs', shopPrefs);
   },
   deleteAll: async () => {
     await Promise.all(db.tables.map((t) => t.clear()));

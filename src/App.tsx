@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from 'react';
+import { Suspense, lazy, useEffect, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserRouter, NavLink, Navigate, Outlet, Route, Routes } from 'react-router';
 import { useAppStore } from './store/appStore';
@@ -9,6 +9,13 @@ import { TodayScreen } from './features/today/TodayScreen';
 import { SettingsScreen } from './features/settings/SettingsScreen';
 import { AddFoodScreen } from './features/food/AddFoodScreen';
 
+// Pantallas pesadas (recetas, precios, optimizador) en chunks aparte: bundle inicial pequeño.
+const RecipesScreen = lazy(() => import('./features/recipes/RecipesScreen').then((m) => ({ default: m.RecipesScreen })));
+const RecipeDetailScreen = lazy(() =>
+  import('./features/recipes/RecipeDetailScreen').then((m) => ({ default: m.RecipeDetailScreen })),
+);
+const ShopScreen = lazy(() => import('./features/shop/ShopScreen').then((m) => ({ default: m.ShopScreen })));
+
 function RequireOnboarded({ children }: { children: ReactNode }) {
   const onboarded = useAppStore((s) => s.onboarded);
   return onboarded ? children : <Navigate to="/onboarding" replace />;
@@ -18,12 +25,15 @@ function TabsLayout() {
   const { t } = useTranslation();
   const tabs = [
     { to: '/today', label: t('nav.today') },
-    { to: '/targets', label: t('nav.targets') },
+    { to: '/recipes', label: t('nav.recipes') },
+    { to: '/shop', label: t('nav.shop') },
     { to: '/settings', label: t('nav.settings') },
   ];
   return (
     <>
-      <Outlet />
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
       <nav className="fixed inset-x-0 bottom-0 border-t border-bd bg-card pb-[env(safe-area-inset-bottom)]" aria-label="main">
         <ul className="mx-auto flex max-w-xl">
           {tabs.map((tab) => (
@@ -73,6 +83,9 @@ export default function App() {
         >
           <Route path="/today" element={<TodayScreen />} />
           <Route path="/add" element={<AddFoodScreen />} />
+          <Route path="/recipes" element={<RecipesScreen />} />
+          <Route path="/recipes/:id" element={<RecipeDetailScreen />} />
+          <Route path="/shop" element={<ShopScreen />} />
           <Route path="/targets" element={<TargetsScreen />} />
           <Route path="/settings" element={<SettingsScreen />} />
         </Route>

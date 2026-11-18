@@ -179,7 +179,9 @@
     "today": "Today",
     "targets": "Targets",
     "settings": "Settings",
-    "add": "Add"
+    "add": "Add",
+    "recipes": "Recipes",
+    "shop": "Shopping"
   },
   "food": {
     "addTitle": "Add food",
@@ -275,5 +277,103 @@
   },
   "mealHints": {
     "snack": "Mid-morning, afternoon snack…"
+  },
+  "recipes": {
+    "title": "Recipes",
+    "subtitle": "Quick (≤ 20 min), hob, microwave or kettle only. Sorted by what you have left today and price.",
+    "country": "Recipes from",
+    "kind": "Type",
+    "kinds": {
+      "all": "All",
+      "breakfast": "Breakfast / snack",
+      "main": "Lunch / dinner"
+    },
+    "onlyMyGoal": "Only those that fit my goal",
+    "maxMinutes": "Max time",
+    "anyTime": "Any",
+    "minutesOption": "≤ {{n}} min",
+    "maxCost": "Max price per serving ({{currency}})",
+    "vegetarian": "Vegetarian",
+    "highProtein": "High protein",
+    "familiar": "Ingredients from home",
+    "none": "No recipes match these filters.",
+    "perServing": "Per serving: {{kcal}} kcal · P {{p}} · C {{c}} · F {{f}}",
+    "minutes": "{{n}} min",
+    "servings_one": "{{count}} serving",
+    "servings_other": "{{count}} servings",
+    "costPerServing": "{{cost}} / serving",
+    "noPrice": "price not available",
+    "ingredients": "Ingredients",
+    "steps": "Steps",
+    "equipment": {
+      "stove": "hob",
+      "microwave": "microwave",
+      "kettle": "kettle"
+    },
+    "notCounted": "Salt, spices and lemon are not counted.",
+    "priceNote": "Prices in {{country}} ({{store}}), {{confidence}}, updated {{date}}.",
+    "confidence": {
+      "estimado": "estimated",
+      "verificado": "verified",
+      "mixed": "partly verified"
+    },
+    "addToDay": "Add to day",
+    "servingsEaten": "Servings you eat",
+    "added": "Added to {{meal}}.",
+    "notFound": "Recipe not found.",
+    "back": "Back to recipes",
+    "total": "Whole recipe"
+  },
+  "shop": {
+    "title": "Budget shopping",
+    "subtitle": "Cheapest weekly basket that meets your targets (±5 %) in {{country}}.",
+    "preferences": "Preferences",
+    "vegetarian": "Vegetarian",
+    "quick": "Quick cooking only (no dried pulses)",
+    "allergies": "Allergies and intolerances",
+    "excluded": "Excluded foods",
+    "exclude": "Exclude",
+    "excludePlaceholder": "Choose a food…",
+    "removeExcluded": "Remove {{name}} from excluded",
+    "calculate": "Build basket",
+    "recalculate": "Recalculate",
+    "week": "Weekly total",
+    "perDay": "Per day",
+    "buy": "Buy",
+    "list": "Shopping list",
+    "eats": "{{grams}} g/week as logged",
+    "totals": "The basket provides per week {{kcal}} kcal · P {{p}} g · C {{c}} g · F {{f}} g (target {{tkcal}} kcal).",
+    "relaxations": {
+      "title": "To find a basket we relaxed:",
+      "macrosWidened": "macros to ±10 % (calories still ±5 %)",
+      "varietyReduced": "the minimum variety of foods",
+      "fruitVegReduced": "the minimum amount of fruit and veg",
+      "onlyKcalProtein": "the carb/fat split (calories and protein only)"
+    },
+    "infeasible": {
+      "tooFewFoods": "With these preferences there are very few priced foods left. Remove an exclusion or allergy.",
+      "noSolution": "We couldn't find a basket that meets your targets with these preferences. Try removing a restriction."
+    },
+    "equivalents": "From home to {{country}}",
+    "equivalentsHint": "Your staples from {{origin}}: whether they are sold here and the cheapest alternative of the same kind.",
+    "basis": {
+      "kcal": "1000 kcal",
+      "protein": "100 g protein"
+    },
+    "sameHere": "Here: {{cost}}",
+    "notSoldHere": "Uncommon here",
+    "cheapest": "Cheapest: {{name}} · {{cost}}",
+    "itsCheapest": "Already the cheapest option",
+    "priceNote": "Indicative budget-supermarket prices ({{store}}); {{verified}} of {{total}} verified. Updated {{date}}.",
+    "disclaimer": "This is an indicative basket: combine it with the recipes and adjust to taste.",
+    "perBasis": "per {{basis}}"
+  },
+  "allergens": {
+    "gluten": "Gluten",
+    "lactose": "Lactose",
+    "nuts": "Nuts",
+    "egg": "Egg",
+    "fish": "Fish",
+    "soy": "Soy"
   }
 }

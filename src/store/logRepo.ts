@@ -97,3 +97,27 @@ export function newMyFoodId(): string {
 export async function clearLog(): Promise<void> {
   await Promise.all([db.entries.clear(), db.days.clear(), db.myFoods.clear()]);
 }
+
+/** Registra varios alimentos de una vez (p. ej. los ingredientes de una receta). */
+export async function addEntries(
+  date: string,
+  meal: Meal,
+  items: { food: Food; grams: number }[],
+  context: CookingContext = 'home',
+): Promise<void> {
+  const now = Date.now();
+  await db.entries.bulkAdd(
+    items.map((it, i) => ({
+      id: newId(),
+      date,
+      meal,
+      foodId: it.food.id,
+      name: { ...it.food.names },
+      food: it.food,
+      grams: Math.round(it.grams),
+      context,
+      nutrients: nutrientsFor(it.food, it.grams, context),
+      createdAt: now + i,
+    })),
+  );
+}

@@ -116,7 +116,7 @@ export interface RecipeFilter {
   kind?: RecipeKind;
 }
 
-export function filterRecipes(list: RecipeInfo[], f: RecipeFilter): RecipeInfo[] {
+export function filterRecipes<T extends RecipeInfo>(list: T[], f: RecipeFilter): T[] {
   return list.filter(
     (r) =>
       (!f.goal || r.goals.includes(f.goal)) &&
@@ -142,7 +142,7 @@ export function fitScore(n: Nutrients, rem: Remaining): number {
 }
 
 /** Orden de sugerencias: encaje con macros restantes (en tramos de 0,1) y luego menor coste por ración. */
-export function sortSuggestions(list: RecipeInfo[], rem: Remaining): RecipeInfo[] {
+export function sortSuggestions<T extends RecipeInfo>(list: T[], rem: Remaining): T[] {
   const bucket = (r: RecipeInfo) => Math.round(fitScore(r.perServing, rem) * 10);
   return [...list].sort(
     (a, b) =>
