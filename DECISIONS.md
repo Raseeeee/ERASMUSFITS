@@ -44,3 +44,42 @@ Registro de decisiones tomadas ante ambigüedades de `SPEC.md`. Formato: decisi�
 
 ### Pendiente de la Fase 1 hacia adelante
 - Nada bloqueante. Mejoras posibles: exponer `loseDeficit` en la UI, selector de banderas visual.
+
+## Fase 2 — Registro
+
+### Semilla de alimentos (`src/data/foods.seed.json`)
+- **51 alimentos** (los ~25 del prototipo + básicos de los 5 países: bulgur, kasza, quark, simit, beyaz peynir, etc.), con nombres **es/en**. Ampliación a 150–200 y alias it/de/pl/tr: Fase 3, como dice el plan de fases.
+- Se genera con `scripts/build-seed.mjs` desde una tabla compacta; editar la tabla y ejecutar `node scripts/build-seed.mjs`.
+- **Convención UE**: carbohidratos *disponibles* (sin fibra) y **kcal = 4·P + 4·C + 9·G + 2·fibra**, calculadas, nunca escritas a mano. Un test comprueba que cuadran.
+- Valores redondeados de tablas tipo BEDCA/USDA; **orientativos**. Fibra, azúcares y sal no estaban en el prototipo y los he añadido yo.
+- **`sugar` = azúcares libres** en la semilla curada (0 en fruta entera y lácteos naturales), para compararlo con el tope de "azúcares libres". OFF solo da azúcares totales: en la Fase 3 habrá que marcarlo o aproximarlo.
+- Campo extra **`category`** (no está en el esquema de la spec) para los valores por defecto de grasa extra en cantina.
+
+### Cantina
+- **Grasa extra por categoría** (`CANTEEN_EXTRA_FAT` en `src/domain/foods.ts`, con test): carne 4, pescado 3, huevo 4, cereal 2, pasta 3, patata 5, legumbre 3, verdura 5, ensalada 6; el resto 0 (lácteos, fruta, pan, platos preparados que ya vienen cocinados así…). Si un alimento trae `canteenExtraFatPer100g`, ese valor manda.
+- kcal en cantina = kcal base + 9 × grasa extra (equivale a recalcular desde macros).
+
+### Registro
+- **Tipo de día por defecto**: `light` cuando el día no tiene registro.
+- Cada entrada guarda una **copia** del nombre y de los nutrientes calculados en el momento de registrar: si luego editas el alimento, el histórico no cambia.
+- **Sin franjas de comida** (desayuno/comida/cena) en el MVP: una lista por día ordenada por hora de registro.
+- **Barras**: kcal, P, C, G y fibra son "objetivo" (kcal, carbos y grasa se marcan en rojo si pasan del 105 %; la proteína y la fibra no); sal y azúcares son "tope" (rojo si se superan).
+- **Agua**: contador de 0 a 30 vasos por día; el objetivo depende del tipo de día.
+- **Fechas** en hora local (`YYYY-MM-DD`; el prototipo usaba UTC, y en Turquía, por ejemplo, eso cambia de día a medianoche UTC). La fecha va en la URL (`/today?date=…`).
+
+### Mis alimentos
+- "Editar macros" sobre un alimento crea uno **mío** con `overridesId` = id del original: en las búsquedas sale primero y **oculta** el original. Solo puede haber una corrección por alimento original (la nueva sustituye a la anterior).
+- "Crear alimento nuevo" parte del texto buscado. Las kcal se calculan a partir de los macros; se rechaza P + C + G + fibra > 100 g.
+- Un alimento mío tiene un solo nombre (el mismo en es y en).
+
+### Búsqueda
+- Local y offline (mío + semilla), con debounce de 300 ms. Orden: coincidencia (exacta > prefijo > palabra > contiene), luego fuente (mío > curado > OFF > USDA), luego alfabético. Normaliza acentos y letras ı/ł/ß.
+- Etiqueta de fuente visible (Mío / Curado) y estado crudo/cocinado con aviso de cómo pesar.
+
+### Tests
+- `e2e/helpers.ts` siembra el perfil en IndexedDB para no repetir el onboarding en cada test.
+- E2E "añadir comida": unidades, cantina, persistencia tras recargar, borrado, gramos manuales, editar macros (mío), crear alimento, tipo de día, agua y navegación por fechas.
+
+### Pendiente
+- Editar una entrada ya registrada (ahora: borrar y volver a añadir).
+- Recientes/favoritos en el buscador.
