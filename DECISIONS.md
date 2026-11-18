@@ -80,6 +80,13 @@ Registro de decisiones tomadas ante ambigüedades de `SPEC.md`. Formato: decisi�
 - `e2e/helpers.ts` siembra el perfil en IndexedDB para no repetir el onboarding en cada test.
 - E2E "añadir comida": unidades, cantina, persistencia tras recargar, borrado, gramos manuales, editar macros (mío), crear alimento, tipo de día, agua y navegación por fechas.
 
+### Comidas del día y edición (pedido tras revisar la Fase 2)
+- **Cuatro comidas**: desayuno, comida, cena y **snacks** (media mañana, merienda…), en ese orden y siempre visibles aunque estén vacías. Cada una muestra su subtotal (kcal · P · C · G) y su botón "+ Añadir a …".
+- **Contador "Te quedan"** arriba: kcal y P/C/G que faltan para el objetivo del tipo de día. Si te pasas, lo dice en tono neutro ("Te has pasado X kcal"), sin castigos.
+- **Comida por defecto** al añadir: la de la sección desde la que entras; si no, según la hora local (5–10 desayuno, 11–12 snack, 13–16 comida, 17–19 snack, 20–4 cena).
+- **Editar**: tocar una entrada abre el formulario con cantidad (en unidades si es múltiplo exacto, si no en gramos), contexto y comida; se puede cambiar el alimento, guardar o borrar.
+- Cada entrada guarda una **copia del alimento** (`food`), así se puede editar aunque el alimento original cambie o venga de OFF/USDA (que no se guardan localmente).
+- **Migración Dexie v3**: las entradas antiguas reciben comida según su hora de registro y la copia del alimento si existe en la semilla o en mis alimentos.
+
 ### Pendiente
-- Editar una entrada ya registrada (ahora: borrar y volver a añadir).
 - Recientes/favoritos en el buscador.
