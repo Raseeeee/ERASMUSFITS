@@ -1,0 +1,17 @@
+node_modules/
+dist/
+dev-dist/
+coverage/
+test-results/
+playwright-report/
+playwright/.cache/
+*.log
+.DS_Store
+Thumbs.db
+
+# Secrets: never commit
+.env
+.env.*
+!.env.example
+.dev.vars
+.wrangler/

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Macros Erasmus</title>
+<style>
+:root{--bg:#f6f6f3;--card:#fff;--tx:#1c1c1a;--mu:#6b6b66;--bd:#dedcd5;--ac:#1d7a5f;--wr:#c0392b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161615;--card:#222221;--tx:#ececE8;--mu:#9a9a94;--bd:#3a3a37;--ac:#3fb58f;--wr:#ef6b5b;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 system-ui,sans-serif;padding:12px;max-width:760px;margin:auto}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;margin-bottom:12px}
+h1{font-size:18px;margin:4px 0 10px}h2{font-size:14px;margin:0 0 8px;color:var(--mu);text-transform:uppercase;letter-spacing:.04em}
+input,select,button{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:7px 9px;min-width:0}
+button{cursor:pointer}button.p{background:var(--ac);color:#fff;border-color:var(--ac)}
+.r{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px}.r>*{flex:1 1 90px}
+.bar{height:8px;background:var(--bd);border-radius:4px;overflow:hidden;margin:3px 0 9px}.bar i{display:block;height:100%;background:var(--ac)}.bar i.o{background:var(--wr)}
+.l{display:flex;justify-content:space-between;font-size:14px}.mu{color:var(--mu);font-size:13px}
+.w{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13px}td,th{padding:5px 4px;border-bottom:1px solid var(--bd);text-align:right;white-space:nowrap}td:first-child,th:first-child{text-align:left;white-space:normal}
+.x{background:none;border:none;color:var(--wr);padding:2px 6px;flex:0}
+</style></head><body>
+<h1>Macros Erasmus</h1>
+<div class="c"><div class="r"><input type="date" id="dt"><select id="ty"><option value="gym">Día de gym</option><option value="light">Actividad ligera (habitación)</option><option value="rest">Descanso</option></select></div>
+<div id="bars"></div>
+<details><summary class="mu">Editar objetivos (kcal / P / C / G)</summary><div id="tg" style="margin-top:8px"></div></details></div>
+
+<div class="c"><h2>Añadir comida</h2>
+<div class="r"><input id="fn" list="fl" placeholder="Busca: pollo, arroz, döner..." style="flex:2 1 160px"><datalist id="fl"></datalist>
+<select id="src"><option value="home">Cocinado por mí</option><option value="caf">Cafetería</option></select></div>
+<div class="r"><input id="q" type="number" min="0" step="any" placeholder="Cantidad"><select id="un"></select><button class="p" id="add">Añadir</button></div>
+<div class="mu" id="pv"></div>
+<details style="margin-top:8px"><summary class="mu">Crear / corregir alimento con macros propios (por 100 g)</summary><div class="r" style="margin-top:8px">
+<input id="cn" placeholder="Nombre" style="flex:2 1 140px"><input id="cp" type="number" placeholder="Prot"><input id="cc" type="number" placeholder="Carb"><input id="cf" type="number" placeholder="Grasa">
+<input id="cx" type="number" placeholder="+G cafetería"><input id="cu" placeholder="Unidad (filete)"><input id="cg" type="number" placeholder="g/unidad"><button id="sv">Guardar</button></div>
+<div class="mu">Si usas el mismo nombre que uno existente, el tuyo lo sustituye. +G cafetería = gramos de grasa extra por 100 g por cómo cocinan allí.</div></details></div>
+
+<div class="c"><h2>Hoy</h2><div class="w"><table id="tb"></table></div></div>
+<script>
+const D={ // nombre:[P,C,G,+G cafetería,unidad,g/unidad] por 100 g (cocinado)
+"Pechuga de pollo":[31,0,3.6,4,"filete",130],"Ternera magra":[27,0,10,5,"filete",150],"Huevo":[13,1,10,4,"huevo",60],
+"Atún al natural":[26,0,1,0,"lata",80],"Salmón":[22,0,13,3,"filete",150],"Arroz cocido":[2.7,28,.3,2,"taza",150],
+"Pasta cocida":[5,31,1,3,"plato",250],"Patata cocida":[2,17,.1,5,"unidad",150],"Pan":[9,49,3,0,"rebanada",30],
+"Avena":[13,60,7,0,"tazón",50],"Lentejas cocidas":[9,20,.5,3,"plato",250],"Garbanzos cocidos":[8,27,2.6,3,"plato",250],
+"Yogur griego natural":[9,4,5,0,"unidad",125],"Leche semi":[3.4,4.8,1.6,0,"vaso",250],"Queso fresco 0%":[8,4,.2,0,"tarrina",125],
+"Plátano":[1,23,.3,0,"unidad",120],"Manzana":[.3,14,.2,0,"unidad",180],"Aceite de oliva":[0,0,100,0,"cucharada",10],
+"Almendras/frutos secos":[21,22,50,0,"puñado",30],"Ensalada":[1,3,.2,6,"plato",150],"Verdura cocinada":[2,5,.3,5,"ración",200],
+"Döner de pollo (dürüm)":[12,17,9,0,"dürüm",230],"Köfte":[17,4,18,0,"ración",150],"Simit":[10,50,4,0,"unidad",110],
+"Whey":[78,6,6,0,"scoop",30],"Crema de cacahuete":[25,20,50,0,"cucharada",16]};
+const T0={gym:[2500,140,330,70],light:[2250,140,265,70],rest:[2100,140,225,70]};
+let S;try{S=JSON.parse(localStorage.getItem("mx"))}catch(e){}
+S=S||{t:T0,d:{},c:{}};
+const sv=()=>{try{localStorage.setItem("mx",JSON.stringify(S))}catch(e){}};
+const $=i=>document.getElementById(i),F=()=>({...D,...S.c}),r1=n=>Math.round(n*10)/10;
+$("dt").value=new Date().toISOString().slice(0,10);
+const day=()=>S.d[$("dt").value]||(S.d[$("dt").value]={type:"gym",items:[]});
+const kc=(p,c,f)=>4*p+4*c+9*f;
+function foods(){$("fl").innerHTML=Object.keys(F()).map(n=>`<option value="${n}">`).join("")}
+function units(){const f=F()[$("fn").value];$("un").innerHTML="<option value='g'>gramos</option>"+(f&&f[4]?`<option value='u'>${f[4]} (${f[5]} g)</option>`:"");if(f&&f[4]&&!$("q").value)$("un").value="u";prev()}
+function calc(){const f=F()[$("fn").value],q=+$("q").value;if(!f||!q)return null;const g=$("un").value=="u"?q*f[5]:q,cf=$("src").value=="caf",k=g/100;
+return{n:$("fn").value,g:Math.round(g),src:cf?"Cafetería":"Casa",p:f[0]*k,c:f[1]*k,f:(f[2]+(cf?f[3]:0))*k}}
+function prev(){const x=calc();$("pv").textContent=x?`${x.g} g → ${Math.round(kc(x.p,x.c,x.f))} kcal · P ${r1(x.p)} · C ${r1(x.c)} · G ${r1(x.f)}`:""}
+function render(){const d=day();$("ty").value=d.type;const t=S.t[d.type],s=d.items.reduce((a,i)=>[a[0]+i.p,a[1]+i.c,a[2]+i.f],[0,0,0]),v=[kc(...s),...s],L=["Calorías","Proteína","Carbohidratos","Grasa"];
+$("bars").innerHTML=L.map((l,i)=>{const o=v[i]>t[i];return`<div class="l"><b>${l}</b><span>${Math.round(v[i])} / ${t[i]}${i?" g":" kcal"} <span class="mu">(${o?"+"+Math.round(v[i]-t[i]):"faltan "+Math.round(t[i]-v[i])})</span></span></div><div class="bar"><i class="${o?"o":""}" style="width:${Math.min(100,v[i]/t[i]*100)}%"></i></div>`}).join("");
+$("tg").innerHTML=Object.keys(S.t).map(k=>`<div class="r"><span style="flex:2 1 120px">${{gym:"Gym",light:"Ligera",rest:"Descanso"}[k]}</span>${S.t[k].map((x,j)=>`<input type="number" value="${x}" data-k="${k}" data-j="${j}">`).join("")}</div>`).join("");
+$("tb").innerHTML="<tr><th>Alimento</th><th>g</th><th>kcal</th><th>P</th><th>C</th><th>G</th><th></th></tr>"+d.items.map((i,n)=>`<tr><td>${i.n}<div class="mu">${i.src}</div></td><td>${i.g}</td><td>${Math.round(kc(i.p,i.c,i.f))}</td><td>${r1(i.p)}</td><td>${r1(i.c)}</td><td>${r1(i.f)}</td><td><button class="x" data-del="${n}">✕</button></td></tr>`).join("")+`<tr><th>Total</th><th></th><th>${Math.round(v[0])}</th><th>${r1(s[0])}</th><th>${r1(s[1])}</th><th>${r1(s[2])}</th><th></th></tr>`}
+$("ty").onchange=e=>{day().type=e.target.value;sv();render()};
+$("dt").onchange=render;$("fn").oninput=units;$("q").oninput=prev;$("un").onchange=prev;$("src").onchange=prev;
+$("add").onclick=()=>{const x=calc();if(!x)return;day().items.push(x);$("q").value="";$("fn").value="";$("pv").textContent="";sv();render()};
+$("tb").onclick=e=>{const n=e.target.dataset.del;if(n!=null){day().items.splice(n,1);sv();render()}};
+$("tg").onchange=e=>{const a=e.target.dataset;if(a.k){S.t[a.k][a.j]=+e.target.value||0;sv();render()}};
+$("sv").onclick=()=>{const n=$("cn").value.trim();if(!n)return;S.c[n]=[+$("cp").value||0,+$("cc").value||0,+$("cf").value||0,+$("cx").value||0,$("cu").value.trim(),+$("cg").value||0];["cn","cp","cc","cf","cx","cu","cg"].forEach(i=>$(i).value="");sv();foods()};
+foods();units();render();
+</script></body></html>
