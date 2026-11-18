@@ -404,12 +404,12 @@
     "notLogged": "not logged",
     "targetLine": "Day's target",
     "activityTitle": "Activity",
-    "activeDays_one": "{{count}} training day in the last 7.",
-    "activeDays_other": "{{count}} training days in the last 7.",
-    "activityStrip": "Training days (last 14 days)",
-    "active": "training",
-    "inactive": "no training",
-    "activityHint": "A day counts as training when you set it to gym, run or long endurance on Today.",
+    "activeDays_one": "{{count}} active day in the last 7.",
+    "activeDays_other": "{{count}} active days in the last 7.",
+    "activityStrip": "Active days (last 14 days)",
+    "active": "active",
+    "inactive": "no activity",
+    "activityHint": "A day counts as active when set to gym, run or long endurance on Today, or when you tick \"I did another activity\".",
     "showTable": "Show as table"
   },
   "coach": {
@@ -421,7 +421,7 @@
     "notNow": "Not now",
     "dismiss": "Got it",
     "inactivity": "You haven't logged any activity for {{days}} days. To lose fat while keeping muscle, moving matters as much as food: how about a long walk or a short session this week?",
-    "inactivitySoft": "No training logged for {{days}} days. If you did train, mark it as the day type on Today.",
+    "inactivitySoft": "No activity logged for {{days}} days. If you did move, log it on Today (day type or \"I did another activity\").",
     "plateau": "You've met your calories for 2 weeks and your weight has barely moved ({{kg}} kg). That's normal; if you like, we can adjust your targets a little.",
     "weightDrift": "Your weight has changed by {{kg}} kg in 2 weeks while meeting your calories. We can adjust your targets a little to keep you steady.",
     "tooFast": "You're losing more than 1 % of your body weight per week (≈ {{pct}} %). Slowing down protects your muscle and energy: we suggest a few more calories.",
@@ -430,5 +430,24 @@
     "highSalt": "On {{days}} of the last 7 days you went over 5 g of salt. Watch out for cured meats, sauces and ready meals.",
     "highSugar": "On {{days}} of the last 7 days you went over the free-sugar limit. Try whole fruit instead of sweets or soft drinks.",
     "helpResources": "We noticed you're trying to set very low calorie targets. Eating too little can affect your health and mood. If food worries you, you can talk to your doctor, your university's health service or an eating-disorder support organisation in your country."
+  },
+  "activity": {
+    "toggle": "I did another activity",
+    "hint": "Long walks, cycling, football, dancing… Tick it even on a rest or light day: it counts as an active day and raises today's target.",
+    "kind": "Activity",
+    "kinds": {
+      "walk": "Walking",
+      "cycling": "Cycling",
+      "sport": "Sport",
+      "other": "Other"
+    },
+    "minutes": "Minutes",
+    "intensity": "Intensity",
+    "intensities": {
+      "light": "Easy",
+      "moderate": "Moderate",
+      "vigorous": "Hard"
+    },
+    "effect": "Adds +{{kcal}} kcal (as carbs) and +{{glasses}} glasses of water to this day's target."
   }
 }

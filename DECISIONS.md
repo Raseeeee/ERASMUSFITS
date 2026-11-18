@@ -180,7 +180,7 @@ Registro de decisiones tomadas ante ambigüedades de `SPEC.md`. Formato: decisi�
 ### Datos
 - **Peso**: tabla `weights` (Dexie v5), uno por fecha, 35–300 kg, con un decimal. Se recomienda pesarse una vez por semana, pero se admite cualquier fecha (no futura).
 - **El último pesaje actualiza el peso del perfil**, así que los objetivos (BMR, proteína g/kg, agua) se recalculan solos. Se conservan los overrides manuales.
-- **"Actividad registrada"** = días marcados en Hoy como gimnasio, carrera o fondo largo. No hay registro de entrenos aparte; la pantalla lo explica.
+- **"Actividad registrada"** = días marcados en Hoy como gimnasio, carrera o fondo largo, **o con la casilla «He hecho otra actividad»** (añadida tras revisar la Fase 5).
 - Resúmenes de los **últimos 28 días** (comidas, tipo de día, agua, objetivos de cada día) calculados en `src/domain/progress.ts`.
 
 ### Reglas del coach (`src/domain/coach.ts`, umbrales en `RULES`)
@@ -206,3 +206,10 @@ Registro de decisiones tomadas ante ambigüedades de `SPEC.md`. Formato: decisi�
 ### Pendiente
 - El coach no sugiere recetas concretas para cubrir la proteína que falta (enlaza en el texto a las recetas altas en proteína).
 - Las fechas de la lista de pesajes se muestran en ISO; se pueden localizar en la Fase 6.
+
+### Otra actividad (pedido tras revisar la Fase 5)
+- Casilla en Hoy, **«He hecho otra actividad»**, con tipo (andar, bici, deporte, otra), minutos (1–600) e intensidad (suave, moderada, intensa). Se guarda en el día () y vale para cualquier tipo de día.
+- **Cuenta como día activo** para el coach (desaparece el aviso de inactividad) y para Progreso.
+- **Sube el objetivo de ese día**: kcal extra = (MET − 1) × peso × horas × 0,75, con MET de 3, 5 y 8 según la intensidad (Compendium, redondeado) y un tope de 800 kcal. Se resta 1 MET porque el reposo ya está en el objetivo, y se cuenta solo el 75 % porque las estimaciones por MET suelen pasarse. Las kcal extra van a **carbohidratos**; proteína y grasa no cambian; fibra y tope de azúcares se recalculan; agua +1 vaso desde 30 min y +2 desde 90.
+- Se suma también sobre un override manual del tipo de día.
+- La casilla responde al instante (estado optimista) y se guarda en IndexedDB en segundo plano.

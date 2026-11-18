@@ -76,7 +76,7 @@ test.describe('progreso y avisos del coach', () => {
     await expect(page.getByTestId('weight-chart')).toBeVisible();
     await expect(page.getByTestId('kcal-chart')).toBeVisible();
     await expect(page.getByTestId('adherence')).toContainText('100 %');
-    await expect(page.getByTestId('active-days')).toContainText('0 días de entreno');
+    await expect(page.getByTestId('active-days')).toContainText('0 días activos');
 
     // Tabla accesible de la gráfica de peso
     await page.getByText('Ver como tabla').first().click();
@@ -97,5 +97,35 @@ test.describe('progreso y avisos del coach', () => {
     const fast = page.getByTestId('alert-tooFast');
     await expect(fast).toContainText('más del 1 % de tu peso por semana');
     await expect(fast.getByRole('button', { name: 'Aplicar +150 kcal/día' })).toBeVisible();
+  });
+});
+
+test.describe('otra actividad', () => {
+  test('la casilla sube el objetivo del día, cuenta como activo y quita el aviso de inactividad', async ({ page }) => {
+    await seedOnboarded(page, { profile: { goal: 'lose' }, ...onTargetDays(10) });
+    await expect(page.getByTestId('coach-banner')).toContainText('1 aviso');
+
+    const light = computeDayTargets(profile, 'light').targets.kcal;
+    await expect(page.getByTestId('bar-kcal')).toContainText(`/ ${light}`);
+    await page.getByRole('checkbox', { name: 'He hecho otra actividad' }).check();
+    // Por defecto: andar 30 min moderado → (5−1)·80·0,5·0,75 = 120 kcal
+    await expect(page.getByTestId('activity-extra')).toContainText('+120 kcal');
+    await expect(page.getByTestId('bar-kcal')).toContainText(`/ ${light + 120}`);
+
+    await page.locator('input[name="activityMinutes"]').fill('60');
+    await page.getByText('Intensa', { exact: true }).click();
+    // 60 min intensa → 7·80·1·0,75 = 420 kcal; +1 vaso
+    await expect(page.getByTestId('activity-extra')).toContainText('+420 kcal');
+    await expect(page.getByTestId('bar-kcal')).toContainText(`/ ${light + 420}`);
+    await expect(page.getByTestId('coach-banner')).toHaveCount(0);
+
+    await page.reload();
+    await expect(page.getByRole('checkbox', { name: 'He hecho otra actividad' })).toBeChecked();
+    await page.getByRole('link', { name: 'Progreso' }).click();
+    await expect(page.getByTestId('active-days')).toContainText('1 día activo');
+
+    await page.getByRole('link', { name: 'Hoy' }).click();
+    await page.getByRole('checkbox', { name: 'He hecho otra actividad' }).uncheck();
+    await expect(page.getByTestId('bar-kcal')).toContainText(`/ ${light}`);
   });
 });

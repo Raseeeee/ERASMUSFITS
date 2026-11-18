@@ -21,6 +21,7 @@ import { changeWater, getDay, listEntries, setDayType } from '../../store/logRep
 import { useAppStore } from '../../store/appStore';
 import { useSelectedDate } from './useSelectedDate';
 import { MealSections, RemainingCounter } from './MealSections';
+import { ExtraActivityControl } from './ExtraActivityControl';
 
 function Bar({ row }: { row: ProgressRow }) {
   const { t, i18n } = useTranslation();
@@ -114,6 +115,7 @@ export function TodayScreen() {
             ))}
           </select>
         </label>
+        <ExtraActivityControl date={date} value={day.extraActivity} weightKg={profile.weightKg} />
       </Card>
 
       {alertCount > 0 && (

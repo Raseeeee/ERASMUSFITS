@@ -404,12 +404,12 @@
     "notLogged": "sin registro",
     "targetLine": "Objetivo del día",
     "activityTitle": "Actividad",
-    "activeDays_one": "{{count}} día de entreno en los últimos 7.",
-    "activeDays_other": "{{count}} días de entreno en los últimos 7.",
-    "activityStrip": "Días de entreno (últimos 14 días)",
-    "active": "entreno",
-    "inactive": "sin entreno",
-    "activityHint": "Cuenta como entreno un día marcado en Hoy como gimnasio, carrera o fondo largo.",
+    "activeDays_one": "{{count}} día activo en los últimos 7.",
+    "activeDays_other": "{{count}} días activos en los últimos 7.",
+    "activityStrip": "Días activos (últimos 14 días)",
+    "active": "activo",
+    "inactive": "sin actividad",
+    "activityHint": "Cuenta como día activo el marcado en Hoy como gimnasio, carrera o fondo largo, o con «He hecho otra actividad».",
     "showTable": "Ver como tabla"
   },
   "coach": {
@@ -421,7 +421,7 @@
     "notNow": "Ahora no",
     "dismiss": "Entendido",
     "inactivity": "Llevas {{days}} días sin registrar actividad. Para perder grasa conservando músculo, moverse importa tanto como la comida: ¿un paseo largo o una sesión corta esta semana?",
-    "inactivitySoft": "Llevas {{days}} días sin entreno registrado. Si has entrenado, márcalo en Hoy como tipo de día.",
+    "inactivitySoft": "Llevas {{days}} días sin actividad registrada. Si te has movido, márcalo en Hoy (tipo de día o «He hecho otra actividad»).",
     "plateau": "Llevas 2 semanas cumpliendo tus calorías y tu peso apenas se ha movido ({{kg}} kg). Es normal; si quieres, podemos ajustar un poco tus objetivos.",
     "weightDrift": "Tu peso ha cambiado {{kg}} kg en 2 semanas mientras cumples tus calorías. Podemos ajustar un poco tus objetivos para mantenerte estable.",
     "tooFast": "Estás perdiendo más del 1 % de tu peso por semana (≈ {{pct}} %). Ir más despacio protege tu músculo y tu energía: te proponemos subir un poco las calorías.",
@@ -430,5 +430,24 @@
     "highSalt": "En {{days}} de los últimos 7 días has pasado de 5 g de sal. Ojo con embutidos, salsas y comida preparada.",
     "highSugar": "En {{days}} de los últimos 7 días has superado el tope de azúcares libres. Prueba fruta entera en lugar de dulces o refrescos.",
     "helpResources": "Hemos notado que intentas poner objetivos de calorías muy bajos. Comer muy poco puede afectar tu salud y tu ánimo. Si la comida te preocupa, puedes hablar con tu médico, con el servicio de salud de tu universidad o con una asociación de apoyo a los trastornos de la conducta alimentaria de tu país."
+  },
+  "activity": {
+    "toggle": "He hecho otra actividad",
+    "hint": "Andar mucho, bici, fútbol, baile… Márcalo aunque el tipo de día sea descanso o ligero: cuenta como día activo y sube tu objetivo de hoy.",
+    "kind": "Actividad",
+    "kinds": {
+      "walk": "Andar",
+      "cycling": "Bici",
+      "sport": "Deporte",
+      "other": "Otra"
+    },
+    "minutes": "Minutos",
+    "intensity": "Intensidad",
+    "intensities": {
+      "light": "Suave",
+      "moderate": "Moderada",
+      "vigorous": "Intensa"
+    },
+    "effect": "Suma +{{kcal}} kcal (en carbohidratos) y +{{glasses}} vasos de agua a tu objetivo de este día."
   }
 }
