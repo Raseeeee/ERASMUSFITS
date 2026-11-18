@@ -223,3 +223,34 @@ export function toEnglishQuery(query: string, foods: Food[]): string {
   }
   return best ? best.food.names.en : query.trim();
 }
+
+// ---- Orden de resultados externos -------------------------------------------
+
+const QUALITY_RANK = { curated: 0, complete: 1, incomplete: 2 } as const;
+const EXTERNAL_SOURCE_RANK: Record<string, number> = { off: 0, usda: 1 };
+
+/**
+ * Une y ordena resultados de OFF y USDA: calidad (completo > incompleto),
+ * luego productos vendidos en el país activo, luego OFF antes que USDA.
+ * Quita duplicados y los que ya están en `excludeIds` (p. ej. corregidos por mí).
+ */
+export function rankExternal(lists: Food[][], country?: string, excludeIds: Set<string> = new Set()): Food[] {
+  const seen = new Set<string>();
+  const all: Food[] = [];
+  for (const f of lists.flat()) {
+    if (seen.has(f.id) || excludeIds.has(f.id)) continue;
+    seen.add(f.id);
+    all.push(f);
+  }
+  const local = (f: Food) => (country && f.countries?.includes(country) ? 0 : 1);
+  return all
+    .map((f, i) => ({ f, i }))
+    .sort(
+      (a, b) =>
+        QUALITY_RANK[a.f.quality ?? 'incomplete'] - QUALITY_RANK[b.f.quality ?? 'incomplete'] ||
+        local(a.f) - local(b.f) ||
+        (EXTERNAL_SOURCE_RANK[a.f.source] ?? 9) - (EXTERNAL_SOURCE_RANK[b.f.source] ?? 9) ||
+        a.i - b.i,
+    )
+    .map((x) => x.f);
+}

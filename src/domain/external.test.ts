@@ -8,6 +8,7 @@ import {
   normalizeOffSearch,
   normalizeUsdaFood,
   normalizeUsdaSearch,
+  rankExternal,
   toEnglishQuery,
   usdaCategory,
   type OffProduct,
@@ -118,5 +119,24 @@ describe('traducción para USDA con alias', () => {
     expect(toEnglishQuery('tempeh', seedFoods)).toBe('tempeh');
     expect(toEnglishQuery('tavuk göğsü', seedFoods)).toBe('Chicken breast');
     expect(toEnglishQuery('ab', seedFoods)).toBe('ab');
+  });
+});
+
+describe('orden de resultados externos', () => {
+  const off = normalizeOffSearch(offSearch as { hits: OffProduct[] });
+  const usda = normalizeUsdaSearch(usdaSearch as { foods: UsdaFood[] });
+
+  it('completos antes que incompletos; país activo primero; sin duplicados', () => {
+    const r = rankExternal([off, usda, off], 'ES');
+    expect(r).toHaveLength(off.length + usda.length);
+    const qualities = r.map((f) => f.quality);
+    expect(qualities.indexOf('incomplete')).toBeGreaterThan(qualities.lastIndexOf('complete'));
+    expect(r[0].countries).toContain('ES'); // Carrefour ES (completo) antes que Onei MX
+    expect(r.findIndex((f) => f.source === 'usda')).toBeGreaterThan(r.findIndex((f) => f.barcode === '7502209113275'));
+  });
+
+  it('excluye ids corregidos por el usuario', () => {
+    const r = rankExternal([off], 'ES', new Set(['off:8431876294316']));
+    expect(r.map((f) => f.id)).not.toContain('off:8431876294316');
   });
 });

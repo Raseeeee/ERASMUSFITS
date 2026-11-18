@@ -9,7 +9,15 @@ export interface KvRow {
   value: unknown;
 }
 
+/** Caché local de búsquedas externas (OFF/USDA) para no repetir peticiones y funcionar offline. */
+export interface FoodCacheRow {
+  key: string;
+  foods: Food[];
+  fetchedAt: number;
+}
+
 export class AppDB extends Dexie {
+  foodCache!: EntityTable<FoodCacheRow, 'key'>;
   kv!: EntityTable<KvRow, 'key'>;
   entries!: EntityTable<LogEntry, 'id'>;
   days!: EntityTable<DayRecord, 'date'>;
@@ -40,6 +48,8 @@ export class AppDB extends Dexie {
             }
           });
       });
+    // v4: caché de búsquedas externas.
+    this.version(4).stores({ foodCache: 'key, fetchedAt' });
   }
 }
 
