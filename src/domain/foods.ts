@@ -182,10 +182,13 @@ export function searchFoods(query: string, foods: Food[], lang: string, limit = 
       score: q ? Math.min(...Object.values(f.names).map((n) => matchScore(n, q))) : 0,
     }))
     .filter((x) => x.score !== Infinity);
+  const penalty = (f: Food) => (f.category === 'prepared' || f.category === 'sweet' ? 1 : 0);
   scored.sort(
     (a, b) =>
       a.score - b.score ||
       SOURCE_RANK[a.f.source] - SOURCE_RANK[b.f.source] ||
+      penalty(a.f) - penalty(b.f) ||
+      foodName(a.f, lang).length - foodName(b.f, lang).length ||
       foodName(a.f, lang).localeCompare(foodName(b.f, lang), lang),
   );
   return scored.slice(0, limit).map((x) => x.f);

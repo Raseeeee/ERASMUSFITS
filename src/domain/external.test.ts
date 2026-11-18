@@ -114,7 +114,9 @@ describe('traducción para USDA con alias', () => {
   it('usa el nombre inglés de la semilla si coincide un alias', () => {
     expect(toEnglishQuery('pechuga de pollo', seedFoods)).toBe('Chicken breast');
     expect(toEnglishQuery('Garbanzos', seedFoods)).toBe('Cooked chickpeas');
-    expect(toEnglishQuery('quinoa', seedFoods)).toBe('quinoa');
+    expect(toEnglishQuery('quinoa', seedFoods)).toBe('Cooked quinoa');
+    expect(toEnglishQuery('tempeh', seedFoods)).toBe('tempeh');
+    expect(toEnglishQuery('tavuk göğsü', seedFoods)).toBe('Chicken breast');
     expect(toEnglishQuery('ab', seedFoods)).toBe('ab');
   });
 });

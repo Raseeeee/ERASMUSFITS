@@ -18,13 +18,15 @@ const chicken = seedFoods.find((f) => f.id === 'chicken_breast')!;
 const egg = seedFoods.find((f) => f.id === 'egg')!;
 
 describe('semilla curada', () => {
-  it('al menos 50 alimentos con ids únicos', () => {
-    expect(seedFoods.length).toBeGreaterThanOrEqual(50);
+  it('150–200 alimentos con ids únicos', () => {
+    expect(seedFoods.length).toBeGreaterThanOrEqual(150);
+    expect(seedFoods.length).toBeLessThanOrEqual(200);
     expect(new Set(seedFoods.map((f) => f.id)).size).toBe(seedFoods.length);
   });
   it('esquema válido y valores plausibles', () => {
     for (const f of seedFoods) {
-      expect(f.names.es && f.names.en, f.id).toBeTruthy();
+      for (const l of ['es', 'en', 'it', 'de', 'pl', 'tr']) expect(f.names[l]?.trim(), `${f.id}.${l}`).toBeTruthy();
+      expect(f.unit?.name.es && f.unit?.name.en, f.id).toBeTruthy();
       expect(FOOD_CATEGORIES, f.id).toContain(f.category);
       expect(['raw', 'cooked'], f.id).toContain(f.state);
       expect(f.source).toBe('seed');
@@ -88,6 +90,19 @@ describe('búsqueda', () => {
     expect(searchFoods('platano', seedFoods, 'es')[0].id).toBe('banana');
     expect(searchFoods('arroz', seedFoods, 'es').slice(0, 2).map((f) => f.id).sort()).toEqual(['rice_cooked', 'rice_raw']);
     expect(searchFoods('zzzz', seedFoods, 'es')).toEqual([]);
+  });
+  it('alias multilingües (it/de/pl/tr)', () => {
+    expect(searchFoods('tavuk göğsü', seedFoods, 'es')[0].id).toBe('chicken_breast');
+    expect(searchFoods('Hähnchenbrust', seedFoods, 'es')[0].id).toBe('chicken_breast');
+    expect(searchFoods('piers z kurczaka', seedFoods, 'es')[0].id).toBe('chicken_breast');
+    expect(searchFoods('petto di pollo', seedFoods, 'es')[0].id).toBe('chicken_breast');
+    expect(searchFoods('mercimek', seedFoods, 'es').map((f) => f.id)).toContain('lentils_raw');
+    expect(searchFoods('kasza gryczana', seedFoods, 'es')[0].id).toMatch(/^buckwheat/);
+  });
+  it('a igual coincidencia, básicos antes que platos preparados', () => {
+    const ids = searchFoods('pollo', seedFoods, 'es').map((f) => f.id);
+    expect(ids.indexOf('chicken_breast')).toBeLessThan(ids.indexOf('doner_wrap'));
+    expect(ids.indexOf('chicken_breast')).toBeLessThan(ids.indexOf('chicken_nuggets'));
   });
   it('mis alimentos tienen prioridad y ocultan al que corrigen', () => {
     const mine: Food = makeMyFood({
