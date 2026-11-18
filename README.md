@@ -1,4 +1,4 @@
-# ErasmusEats (nombre provisional)
+# Erasmus+FITS
 
 PWA móvil-primero de nutrición para estudiantes de Erasmus (o no) que quieren perder grasa, mantenerse, ganar músculo o recomponer comiendo **barato y simple** con lo que hay en el supermercado del país de destino.
 

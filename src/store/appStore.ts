@@ -56,7 +56,7 @@ const KEYS = Object.keys(initial) as (keyof PersistedState)[];
  * bienvenida sin esperar a IndexedDB y que el HTML prerenderizado no se muestre a
  * usuarios que ya la completaron.
  */
-export const ONBOARDED_HINT = 'ee.onboarded';
+export const ONBOARDED_HINT = 'fits.onboarded';
 export function hasOnboardedHint(): boolean {
   try {
     return globalThis.localStorage?.getItem(ONBOARDED_HINT) === '1';

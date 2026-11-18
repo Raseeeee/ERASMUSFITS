@@ -18,8 +18,8 @@ export default defineConfig(({ isSsrBuild }) => ({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'icons/apple-touch-icon-180.png'],
       manifest: {
-        name: 'ErasmusEats',
-        short_name: 'ErasmusEats',
+        name: 'Erasmus+FITS',
+        short_name: 'Erasmus+FITS',
         description: 'Come barato y cumple tu objetivo, estés donde estés.',
         lang: 'es',
         start_url: '/',

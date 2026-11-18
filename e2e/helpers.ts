@@ -20,7 +20,7 @@ export async function seedOnboarded(page: Page, data: SeedData = {}) {
   await page.evaluate(
     ({ profile, entries, days, weights }) =>
       new Promise<void>((resolve, reject) => {
-        const req = indexedDB.open('erasmus-eats');
+        const req = indexedDB.open('erasmus-fits');
         req.onerror = () => reject(req.error);
         req.onsuccess = () => {
           const db = req.result;

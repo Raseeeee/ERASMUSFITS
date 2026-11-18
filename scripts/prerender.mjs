@@ -10,7 +10,7 @@ const ssr = await import(pathToFileURL(resolve(root, 'dist-ssr/prerender.js')).h
 const es = await ssr.render('es');
 const en = await ssr.render('en');
 
-const pick = `<script>(function(){try{if(localStorage.getItem('ee.onboarded')==='1')return;var p=location.pathname;if(p!=='/'&&p!=='/onboarding')return;var l=(navigator.language||'').toLowerCase().indexOf('es')===0?'es':'en';var t=document.getElementById('pre-'+l);if(t){document.getElementById('root').innerHTML=t.innerHTML;document.documentElement.lang=l;}}catch(e){}})()</script>`;
+const pick = `<script>(function(){try{if(localStorage.getItem('fits.onboarded')==='1')return;var p=location.pathname;if(p!=='/'&&p!=='/onboarding')return;var l=(navigator.language||'').toLowerCase().indexOf('es')===0?'es':'en';var t=document.getElementById('pre-'+l);if(t){document.getElementById('root').innerHTML=t.innerHTML;document.documentElement.lang=l;}}catch(e){}})()</script>`;
 
 const file = resolve(root, 'dist/index.html');
 let html = readFileSync(file, 'utf8');

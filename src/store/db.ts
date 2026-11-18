@@ -24,7 +24,7 @@ export class AppDB extends Dexie {
   days!: EntityTable<DayRecord, 'date'>;
   myFoods!: EntityTable<Food, 'id'>;
 
-  constructor(name = 'erasmus-eats') {
+  constructor(name = 'erasmus-fits') {
     super(name);
     this.version(1).stores({ kv: 'key' });
     this.version(2).stores({

@@ -7,7 +7,7 @@ test.describe('PWA (build de producción)', () => {
     const href = await page.locator('link[rel="manifest"]').getAttribute('href');
     expect(href).toBeTruthy();
     const manifest = await (await request.get(href!)).json();
-    expect(manifest).toMatchObject({ name: 'ErasmusEats', display: 'standalone', start_url: '/' });
+    expect(manifest).toMatchObject({ name: 'Erasmus+FITS', display: 'standalone', start_url: '/' });
     expect(manifest.icons.map((i: { sizes: string }) => i.sizes)).toEqual(expect.arrayContaining(['192x192', '512x512']));
     expect(manifest.icons.some((i: { purpose?: string }) => i.purpose === 'maskable')).toBe(true);
     for (const i of manifest.icons) expect((await request.get(i.src)).status()).toBe(200);

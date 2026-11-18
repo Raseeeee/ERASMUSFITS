@@ -227,7 +227,7 @@ Registro de decisiones tomadas ante ambigüedades de `SPEC.md`. Formato: decisi�
 - Diagnóstico: el JS terminaba de bajar a ~1,2 s, pero no se pintaba nada hasta ~2,8 s (ejecución de React/Router/Dexie/i18next con CPU lenta, más la espera a IndexedDB).
 - Cambios: todas las rutas con `React.lazy` **salvo la bienvenida** (dividirlo todo, incluidos los idiomas, empeoró a 3,2 s por la cascada de peticiones, así que los dos idiomas siguen en el bundle: ~12 KB gz); la semilla de alimentos fuera del arranque (la migración v3 ya no la importa); **bienvenida prerenderizada** en el HTML en el build (es y en, `src/prerender.tsx` + `scripts/prerender.mjs`); y los usuarios nuevos no esperan a IndexedDB para pintar.
 - Resultado: **LCP ≈ 1,0–1,1 s**, vigilado por `e2e/pwa.spec.ts` (falla si pasa de 2,5 s). Bundle inicial ≈ 140 KB gz.
-- El HTML prerenderizado solo se muestra en `/` y `/onboarding` y **nunca** a quien ya completó el onboarding (indicador `ee.onboarded` en `localStorage`; no es un dato sensible y se borra con "Borrar todos mis datos"). Así un usuario recurrente no ve la bienvenida un instante antes de Hoy.
+- El HTML prerenderizado solo se muestra en `/` y `/onboarding` y **nunca** a quien ya completó el onboarding (indicador `fits.onboarded` en `localStorage`; no es un dato sensible y se borra con "Borrar todos mis datos"). Así un usuario recurrente no ve la bienvenida un instante antes de Hoy.
 - La migración v3 de Dexie ya no rellena la copia del alimento para los de la semilla: se resuelve al abrir la edición (como ya hacía la pantalla); para "mis alimentos" sí se copia.
 
 ### Accesibilidad

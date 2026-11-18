@@ -21,9 +21,9 @@ test.describe('ajustes, privacidad y créditos', () => {
       page.waitForEvent('download'),
       page.getByRole('button', { name: 'Exportar mis datos (JSON)' }).click(),
     ]);
-    expect(download.suggestedFilename()).toMatch(/^erasmus-eats-\d{4}-\d{2}-\d{2}\.json$/);
+    expect(download.suggestedFilename()).toMatch(/^erasmus-fits-\d{4}-\d{2}-\d{2}\.json$/);
     const json = JSON.parse(readFileSync((await download.path())!, 'utf8'));
-    expect(json.format).toBe('erasmus-eats-export');
+    expect(json.format).toBe('erasmus-fits-export');
     expect(json.data.settings.find((r: { key: string }) => r.key === 'profile').value.weightKg).toBe(80);
     await expect(page.getByText('Copia descargada.')).toBeVisible();
   });
