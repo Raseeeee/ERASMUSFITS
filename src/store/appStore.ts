@@ -51,6 +51,28 @@ const initial: PersistedState = {
 
 const KEYS = Object.keys(initial) as (keyof PersistedState)[];
 
+/**
+ * Indicador síncrono (no sensible) de que el onboarding está hecho: permite pintar la
+ * bienvenida sin esperar a IndexedDB y que el HTML prerenderizado no se muestre a
+ * usuarios que ya la completaron.
+ */
+export const ONBOARDED_HINT = 'ee.onboarded';
+export function hasOnboardedHint(): boolean {
+  try {
+    return globalThis.localStorage?.getItem(ONBOARDED_HINT) === '1';
+  } catch {
+    return false;
+  }
+}
+function setOnboardedHint(on: boolean) {
+  try {
+    if (on) globalThis.localStorage?.setItem(ONBOARDED_HINT, '1');
+    else globalThis.localStorage?.removeItem(ONBOARDED_HINT);
+  } catch {
+    /* modo privado o sin almacenamiento: no pasa nada */
+  }
+}
+
 async function put<K extends keyof PersistedState>(key: K, value: PersistedState[K]) {
   await db.kv.put({ key, value });
 }
@@ -66,6 +88,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       if (r) (loaded as Record<string, unknown>)[KEYS[i]] = r.value;
     });
     set({ ...initial, ...loaded, hydrated: true });
+    if (loaded.onboarded) setOnboardedHint(true);
   },
 
   setLanguage: async (language) => {
@@ -90,6 +113,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   },
   completeOnboarding: async () => {
     set({ onboarded: true });
+    setOnboardedHint(true);
     await put('onboarded', true);
   },
   setShopPrefs: async (shopPrefs) => {
@@ -129,6 +153,7 @@ export const useAppStore = create<AppState>((set, get) => ({
   },
   deleteAll: async () => {
     await Promise.all(db.tables.map((t) => t.clear()));
+    setOnboardedHint(false);
     set({ ...initial, hydrated: true });
   },
 }));

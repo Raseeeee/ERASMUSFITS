@@ -86,7 +86,7 @@ describe('editar entrada', () => {
 });
 
 describe('migración v2 → v3', () => {
-  it('asigna comida por hora y copia el alimento a entradas antiguas', async () => {
+  it('asigna comida por hora y copia mis alimentos (los de la semilla se resuelven al editar)', async () => {
     const name = 'migration-test';
     const old = new Dexie(name);
     old.version(1).stores({ kv: 'key' });
@@ -97,12 +97,21 @@ describe('migración v2 → v3', () => {
       nutrients: { kcal: 88, p: 7.8, c: 0.6, f: 6, fiber: 0, sugar: 0, salt: 0.2 },
       createdAt: new Date(2026, 10, 18, 8, 30).getTime(),
     });
+    await old.table('myFoods').add(makeMyFood({ id: 'my-old', name: 'Mío', p: 10, c: 10, f: 1, state: 'raw' }));
+    await old.table('entries').add({
+      id: 'old-2', date: D, foodId: 'my-old', name: { es: 'Mío', en: 'Mío' }, grams: 100, context: 'home',
+      nutrients: { kcal: 89, p: 10, c: 10, f: 1, fiber: 0, sugar: 0, salt: 0 },
+      createdAt: new Date(2026, 10, 18, 21, 0).getTime(),
+    });
     old.close();
 
     const db = new AppDB(name);
     const e = await db.entries.get('old-1');
     expect(e?.meal).toBe('breakfast');
-    expect(e?.food?.id).toBe('egg');
+    expect(e?.food).toBeUndefined(); // semilla: se busca al abrir la edición
+    const mine = await db.entries.get('old-2');
+    expect(mine?.meal).toBe('dinner');
+    expect(mine?.food?.id).toBe('my-old');
     db.close();
     await Dexie.delete(name);
   });

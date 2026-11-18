@@ -1,15 +1,15 @@
 import { Suspense, lazy, useEffect, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserRouter, NavLink, Navigate, Outlet, Route, Routes } from 'react-router';
-import { useAppStore } from './store/appStore';
+import { hasOnboardedHint, useAppStore } from './store/appStore';
+// La bienvenida va en el bundle inicial: es la primera pantalla de un usuario nuevo (evita un salto de red).
 import { WelcomeScreen } from './features/onboarding/WelcomeScreen';
-import { ProfileScreen } from './features/onboarding/ProfileScreen';
-import { TargetsScreen } from './features/targets/TargetsScreen';
-import { TodayScreen } from './features/today/TodayScreen';
-import { SettingsScreen } from './features/settings/SettingsScreen';
-import { AddFoodScreen } from './features/food/AddFoodScreen';
-
-// Pantallas pesadas (recetas, precios, optimizador) en chunks aparte: bundle inicial pequeño.
+// El resto de pantallas en chunks aparte: la primera carga solo descarga lo imprescindible (LCP en móvil).
+const ProfileScreen = lazy(() => import('./features/onboarding/ProfileScreen').then((m) => ({ default: m.ProfileScreen })));
+const TargetsScreen = lazy(() => import('./features/targets/TargetsScreen').then((m) => ({ default: m.TargetsScreen })));
+const TodayScreen = lazy(() => import('./features/today/TodayScreen').then((m) => ({ default: m.TodayScreen })));
+const SettingsScreen = lazy(() => import('./features/settings/SettingsScreen').then((m) => ({ default: m.SettingsScreen })));
+const AddFoodScreen = lazy(() => import('./features/food/AddFoodScreen').then((m) => ({ default: m.AddFoodScreen })));
 const RecipesScreen = lazy(() => import('./features/recipes/RecipesScreen').then((m) => ({ default: m.RecipesScreen })));
 const RecipeDetailScreen = lazy(() =>
   import('./features/recipes/RecipeDetailScreen').then((m) => ({ default: m.RecipeDetailScreen })),
@@ -68,10 +68,23 @@ export default function App() {
     if (language && i18n.language !== language) void i18n.changeLanguage(language);
   }, [language, i18n]);
 
-  if (!hydrated) return null;
+  // Usuario nuevo (sin indicador): se pinta ya la bienvenida mientras IndexedDB carga.
+  // Usuario con onboarding hecho: se espera a los datos para no enseñar la pantalla equivocada.
+  if (!hydrated) {
+    const path = window.location.pathname;
+    if (hasOnboardedHint() || (path !== '/' && path !== '/onboarding')) return null;
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<WelcomeScreen />} />
+        </Routes>
+      </BrowserRouter>
+    );
+  }
 
   return (
     <BrowserRouter>
+      <Suspense fallback={null}>
       <Routes>
         <Route path="/onboarding" element={<WelcomeScreen />} />
         <Route path="/onboarding/profile" element={<ProfileScreen />} />
@@ -94,6 +107,7 @@ export default function App() {
         </Route>
         <Route path="*" element={<Navigate to={onboarded ? '/today' : '/onboarding'} replace />} />
       </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

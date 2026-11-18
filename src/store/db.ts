@@ -1,7 +1,6 @@
 import Dexie, { type EntityTable } from 'dexie';
 import type { Food } from '../domain/foods';
 import { defaultMealForHour, type DayRecord, type LogEntry } from '../domain/log';
-import { seedFoods } from '../data/foods';
 import type { WeightEntry } from '../domain/progress';
 
 /** Fila clave-valor para ajustes/perfil. */
@@ -45,7 +44,8 @@ export class AppDB extends Dexie {
           .modify((e) => {
             if (!e.meal) e.meal = defaultMealForHour(new Date(e.createdAt).getHours());
             if (!e.food) {
-              const f = mine.get(e.foodId) ?? seedFoods.find((s) => s.id === e.foodId);
+              // Solo alimentos míos: los de la semilla se resuelven al editar (evita cargar la semilla al arrancar).
+              const f = mine.get(e.foodId);
               if (f) e.food = f;
             }
           });
