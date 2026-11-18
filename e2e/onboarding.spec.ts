@@ -35,7 +35,8 @@ test.describe('onboarding', () => {
 
     await page.reload();
     await expect(page).toHaveURL(/\/today$/);
-    await page.getByRole('link', { name: 'Objetivos' }).click();
+    await page.getByRole('link', { name: 'Ajustes' }).click();
+    await page.getByRole('button', { name: 'Ver objetivos' }).click();
     await expect(page.getByTestId('target-gym-kcal')).toHaveText('2798');
   });
 
