@@ -2,6 +2,7 @@
 import { nutrientsFor, type CookingContext, type Food } from '../domain/foods';
 import { editEntry, emptyDay, type DayRecord, type LogEntry, type Meal } from '../domain/log';
 import type { DayType } from '../domain/types';
+import type { ExtraActivity } from '../domain/activity';
 import { db } from './db';
 
 const newId = () => globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2)}`;
@@ -120,4 +121,10 @@ export async function addEntries(
       createdAt: now + i,
     })),
   );
+}
+
+/** Marca (o quita con null) otra actividad hecha ese día. */
+export async function setExtraActivity(date: string, extraActivity: ExtraActivity | null): Promise<void> {
+  const day = await getDay(date);
+  await db.days.put({ ...day, extraActivity });
 }

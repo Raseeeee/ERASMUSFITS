@@ -9,6 +9,7 @@ export function useRemaining(date: string): Remaining | null {
   const day = useLiveQuery(() => getDay(date), [date]);
   const entries = useLiveQuery(() => listEntries(date), [date]);
   if (!profile || !entries) return null;
-  const t = targetsForDay(profile, (day ?? emptyDay(date)).dayType, overrides);
+  const d = day ?? emptyDay(date);
+  const t = targetsForDay(profile, d.dayType, overrides, d.extraActivity);
   return remaining(dayTotals(entries), t);
 }

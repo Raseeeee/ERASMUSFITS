@@ -24,7 +24,7 @@ function makeDays(n: number, f: (i: number, d: DaySummary) => Partial<DaySummary
     const dayType: DayType = i % 2 === 0 ? 'gym' : 'light';
     const targets = targetsForDay(profile, dayType, {});
     const base: DaySummary = {
-      date, logged: true, dayType, active: dayType === 'gym', waterGlasses: targets.waterGlasses, targets,
+      date, logged: true, dayType, active: dayType === 'gym', extraActivity: false, waterGlasses: targets.waterGlasses, targets,
       totals: { kcal: targets.kcal, p: targets.protein, c: targets.carbs, f: targets.fat, fiber: 25, sugar: 20, salt: 3 },
     };
     return { ...base, ...f(i, base) };

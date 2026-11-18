@@ -2,6 +2,7 @@
 import type { CookingContext, Food, LocalizedText, Nutrients } from './foods';
 import { nutrientsFor, sumNutrients } from './foods';
 import { computeDayTargets } from './targets';
+import { withActivity, type ExtraActivity } from './activity';
 import type { BodyProfile, DayType, Targets } from './types';
 
 export const MEALS = ['breakfast', 'lunch', 'dinner', 'snack'] as const;
@@ -97,6 +98,8 @@ export interface DayRecord {
   date: string;
   dayType: DayType;
   waterGlasses: number;
+  /** Otra actividad hecha ese día (andar, bici, deporte…), aparte del tipo de día. */
+  extraActivity?: ExtraActivity | null;
 }
 
 export const DEFAULT_DAY_TYPE: DayType = 'light';
@@ -113,8 +116,10 @@ export function targetsForDay(
   profile: BodyProfile,
   dayType: DayType,
   overrides: Partial<Record<DayType, Targets>>,
+  extraActivity?: ExtraActivity | null,
 ): Targets {
-  return overrides[dayType] ?? computeDayTargets(profile, dayType).targets;
+  const base = overrides[dayType] ?? computeDayTargets(profile, dayType).targets;
+  return withActivity(base, profile.weightKg, extraActivity);
 }
 
 export type ProgressKind = 'goal' | 'cap';

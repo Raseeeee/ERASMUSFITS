@@ -2,6 +2,7 @@
 import { ZERO, sumNutrients, type Nutrients } from './foods';
 import { addDays, targetsForDay, type DayRecord, type LogEntry, DEFAULT_DAY_TYPE } from './log';
 import type { BodyProfile, DayType, Targets } from './types';
+import { isValidActivity } from './activity';
 
 export interface WeightEntry {
   date: string;
@@ -18,8 +19,10 @@ export interface DaySummary {
   targets: Targets;
   dayType: DayType;
   waterGlasses: number;
-  /** Día con actividad registrada (tipo de día de entreno). */
+  /** Día con actividad registrada: tipo de día de entreno u otra actividad marcada. */
   active: boolean;
+  /** Hubo otra actividad marcada ese día. */
+  extraActivity: boolean;
 }
 
 /** Fechas desde `from` hasta `to` (inclusive), en orden. */
@@ -47,10 +50,11 @@ export function buildDaySummaries(
       date,
       logged: list.length > 0,
       totals: list.length ? sumNutrients(list.map((e) => e.nutrients)) : ZERO,
-      targets: targetsForDay(profile, dayType, overrides),
+      targets: targetsForDay(profile, dayType, overrides, rec?.extraActivity),
       dayType,
       waterGlasses: rec?.waterGlasses ?? 0,
-      active: TRAINING_DAY_TYPES.includes(dayType),
+      active: TRAINING_DAY_TYPES.includes(dayType) || isValidActivity(rec?.extraActivity),
+      extraActivity: isValidActivity(rec?.extraActivity),
     };
   });
 }

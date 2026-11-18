@@ -75,7 +75,7 @@ export function TodayScreen() {
 
   if (!profile) return <Navigate to="/onboarding" replace />;
 
-  const targets = targetsForDay(profile, day.dayType, overrides);
+  const targets = targetsForDay(profile, day.dayType, overrides, day.extraActivity);
   const totals = dayTotals(entries);
   const rows = progressRows(totals, targets);
   const isToday = date === localISODate();
