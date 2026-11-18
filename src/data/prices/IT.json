@@ -1,0 +1,509 @@
+{
+  "country": "IT",
+  "currency": "EUR",
+  "updated": "2026-11-18",
+  "items": {
+    "chicken_breast": {
+      "pricePerKg": 5.99,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-17",
+      "confidence": "verificado",
+      "source": "Lidl Italia, petto di pollo intero al kg (lidl.it, 2026-11-17)",
+      "yield": 0.75
+    },
+    "chicken_thigh": {
+      "pricePerKg": 4.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026",
+      "yield": 0.7
+    },
+    "turkey_breast": {
+      "pricePerKg": 9,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026",
+      "yield": 0.75
+    },
+    "pork_loin": {
+      "pricePerKg": 7,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026",
+      "yield": 0.75
+    },
+    "minced_beef": {
+      "pricePerKg": 9,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026",
+      "yield": 0.75
+    },
+    "minced_mixed": {
+      "pricePerKg": 7,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026",
+      "yield": 0.75
+    },
+    "egg": {
+      "pricePerKg": 4.2,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026",
+      "yield": 0.88
+    },
+    "tuna_canned": {
+      "pricePerKg": 16,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "sardines_canned": {
+      "pricePerKg": 12,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "cod": {
+      "pricePerKg": 9,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026",
+      "yield": 0.8
+    },
+    "hake": {
+      "pricePerKg": 9,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026",
+      "yield": 0.8
+    },
+    "salmon": {
+      "pricePerKg": 18,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026",
+      "yield": 0.8
+    },
+    "mackerel": {
+      "pricePerKg": 10,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026",
+      "yield": 0.8
+    },
+    "ham_cooked": {
+      "pricePerKg": 12,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "serrano_ham": {
+      "pricePerKg": 20,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "rice_raw": {
+      "pricePerKg": 1.65,
+      "store": "Lidl / Eurospin",
+      "date": "2026-08-31",
+      "confidence": "verificado",
+      "source": "Lidl Italia, riso parboiled 2 kg a 3,29 € (tabella premi Lidl, 2026-08)"
+    },
+    "pasta_raw": {
+      "pricePerKg": 1.4,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "couscous_cooked": {
+      "pricePerKg": 2.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026",
+      "yield": 2.5
+    },
+    "bulgur_raw": {
+      "pricePerKg": 4,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "oats": {
+      "pricePerKg": 2.4,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "bread_white": {
+      "pricePerKg": 2.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "bread_whole": {
+      "pricePerKg": 3.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "toast_bread": {
+      "pricePerKg": 2.8,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "tortilla_wrap": {
+      "pricePerKg": 4,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "potato_boiled": {
+      "pricePerKg": 1.2,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "sweet_potato": {
+      "pricePerKg": 2.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "lentils_raw": {
+      "pricePerKg": 3.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "chickpeas_raw": {
+      "pricePerKg": 3,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "lentils_cooked": {
+      "pricePerKg": 3,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "chickpeas_cooked": {
+      "pricePerKg": 3.7,
+      "store": "Lidl / Eurospin",
+      "date": "2026-09-30",
+      "confidence": "verificado",
+      "source": "Lidl Italia, ceci 230 g a 0,85 € (tabella premi Lidl, 2026-09)"
+    },
+    "beans_canned": {
+      "pricePerKg": 3,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "green_peas": {
+      "pricePerKg": 2.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "yogurt_plain": {
+      "pricePerKg": 2.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "greek_yogurt": {
+      "pricePerKg": 4,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "cottage_cheese": {
+      "pricePerKg": 6,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "milk_semi": {
+      "pricePerKg": 1.2,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "cheese_hard": {
+      "pricePerKg": 12,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "parmesan": {
+      "pricePerKg": 18,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "mozzarella": {
+      "pricePerKg": 7,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "white_cheese": {
+      "pricePerKg": 10,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "banana": {
+      "pricePerKg": 1.9,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "apple": {
+      "pricePerKg": 2.2,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "pear": {
+      "pricePerKg": 2.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "orange": {
+      "pricePerKg": 1.8,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "mandarin": {
+      "pricePerKg": 2.2,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "kiwi": {
+      "pricePerKg": 3,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "frozen_berries": {
+      "pricePerKg": 8,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "tomato": {
+      "pricePerKg": 3.18,
+      "store": "Lidl / Eurospin",
+      "date": "2026-09-05",
+      "confidence": "verificado",
+      "source": "Open Prices, mediana de 2 precios en Italia (ODbL)"
+    },
+    "cucumber": {
+      "pricePerKg": 1.8,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "bell_pepper": {
+      "pricePerKg": 3,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "onion": {
+      "pricePerKg": 1.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "carrot": {
+      "pricePerKg": 1.58,
+      "store": "Lidl / Eurospin",
+      "date": "2026-09-05",
+      "confidence": "verificado",
+      "source": "Open Prices, mediana de 2 precios en Italia (ODbL)"
+    },
+    "zucchini": {
+      "pricePerKg": 2.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "eggplant": {
+      "pricePerKg": 2.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "spinach": {
+      "pricePerKg": 2.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "lettuce": {
+      "pricePerKg": 3,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "cabbage": {
+      "pricePerKg": 1.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "mushrooms": {
+      "pricePerKg": 4,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "frozen_veg_mix": {
+      "pricePerKg": 2.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "broccoli_cooked": {
+      "pricePerKg": 3,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "corn_canned": {
+      "pricePerKg": 4,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "crushed_tomato": {
+      "pricePerKg": 1.5,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "olive_oil": {
+      "pricePerKg": 9,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "sunflower_oil": {
+      "pricePerKg": 2,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "butter": {
+      "pricePerKg": 10,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "olives": {
+      "pricePerKg": 6,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "walnuts": {
+      "pricePerKg": 12,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "almonds": {
+      "pricePerKg": 14,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "peanuts": {
+      "pricePerKg": 6,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    },
+    "peanut_butter": {
+      "pricePerKg": 8,
+      "store": "Lidl / Eurospin",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Stima basata su prezzi Lidl Italia e volantini 2026"
+    }
+  }
+}

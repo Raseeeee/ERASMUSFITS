@@ -1,0 +1,581 @@
+{
+  "country": "DE",
+  "currency": "EUR",
+  "updated": "2026-11-18",
+  "items": {
+    "chicken_breast": {
+      "pricePerKg": 9,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026",
+      "yield": 0.75
+    },
+    "chicken_thigh": {
+      "pricePerKg": 4.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026",
+      "yield": 0.7
+    },
+    "turkey_breast": {
+      "pricePerKg": 11,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026",
+      "yield": 0.75
+    },
+    "pork_loin": {
+      "pricePerKg": 9,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026",
+      "yield": 0.75
+    },
+    "minced_beef": {
+      "pricePerKg": 10,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026",
+      "yield": 0.75
+    },
+    "minced_mixed": {
+      "pricePerKg": 7.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026",
+      "yield": 0.75
+    },
+    "egg": {
+      "pricePerKg": 3.7,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026",
+      "yield": 0.88
+    },
+    "tuna_canned": {
+      "pricePerKg": 12.4,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "sardines_canned": {
+      "pricePerKg": 10,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "cod": {
+      "pricePerKg": 10,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026",
+      "yield": 0.8
+    },
+    "pangasius": {
+      "pricePerKg": 8,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026",
+      "yield": 0.8
+    },
+    "salmon": {
+      "pricePerKg": 18,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026",
+      "yield": 0.8
+    },
+    "mackerel": {
+      "pricePerKg": 9,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026",
+      "yield": 0.8
+    },
+    "ham_cooked": {
+      "pricePerKg": 10,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "bratwurst": {
+      "pricePerKg": 7,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026",
+      "yield": 0.9
+    },
+    "rice_raw": {
+      "pricePerKg": 1.8,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "pasta_raw": {
+      "pricePerKg": 1.6,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "couscous_cooked": {
+      "pricePerKg": 2.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026",
+      "yield": 2.5
+    },
+    "bulgur_raw": {
+      "pricePerKg": 3,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "buckwheat_raw": {
+      "pricePerKg": 4,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "millet_cooked": {
+      "pricePerKg": 3.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026",
+      "yield": 2.8
+    },
+    "oats": {
+      "pricePerKg": 1.2,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "bread_white": {
+      "pricePerKg": 2.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "bread_whole": {
+      "pricePerKg": 3.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "bread_rye": {
+      "pricePerKg": 3,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "toast_bread": {
+      "pricePerKg": 2,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "bread_roll": {
+      "pricePerKg": 3.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "tortilla_wrap": {
+      "pricePerKg": 4,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "potato_boiled": {
+      "pricePerKg": 1.2,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "sweet_potato": {
+      "pricePerKg": 3,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "lentils_raw": {
+      "pricePerKg": 3.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "red_lentils_raw": {
+      "pricePerKg": 4,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "chickpeas_raw": {
+      "pricePerKg": 3.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "lentils_cooked": {
+      "pricePerKg": 2.8,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "chickpeas_cooked": {
+      "pricePerKg": 2.8,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "beans_canned": {
+      "pricePerKg": 2.8,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "kidney_beans_canned": {
+      "pricePerKg": 3,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "green_peas": {
+      "pricePerKg": 2.2,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "tofu": {
+      "pricePerKg": 6,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "quark": {
+      "pricePerKg": 2.4,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "skyr": {
+      "pricePerKg": 2.9,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "yogurt_plain": {
+      "pricePerKg": 1.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "greek_yogurt": {
+      "pricePerKg": 3.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "cottage_cheese": {
+      "pricePerKg": 5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "milk_semi": {
+      "pricePerKg": 1,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "kefir": {
+      "pricePerKg": 2,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "cheese_hard": {
+      "pricePerKg": 9,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "white_cheese": {
+      "pricePerKg": 9,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "mozzarella": {
+      "pricePerKg": 6.3,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "banana": {
+      "pricePerKg": 1.29,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-14",
+      "confidence": "verificado",
+      "source": "Open Prices, mediana de 25 precios en Alemania (ODbL)"
+    },
+    "apple": {
+      "pricePerKg": 1.99,
+      "store": "Aldi / Lidl",
+      "date": "2026-08-25",
+      "confidence": "verificado",
+      "source": "Open Prices, mediana de 8 precios en Alemania (ODbL)"
+    },
+    "pear": {
+      "pricePerKg": 2.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "orange": {
+      "pricePerKg": 2.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "mandarin": {
+      "pricePerKg": 2.8,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "frozen_berries": {
+      "pricePerKg": 6,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "tomato": {
+      "pricePerKg": 2.29,
+      "store": "Aldi / Lidl",
+      "date": "2026-10-24",
+      "confidence": "verificado",
+      "source": "Open Prices, mediana de 5 precios en Alemania (ODbL)"
+    },
+    "cucumber": {
+      "pricePerKg": 1.7,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "bell_pepper": {
+      "pricePerKg": 4,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "onion": {
+      "pricePerKg": 1.3,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "carrot": {
+      "pricePerKg": 1.79,
+      "store": "Aldi / Lidl",
+      "date": "2026-07-22",
+      "confidence": "verificado",
+      "source": "Open Prices, mediana de 5 precios en Alemania (ODbL)"
+    },
+    "zucchini": {
+      "pricePerKg": 2.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "spinach": {
+      "pricePerKg": 2,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "lettuce": {
+      "pricePerKg": 2.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "cabbage": {
+      "pricePerKg": 1.2,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "sauerkraut": {
+      "pricePerKg": 1.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "pickled_cucumber": {
+      "pricePerKg": 3,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "mushrooms": {
+      "pricePerKg": 4,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "beetroot_cooked": {
+      "pricePerKg": 2.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "frozen_veg_mix": {
+      "pricePerKg": 2,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "broccoli_cooked": {
+      "pricePerKg": 2.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "corn_canned": {
+      "pricePerKg": 3.5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "crushed_tomato": {
+      "pricePerKg": 1.3,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "olive_oil": {
+      "pricePerKg": 9,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "sunflower_oil": {
+      "pricePerKg": 2,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "butter": {
+      "pricePerKg": 8,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "walnuts": {
+      "pricePerKg": 12,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "almonds": {
+      "pricePerKg": 11,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "peanuts": {
+      "pricePerKg": 5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "sunflower_seeds": {
+      "pricePerKg": 5,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    },
+    "peanut_butter": {
+      "pricePerKg": 6,
+      "store": "Aldi / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Schätzung auf Basis von Aldi- und Lidl-Preisen 2026"
+    }
+  }
+}

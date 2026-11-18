@@ -1,0 +1,566 @@
+{
+  "country": "PL",
+  "currency": "PLN",
+  "updated": "2026-11-18",
+  "items": {
+    "chicken_breast": {
+      "pricePerKg": 14.99,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-05",
+      "confidence": "verificado",
+      "source": "Biedronka, filet z piersi kurczaka od 5.11.2026 (warszawawpigulce.pl)",
+      "yield": 0.75
+    },
+    "chicken_thigh": {
+      "pricePerKg": 12,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026",
+      "yield": 0.7
+    },
+    "turkey_breast": {
+      "pricePerKg": 30,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026",
+      "yield": 0.75
+    },
+    "pork_loin": {
+      "pricePerKg": 22,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026",
+      "yield": 0.75
+    },
+    "minced_beef": {
+      "pricePerKg": 40,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026",
+      "yield": 0.75
+    },
+    "minced_mixed": {
+      "pricePerKg": 25,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026",
+      "yield": 0.75
+    },
+    "egg": {
+      "pricePerKg": 15,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026",
+      "yield": 0.88
+    },
+    "tuna_canned": {
+      "pricePerKg": 50,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "sardines_canned": {
+      "pricePerKg": 53,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "cod": {
+      "pricePerKg": 45,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026",
+      "yield": 0.8
+    },
+    "salmon": {
+      "pricePerKg": 80,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026",
+      "yield": 0.8
+    },
+    "mackerel": {
+      "pricePerKg": 30,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026",
+      "yield": 0.8
+    },
+    "ham_cooked": {
+      "pricePerKg": 35,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "kielbasa": {
+      "pricePerKg": 30,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "frankfurter": {
+      "pricePerKg": 25,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "rice_raw": {
+      "pricePerKg": 6,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "pasta_raw": {
+      "pricePerKg": 8,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "couscous_cooked": {
+      "pricePerKg": 12,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026",
+      "yield": 2.5
+    },
+    "bulgur_raw": {
+      "pricePerKg": 14,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "buckwheat_raw": {
+      "pricePerKg": 9,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "millet_cooked": {
+      "pricePerKg": 10,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026",
+      "yield": 2.8
+    },
+    "barley_cooked": {
+      "pricePerKg": 6,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026",
+      "yield": 2.8
+    },
+    "oats": {
+      "pricePerKg": 6,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "bread_white": {
+      "pricePerKg": 7,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "bread_rye": {
+      "pricePerKg": 10,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "bread_whole": {
+      "pricePerKg": 12,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "toast_bread": {
+      "pricePerKg": 10,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "bread_roll": {
+      "pricePerKg": 12,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "tortilla_wrap": {
+      "pricePerKg": 15,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "potato_boiled": {
+      "pricePerKg": 3,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "sweet_potato": {
+      "pricePerKg": 9,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "lentils_raw": {
+      "pricePerKg": 14,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "red_lentils_raw": {
+      "pricePerKg": 12,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "chickpeas_raw": {
+      "pricePerKg": 12,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "chickpeas_cooked": {
+      "pricePerKg": 17,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "beans_canned": {
+      "pricePerKg": 17,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "green_peas": {
+      "pricePerKg": 10,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "twarog": {
+      "pricePerKg": 20,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "cottage_cheese": {
+      "pricePerKg": 15,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "skyr": {
+      "pricePerKg": 20,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "yogurt_plain": {
+      "pricePerKg": 9,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "greek_yogurt": {
+      "pricePerKg": 12.5,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "milk_semi": {
+      "pricePerKg": 3.5,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "kefir": {
+      "pricePerKg": 4,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "cheese_hard": {
+      "pricePerKg": 35,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "white_cheese": {
+      "pricePerKg": 35,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "mozzarella": {
+      "pricePerKg": 24,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "butter": {
+      "pricePerKg": 35,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "banana": {
+      "pricePerKg": 6,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "apple": {
+      "pricePerKg": 3,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "pear": {
+      "pricePerKg": 6,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "orange": {
+      "pricePerKg": 6,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "mandarin": {
+      "pricePerKg": 7,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "frozen_berries": {
+      "pricePerKg": 18,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "tomato": {
+      "pricePerKg": 9,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "cucumber": {
+      "pricePerKg": 8,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "bell_pepper": {
+      "pricePerKg": 14,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "onion": {
+      "pricePerKg": 4,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "carrot": {
+      "pricePerKg": 3,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "zucchini": {
+      "pricePerKg": 8,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "cabbage": {
+      "pricePerKg": 3,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "sauerkraut": {
+      "pricePerKg": 6,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "pickled_cucumber": {
+      "pricePerKg": 12,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "mushrooms": {
+      "pricePerKg": 12,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "beetroot_cooked": {
+      "pricePerKg": 5,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "spinach": {
+      "pricePerKg": 10,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "frozen_veg_mix": {
+      "pricePerKg": 9,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "broccoli_cooked": {
+      "pricePerKg": 12,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "corn_canned": {
+      "pricePerKg": 15,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "crushed_tomato": {
+      "pricePerKg": 7,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "sunflower_oil": {
+      "pricePerKg": 9,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "olive_oil": {
+      "pricePerKg": 45,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "walnuts": {
+      "pricePerKg": 45,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "almonds": {
+      "pricePerKg": 50,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "peanuts": {
+      "pricePerKg": 20,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "sunflower_seeds": {
+      "pricePerKg": 18,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "peanut_butter": {
+      "pricePerKg": 25,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    },
+    "tofu": {
+      "pricePerKg": 30,
+      "store": "Biedronka / Lidl",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "Szacunek na podstawie cen Biedronki i Lidla 2026"
+    }
+  }
+}

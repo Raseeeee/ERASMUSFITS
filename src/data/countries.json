@@ -1,0 +1,99 @@
+{
+  "countries": {
+    "ES": {
+      "currency": "EUR",
+      "supermarkets": ["Mercadona", "Lidl", "Dia", "Carrefour", "Aldi"],
+      "staples": [
+        "rice_raw", "pasta_raw", "bread_white", "egg", "chicken_breast", "tuna_canned", "lentils_raw",
+        "chickpeas_raw", "chickpeas_cooked", "potato_boiled", "tomato", "onion", "bell_pepper", "olive_oil",
+        "milk_semi", "yogurt_plain", "cheese_hard", "serrano_ham", "chorizo", "hake", "sardines_canned",
+        "banana", "orange", "apple", "lettuce", "crushed_tomato", "oats", "minced_mixed", "pork_loin",
+        "fresh_cheese_0"
+      ]
+    },
+    "IT": {
+      "currency": "EUR",
+      "supermarkets": ["Lidl", "Eurospin", "Conad", "Coop", "Esselunga"],
+      "staples": [
+        "pasta_raw", "rice_raw", "bread_white", "crushed_tomato", "olive_oil", "mozzarella", "parmesan",
+        "egg", "chicken_breast", "tuna_canned", "chickpeas_cooked", "beans_canned", "lentils_raw",
+        "ham_cooked", "serrano_ham", "milk_semi", "yogurt_plain", "apple", "orange", "banana", "tomato",
+        "zucchini", "eggplant", "onion", "carrot", "spinach", "potato_boiled", "minced_beef", "cod", "oats"
+      ]
+    },
+    "DE": {
+      "currency": "EUR",
+      "supermarkets": ["Aldi", "Lidl", "Penny", "Netto", "Rewe", "Edeka"],
+      "staples": [
+        "bread_rye", "bread_whole", "bread_roll", "potato_boiled", "pasta_raw", "rice_raw", "oats", "quark",
+        "skyr", "milk_semi", "yogurt_plain", "cheese_hard", "butter", "egg", "chicken_breast", "minced_mixed",
+        "bratwurst", "pork_loin", "sauerkraut", "pickled_cucumber", "cabbage", "carrot", "apple", "banana",
+        "tomato", "cucumber", "onion", "lentils_raw", "sunflower_oil", "frozen_veg_mix"
+      ]
+    },
+    "PL": {
+      "currency": "PLN",
+      "supermarkets": ["Biedronka", "Lidl", "Żabka", "Auchan", "Kaufland"],
+      "staples": [
+        "bread_rye", "bread_white", "potato_boiled", "buckwheat_raw", "pasta_raw", "rice_raw", "oats",
+        "twarog", "milk_semi", "kefir", "yogurt_plain", "cheese_hard", "butter", "egg", "chicken_breast",
+        "pork_loin", "minced_mixed", "kielbasa", "cabbage", "sauerkraut", "pickled_cucumber",
+        "beetroot_cooked", "carrot", "onion", "apple", "tomato", "cucumber", "mushrooms", "sunflower_oil",
+        "frozen_berries"
+      ]
+    },
+    "TR": {
+      "currency": "TRY",
+      "supermarkets": ["BİM", "A101", "Şok", "Migros"],
+      "staples": [
+        "bulgur_raw", "red_lentils_raw", "lentils_raw", "chickpeas_raw", "beans_white_raw", "rice_raw",
+        "pasta_raw", "bread_white", "simit", "tortilla_wrap", "egg", "white_cheese", "cheese_hard",
+        "yogurt_plain", "ayran", "milk_semi", "chicken_breast", "chicken_thigh", "minced_beef", "sucuk",
+        "tomato", "cucumber", "bell_pepper", "onion", "eggplant", "potato_boiled", "olive_oil",
+        "sunflower_oil", "olives", "orange"
+      ]
+    }
+  },
+  "substitutionGroups": {
+    "starches": {
+      "basis": "kcal",
+      "foods": ["rice_raw", "pasta_raw", "bulgur_raw", "buckwheat_raw", "couscous_cooked", "millet_cooked", "barley_cooked", "potato_boiled"]
+    },
+    "breads": {
+      "basis": "kcal",
+      "foods": ["bread_white", "bread_whole", "bread_rye", "toast_bread", "bread_roll", "pita", "tortilla_wrap", "simit"]
+    },
+    "legumes": {
+      "basis": "protein",
+      "foods": ["lentils_raw", "red_lentils_raw", "chickpeas_raw", "beans_white_raw", "lentils_cooked", "chickpeas_cooked", "beans_canned", "kidney_beans_canned"]
+    },
+    "freshDairyProtein": {
+      "basis": "protein",
+      "foods": ["quark", "twarog", "skyr", "greek_yogurt", "cottage_cheese", "fresh_cheese_0"]
+    },
+    "yogurtsAndMilks": {
+      "basis": "protein",
+      "foods": ["yogurt_plain", "kefir", "ayran", "milk_semi"]
+    },
+    "cheeses": {
+      "basis": "protein",
+      "foods": ["cheese_hard", "white_cheese", "mozzarella", "parmesan"]
+    },
+    "meat": {
+      "basis": "protein",
+      "foods": ["chicken_breast", "chicken_thigh", "turkey_breast", "minced_beef", "minced_mixed", "minced_turkey", "pork_loin", "beef_lean"]
+    },
+    "curedMeat": {
+      "basis": "protein",
+      "foods": ["serrano_ham", "ham_cooked", "chorizo", "sucuk", "kielbasa", "bratwurst"]
+    },
+    "fish": {
+      "basis": "protein",
+      "foods": ["hake", "cod", "pangasius", "salmon", "mackerel", "tuna_canned", "sardines_canned"]
+    },
+    "fats": {
+      "basis": "kcal",
+      "foods": ["olive_oil", "sunflower_oil", "butter"]
+    }
+  }
+}

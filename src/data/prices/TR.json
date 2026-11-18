@@ -1,0 +1,385 @@
+{
+  "country": "TR",
+  "currency": "TRY",
+  "updated": "2026-11-18",
+  "items": {
+    "chicken_breast": {
+      "pricePerKg": 190,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin",
+      "yield": 0.75
+    },
+    "chicken_thigh": {
+      "pricePerKg": 110,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin",
+      "yield": 0.7
+    },
+    "turkey_breast": {
+      "pricePerKg": 260,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin",
+      "yield": 0.75
+    },
+    "minced_beef": {
+      "pricePerKg": 650,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin",
+      "yield": 0.75
+    },
+    "beef_lean": {
+      "pricePerKg": 750,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin",
+      "yield": 0.7
+    },
+    "egg": {
+      "pricePerKg": 94,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin",
+      "yield": 0.88
+    },
+    "tuna_canned": {
+      "pricePerKg": 800,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "sucuk": {
+      "pricePerKg": 700,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "rice_raw": {
+      "pricePerKg": 63,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-07",
+      "confidence": "verificado",
+      "source": "Efsane Yasemin pirinç 1 kg, 7-13 Kasım 2026 aktüel (onedio.com)"
+    },
+    "pasta_raw": {
+      "pricePerKg": 40,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "couscous_cooked": {
+      "pricePerKg": 60,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin",
+      "yield": 2.5
+    },
+    "bulgur_raw": {
+      "pricePerKg": 32,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-07",
+      "confidence": "verificado",
+      "source": "Saban pilavlık bulgur 1 kg, 7-13 Kasım 2026 aktüel (onedio.com)"
+    },
+    "oats": {
+      "pricePerKg": 110,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "bread_white": {
+      "pricePerKg": 75,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "bread_whole": {
+      "pricePerKg": 110,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "simit": {
+      "pricePerKg": 136,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "tortilla_wrap": {
+      "pricePerKg": 165,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "potato_boiled": {
+      "pricePerKg": 25,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "lentils_raw": {
+      "pricePerKg": 70,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "red_lentils_raw": {
+      "pricePerKg": 65,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "chickpeas_raw": {
+      "pricePerKg": 75,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "beans_white_raw": {
+      "pricePerKg": 90,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "chickpeas_cooked": {
+      "pricePerKg": 80,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "beans_canned": {
+      "pricePerKg": 80,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "yogurt_plain": {
+      "pricePerKg": 50,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "greek_yogurt": {
+      "pricePerKg": 120,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "ayran": {
+      "pricePerKg": 40,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "kefir": {
+      "pricePerKg": 70,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "milk_semi": {
+      "pricePerKg": 44.5,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "cottage_cheese": {
+      "pricePerKg": 100,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "white_cheese": {
+      "pricePerKg": 300,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "cheese_hard": {
+      "pricePerKg": 450,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "butter": {
+      "pricePerKg": 500,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "banana": {
+      "pricePerKg": 90,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "apple": {
+      "pricePerKg": 40,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "orange": {
+      "pricePerKg": 35,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "mandarin": {
+      "pricePerKg": 35,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "tomato": {
+      "pricePerKg": 35,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "cucumber": {
+      "pricePerKg": 35,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "bell_pepper": {
+      "pricePerKg": 50,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "onion": {
+      "pricePerKg": 20,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "carrot": {
+      "pricePerKg": 20,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "zucchini": {
+      "pricePerKg": 30,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "eggplant": {
+      "pricePerKg": 40,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "spinach": {
+      "pricePerKg": 40,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "frozen_veg_mix": {
+      "pricePerKg": 120,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "crushed_tomato": {
+      "pricePerKg": 60,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "olive_oil": {
+      "pricePerKg": 450,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "sunflower_oil": {
+      "pricePerKg": 90,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "olives": {
+      "pricePerKg": 250,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "walnuts": {
+      "pricePerKg": 500,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "hazelnuts": {
+      "pricePerKg": 600,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    },
+    "peanut_butter": {
+      "pricePerKg": 300,
+      "store": "BİM / A101 / Şok",
+      "date": "2026-11-18",
+      "confidence": "estimado",
+      "source": "BİM/A101 2026 fiyatlarına dayalı tahmin"
+    }
+  }
+}
