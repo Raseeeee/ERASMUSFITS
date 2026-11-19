@@ -27,7 +27,7 @@ export default defineConfig(({ isSsrBuild }) => ({
         display: 'standalone',
         orientation: 'portrait',
         theme_color: '#17664f',
-        background_color: '#f6f6f3',
+        background_color: '#f6fafd',
         categories: ['health', 'food', 'lifestyle'],
         icons: [
           { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },

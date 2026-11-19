@@ -1,3 +1,4 @@
+// OBSOLETO: los iconos actuales salen del logo (docs/logo.png). No ejecutar o se sobrescribirán.
 // Genera los iconos de la PWA en public/ (PNG sin dependencias + favicon SVG).
 // Diseño: plato blanco con un brote verde sobre fondo verde de la marca.
 // Uso: node scripts/build-icons.mjs
