@@ -253,3 +253,25 @@ Registro de decisiones tomadas ante ambigüedades de `SPEC.md`. Formato: decisi�
 - OFF desde el navegador si hay tráfico real (límite por IP compartido en el proxy).
 - Revisar los precios (TR cada 1–2 meses).
 - Importar copia de seguridad; escáner de código de barras con cámara; Capacitor para las tiendas.
+
+## Tras el despliegue (pruebas del usuario)
+
+### Open Food Facts directo desde el navegador
+- El proxy compartía la IP del servidor y, con ella, el cupo de OFF (10 búsquedas/min por IP) entre todos los usuarios. Ahora **cada navegador llama directamente a OFF**, con su propio cupo y un limitador en el cliente (10 búsquedas y 15 productos por minuto) que avisa antes de pasarse.
+- Search-a-licious **no permite CORS**: se usan `world.openfoodfacts.org/cgi/search.pl` (búsqueda) y `/api/v2/product/{código}` (código de barras), que responden con `Access-Control-Allow-Origin: *`. Comprobado desde el navegador.
+- El navegador no deja fijar User-Agent: la app se identifica con `app_name` y `app_version`, como documenta OFF. `OFF_CONTACT` deja de usarse.
+- El proxy `api/` queda solo para USDA (la clave no puede ir al navegador). Imports relativos con `.js` para el ESM de Vercel. Política de privacidad actualizada: OFF ve la IP del usuario, como al visitar su web.
+
+### Nombre
+- Primero **Erasmus+FITS** y después **InternationalFits**, para evitar la marca de la UE "Erasmus+" (registrada en la EUIPO). El nombre está en `src/config/app.ts`, las traducciones (`app.name`), el manifiesto y el título.
+- La base IndexedDB conserva el nombre interno `erasmus-fits` y el indicador `fits.onboarded`: son invisibles y cambiarlos borraría los datos de quien ya usa la app.
+- El texto "¿Vas de Erasmus?" se mantiene: es un uso descriptivo del programa, no una marca de producto.
+
+### Té, infusiones y café
+- Añadidos a la semilla (179 alimentos): té negro / çay (vaso de té de 100 ml), té verde, manzanilla, poleo menta, infusión de hierbas y café solo (taza pequeña de 60 ml), con nombres en 6 idiomas. ~1–2 kcal/100 ml; el azúcar se añade aparte con "Azúcar" (cucharadita).
+- No cuentan como agua (decisión conservadora; se puede cambiar si se quiere).
+- **Búsqueda**: una palabra completa pesa más que un prefijo ("té" → "Té negro" antes que "Ternera"), y a igual coincidencia gana el nombre en tu idioma frente a los alias de otros idiomas ("té" no saca "Tereyağı").
+
+### Ensaladas en cafetería
+- Antes, una ensalada en cafetería sumaba 6 g de grasa por cada 100 g. En realidad suelen servirse **sin aliñar**, así que se sobrestimaba. Ahora **ensaladas y verduras crudas no suman grasa en cafetería**; las verduras cocinadas siguen sumando 5 g/100 g (salteadas).
+- Al elegir una ensalada o verdura cruda aparece un aviso: si le pones aceite, añádelo aparte ("Aceite de oliva", 1 cucharada ≈ 10 g).

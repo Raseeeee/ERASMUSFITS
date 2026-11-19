@@ -10,7 +10,7 @@ Países: 🇪🇸 España · 🇮🇹 Italia · 🇩🇪 Alemania · 🇵🇱 Po
 
 - **Objetivos por tipo de día** (descanso, ligero, gimnasio, carrera, fondo largo): kcal, proteína, carbohidratos, grasa, fibra, sal, azúcares y agua, con suelos de seguridad. Se pueden editar.
 - **Registro diario** por comidas (desayuno, comida, cena, snacks) con contador de lo que te queda, cocinado en casa o en cafetería, gramos o unidades, comidas editables, agua y "otra actividad".
-- **Buscador de alimentos**: tus alimentos y una base curada de 173 alimentos con nombres en 6 idiomas (funciona offline), más Open Food Facts (incluido código de barras) y USDA a través de un proxy.
+- **Buscador de alimentos**: tus alimentos y una base curada de 179 alimentos (incluidos té, infusiones y café) con nombres en 6 idiomas (funciona offline), más Open Food Facts (llamado directamente desde el navegador, incluido código de barras) y USDA a través de un proxy.
 - **Recetas**: 60 recetas de residencia (≤ 20 min, solo placa, microondas o hervidor), con macros y coste calculados a partir de los ingredientes.
 - **Compra barata**: cesta semanal optimizada (programación lineal) que cumple tus objetivos ±5 % al menor coste, con preferencias, alergias y equivalencias "de casa → local".
 - **Progreso y coach**: peso, adherencia, actividad, gráficas y avisos amables. Los ajustes de kcal solo se aplican si los confirmas.
@@ -25,7 +25,7 @@ Países: 🇪🇸 España · 🇮🇹 Italia · 🇩🇪 Alemania · 🇵🇱 Po
 
 ```bash
 npm install
-cp -n .env.example .env   # solo si aún no tienes .env; rellena USDA_API_KEY (y OFF_CONTACT)
+cp -n .env.example .env   # solo si aún no tienes .env; rellena USDA_API_KEY
 npm run dev               # http://localhost:5173 (sirve también /api/*)
 ```
 
@@ -34,7 +34,6 @@ Variables de entorno (solo en el servidor; nunca con prefijo `VITE_`):
 | Variable | Obligatoria | Para qué |
 |---|---|---|
 | `USDA_API_KEY` | Para USDA | Clave de USDA FoodData Central. Sin ella, la búsqueda USDA responde "no configurado" y lo demás funciona. |
-| `OFF_CONTACT` | Recomendada | Email o URL de contacto para el User-Agent que pide Open Food Facts. |
 
 ## Comandos
 
@@ -59,7 +58,7 @@ node scripts/build-icons.mjs     # iconos de la PWA → public/
 ## Desplegar en Vercel
 
 1. Sube el repositorio a GitHub/GitLab e impórtalo en Vercel (<https://vercel.com/new>). `vercel.json` ya define el framework (Vite), el build (`npm run build`), la salida (`dist`), el fallback de la SPA y las cabeceras del service worker.
-2. En **Settings → Environment Variables** añade `USDA_API_KEY` y `OFF_CONTACT` (Production y Preview).
+2. En **Settings → Environment Variables** añade `USDA_API_KEY` (Production y Preview). Es la única variable.
 3. Despliega. Las funciones de `api/*.ts` se publican solas como Vercel Functions (Node.js). `api/_lib/` no se publica.
 4. Comprueba:
    - `https://<tu-dominio>/api/usda-search?q=lentils` devuelve `{"foods":[…]}`.
@@ -67,12 +66,12 @@ node scripts/build-icons.mjs     # iconos de la PWA → public/
 
 Con la CLI: `npm i -g vercel && vercel` (y `vercel env add USDA_API_KEY`).
 
-> Nota sobre Open Food Facts: limita la búsqueda a 10 peticiones/min **por IP**. Con el proxy, todos los usuarios comparten la IP del servidor. Con tráfico real, conviene llamar a OFF directamente desde el navegador o usar sus volcados diarios (ver `DECISIONS.md`).
+> Open Food Facts se llama directamente desde el navegador de cada usuario (cada uno con su propio cupo de 10 búsquedas/min), así que no necesita configuración en Vercel.
 
 ## Estructura
 
 ```
-api/                 Proxy serverless (Open Food Facts, USDA) + caché y límites
+api/                 Proxy serverless para USDA (esconde la API key) + caché y límites
 src/domain/          Lógica pura con tests: objetivos, alimentos, registro, recetas, precios, optimizador, coach
 src/data/            Semilla de alimentos, países, precios y recetas (JSON generados por scripts/)
 src/features/*       Pantallas (onboarding, hoy, añadir comida, recetas, compra, progreso, ajustes, legal)
