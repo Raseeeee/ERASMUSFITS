@@ -2,7 +2,7 @@
  * Estimación de un plato a partir de una foto. Lógica pura: esquema que se pide a la IA,
  * saneado de su respuesta y conversión de cada ingrediente a un `Food` registrable.
  */
-import { FOOD_CATEGORIES, type Food, type FoodCategory, type Nutrients } from './foods';
+import { FOOD_CATEGORIES, type Food, type FoodCategory, type Nutrients } from './foods.js';
 
 /** Ingrediente tal como lo devuelve la IA (por 100 g, más los gramos estimados en el plato). */
 export interface PhotoItem {
