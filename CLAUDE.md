@@ -5,7 +5,7 @@ PWA móvil-primero de nutrición para estudiantes Erasmus (o no): objetivos de m
 Países: ES, IT, DE, PL, TR (origen→destino cualquiera, o modo "no voy de Erasmus"). Idiomas: es, en.
 
 ## Stack
-Vite + React + TypeScript + Tailwind v4 · React Router · i18next · Zustand · Dexie (IndexedDB, local-first, sin login) · vite-plugin-pwa · Vitest (lógica) · Playwright (3 flujos: onboarding, añadir comida, ver receta) · `api/` serverless solo como proxy a USDA (Open Food Facts se llama directamente desde el navegador).
+Vite + React + TypeScript + Tailwind v4 · React Router · i18next · Zustand · Dexie (IndexedDB, local-first, sin login) · vite-plugin-pwa · Vitest (lógica) · Playwright (3 flujos: onboarding, añadir comida, ver receta) · `api/` serverless como proxy a USDA y a la API de Gemini (foto del plato) (Open Food Facts se llama directamente desde el navegador).
 
 ## Comandos
 - `npm run dev` — servidor de desarrollo
@@ -21,14 +21,14 @@ Vite + React + TypeScript + Tailwind v4 · React Router · i18next · Zustand ·
 - `src/i18n` — recursos es/en. **Ningún texto visible hardcodeado** en componentes: siempre `t('...')`.
 - `src/store` — Zustand + persistencia Dexie.
 - `src/config/flags.ts` — feature flags (premium, affiliate, ads), todo desactivado.
-- `api/` — funciones serverless (Vercel, firma `GET(Request)`): `usda-search`. Compartido en `api/_lib/`. Imports relativos con extensión `.js` (ESM en Vercel). En dev las sirve `vite-plugins/api-dev.ts` dentro de `npm run dev`.
+- `api/` — funciones serverless (Vercel, firma `GET`/`POST(Request)`): `usda-search`, `photo-estimate` (foto del plato → Gemini). Compartido en `api/_lib/`. Imports relativos con extensión `.js` (ESM en Vercel). En dev las sirve `vite-plugins/api-dev.ts` dentro de `npm run dev`.
 - `scripts/build-seed.mjs`, `build-prices.mjs`, `build-recipes.mjs` — generan los JSON de `src/data` (alimentos, precios por país, recetas). Edita la tabla del script y ejecútalo con `node scripts/<script>`; no edites los JSON a mano.
 
 ## Convenciones
-- Sin claves ni secretos en el repo: `.env` (ignorado). Única variable: `USDA_API_KEY` (servidor). Nunca con prefijo `VITE_`.
+- Sin claves ni secretos en el repo: `.env` (ignorado). Variables (solo servidor): `USDA_API_KEY`, `GEMINI_API_KEY` (y opcional `GEMINI_MODEL`). Nunca con prefijo `VITE_`.
 - Nombre visible en `src/config/app.ts` (InternationalFits). La base IndexedDB se llama `erasmus-fits` por herencia: no renombrarla (se perderían datos).
 - Macros y coste de recetas se calculan siempre (nunca se escriben). Precios: `pricePerKg` del producto tal como se compra + `yield` si se registra cocinado.
-- Tests E2E nunca llaman a APIs reales: simular `/api/*` y `https://world.openfoodfacts.org/**` con `page.route` (con cabecera CORS).
+- Tests E2E nunca llaman a APIs reales: simular `/api/*` (incluida `/api/photo-estimate`) y `https://world.openfoodfacts.org/**` con `page.route` (con cabecera CORS).
 - OFF: desde el navegador (`src/store/externalFoods.ts`), endpoints con CORS (`cgi/search.pl`, `api/v2/product`), limitador por usuario; no buscar mientras se escribe.
 - Trabajo por fases (SPEC §12). Commits pequeños. No pasar de fase sin tests en verde.
 - Ambigüedad → elegir valor razonable, anotarlo en `DECISIONS.md`.

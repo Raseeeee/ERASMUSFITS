@@ -275,3 +275,22 @@ Registro de decisiones tomadas ante ambigüedades de `SPEC.md`. Formato: decisi�
 ### Ensaladas en cafetería
 - Antes, una ensalada en cafetería sumaba 6 g de grasa por cada 100 g. En realidad suelen servirse **sin aliñar**, así que se sobrestimaba. Ahora **ensaladas y verduras crudas no suman grasa en cafetería**; las verduras cocinadas siguen sumando 5 g/100 g (salteadas).
 - Al elegir una ensalada o verdura cruda aparece un aviso: si le pones aceite, añádelo aparte ("Aceite de oliva", 1 cucharada ≈ 10 g).
+
+### Funciones de Vercel: tsconfig propio en `api/`
+- Vercel compilaba `api/*.ts` con el tsconfig de la raíz, que pide tipos de Vite, PWA y jest-dom, y daba avisos `TS2688`. Ahora `api/tsconfig.json` solo carga `node` (para `process.env`), con `moduleResolution: bundler` como el resto (NodeNext obligaría a poner `.js` en todos los imports de `src/domain`). Excluye los tests.
+
+### Privacidad: responsable y contacto
+- Responsable: Raúl Segovia. Contacto: el buzón del proyecto internationalfits1@gmail.com (`CONTACT_EMAIL` en `src/config/app.ts`), que se usa tanto para comentarios como para ejercer derechos; los textos de la política lo reciben por interpolación (`{{email}}`), así que solo se cambia en un sitio. Base legal: consentimiento; los datos de salud no salen del dispositivo. Se nombra a Vercel como proveedor de alojamiento y se añade la reclamación ante la AEPD. Fecha de la política: 2026-11-19.
+- Ajustes → "Enviar comentarios o avisar de un error": `mailto:` con la versión en el asunto. Es el único canal de feedback (no hay analítica).
+- Aceptación expresa: en la bienvenida hay una casilla "He leído y acepto la política de privacidad"; sin marcarla no se puede continuar. Se guarda la fecha de la política aceptada (`privacyAccepted` en el store, constante `PRIVACY_UPDATED` en `src/features/legal/privacyVersion.ts`, fuera de `LegalScreens` para no meterla en el arranque). Si la política cambia de fecha, la casilla vuelve a aparecer desmarcada.
+
+### Logo
+- Logo en `docs/logo.png`, versión **sin la bandera de la UE** (el emblema europeo tiene restricciones de uso comercial y no puede sugerir respaldo oficial; el mapa de Europa no plantea problema). Los iconos de la PWA usan solo el símbolo (globo), sin el texto, sobre fondo `#f6fafd` (también `background_color` del manifiesto); el maskable deja un 18 % de margen. `scripts/build-icons.mjs` queda obsoleto. El original es de baja resolución (~256 px el símbolo): con un SVG o PNG de ≥1024 px se regeneran más nítidos.
+
+### Foto del plato → calorías
+- Añadir comida → "Calcular desde una foto del plato". El navegador reduce la foto a ≤1024 px (JPEG 0,8) y la manda a `POST /api/photo-estimate`, que la pasa a la API de Gemini (`gemini-3.5-flash-lite` por defecto, cambiable con `GEMINI_MODEL`; razonamiento `LOW`; JSON con `PHOTO_SCHEMA` vía `responseJsonSchema`) y devuelve ingredientes con gramos y nutrientes por 100 g. La foto no se guarda.
+- La respuesta se sanea en `src/domain/photoEstimate.ts` (recorte de valores imposibles, macros ≤ 100 g/100 g, kcal recalculadas si no cuadran con los macros, máx. 12 ingredientes de ≤ 1,5 kg).
+- El usuario revisa: puede quitar ingredientes y cambiar gramos antes de añadirlos. Cada uno se registra como alimento propio (copia en la entrada), con calidad "aproximada" y **sin grasa extra de cafetería** (la foto ya muestra el plato tal cual).
+- Coste: gratis para el usuario; lo paga el proyecto. Límite de 10 fotos/hora por IP y 300/hora por instancia. Clave en `GEMINI_API_KEY` (solo servidor); si Gemini agota la cuota (429) la app muestra "vuelve a intentarlo dentro de un rato". `maxDuration` 60 s en `vercel.json`.
+- Privacidad: la sección "Qué sale de tu dispositivo" menciona a Google (API de Gemini, EE. UU.) como destinatario de la foto, y la pantalla de foto lo avisa antes de hacerla.
+- Proveedor: Gemini en lugar de Claude porque de momento no hay clave de Anthropic. **El plan gratuito de Gemini no se puede usar en producción**: sus condiciones solo permiten servicios de pago para apps disponibles en el EEE, Suiza o Reino Unido, y en el gratuito Google usa el contenido para mejorar sus productos (con revisión humana). El gratuito vale para desarrollo local; antes de poner `GEMINI_API_KEY` en Vercel hay que activar la facturación del proyecto en AI Studio (misma clave). Coste orientativo con Flash-Lite: ~0,2 céntimos por foto. La política de privacidad describe ya ese uso de pago (sin entrenamiento).

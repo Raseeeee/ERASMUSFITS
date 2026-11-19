@@ -17,6 +17,8 @@ interface PersistedState {
   dismissedAlerts: Record<string, string>;
   lastKcalAdjust: string | null;
   lowTargetAttempts: number;
+  /** Fecha (PRIVACY_UPDATED) de la política de privacidad aceptada, o null. */
+  privacyAccepted: string | null;
 }
 
 interface AppState extends PersistedState {
@@ -27,6 +29,7 @@ interface AppState extends PersistedState {
   setProfile: (p: BodyProfile) => Promise<void>;
   setOverride: (d: DayType, t: Targets | null) => Promise<void>;
   completeOnboarding: () => Promise<void>;
+  acceptPrivacy: (version: string) => Promise<void>;
   setShopPrefs: (p: ShoppingPreferences) => Promise<void>;
   dismissAlert: (id: string, date: string) => Promise<void>;
   applyKcalAdjustment: (delta: number, date: string) => Promise<void>;
@@ -47,6 +50,7 @@ const initial: PersistedState = {
   dismissedAlerts: {},
   lastKcalAdjust: null,
   lowTargetAttempts: 0,
+  privacyAccepted: null,
 };
 
 const KEYS = Object.keys(initial) as (keyof PersistedState)[];
@@ -115,6 +119,10 @@ export const useAppStore = create<AppState>((set, get) => ({
     set({ onboarded: true });
     setOnboardedHint(true);
     await put('onboarded', true);
+  },
+  acceptPrivacy: async (privacyAccepted) => {
+    set({ privacyAccepted });
+    await put('privacyAccepted', privacyAccepted);
   },
   setShopPrefs: async (shopPrefs) => {
     set({ shopPrefs });

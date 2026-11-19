@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router';
 import { Button, Card, Disclaimer, Screen, Segmented, flag } from '../../components/ui';
+import { APP_NAME, CONTACT_EMAIL } from '../../config/app';
 import { activeCountry } from '../../domain/profile';
 import { LANGUAGES, type Language } from '../../domain/types';
 import { useAppStore } from '../../store/appStore';
@@ -86,6 +87,12 @@ export function SettingsScreen() {
           <Link to="/credits" className={linkClass}>
             {t('settings.credits')} <span aria-hidden>›</span>
           </Link>
+          <a
+            href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`${APP_NAME} ${__APP_VERSION__}`)}`}
+            className={linkClass}
+          >
+            {t('settings.feedback')} <span aria-hidden>›</span>
+          </a>
         </nav>
         <p className="mt-2 text-xs text-mu">{t('settings.version', { v: __APP_VERSION__ })}</p>
       </Card>

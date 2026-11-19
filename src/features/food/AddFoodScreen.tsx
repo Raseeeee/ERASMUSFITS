@@ -21,6 +21,7 @@ import { MEALS, defaultMealForHour, isMeal, type Meal } from '../../domain/log';
 import { addEntry, deleteEntry, getEntry, listMyFoods, updateEntry } from '../../store/logRepo';
 import { useSelectedDate } from '../today/useSelectedDate';
 import { MyFoodEditor } from './MyFoodEditor';
+import { PhotoEstimator } from './PhotoEstimator';
 import { FoodRow, QualityBadge, SourceBadge } from './FoodRow';
 import { ExternalResults, type ExternalState } from './ExternalResults';
 import { searchExternal } from '../../store/externalFoods';
@@ -44,6 +45,7 @@ export function AddFoodScreen() {
   const [unit, setUnit] = useState<'g' | 'unit'>('g');
   const [context, setContext] = useState<CookingContext>('home');
   const [editor, setEditor] = useState<null | { base?: Food }>(null);
+  const [photo, setPhoto] = useState(false);
   const [meal, setMeal] = useState<Meal>(isMeal(mealParam) ? mealParam : defaultMealForHour(new Date().getHours()));
 
   // Modo edición: carga la entrada una sola vez y rellena el formulario.
@@ -129,6 +131,14 @@ export function AddFoodScreen() {
   }
 
   if (editing && (entry === undefined || (entry && loadedId !== entry.id))) return null;
+
+  if (photo) {
+    return (
+      <Screen title={title}>
+        <PhotoEstimator date={date} initialMeal={meal} onDone={backToToday} onCancel={() => setPhoto(false)} />
+      </Screen>
+    );
+  }
 
   if (editor) {
     return (
@@ -248,6 +258,9 @@ export function AddFoodScreen() {
 
   return (
     <Screen title={title}>
+      <Button className="mb-4 w-full" onClick={() => setPhoto(true)}>
+        <span aria-hidden>📷</span> {t('photo.open')}
+      </Button>
       <form
         role="search"
         onSubmit={(e) => {

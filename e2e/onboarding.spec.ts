@@ -13,6 +13,8 @@ test.describe('onboarding', () => {
     await page.getByLabel('País de destino').selectOption('ES');
     await expect(page.getByText('El destino debe ser distinto')).toBeVisible();
     await page.getByLabel('País de destino').selectOption('TR');
+    await expect(continueBtn).toBeDisabled(); // falta aceptar la política de privacidad
+    await page.getByRole('checkbox', { name: /acepto la/ }).check();
     await continueBtn.click();
 
     await expect(page.getByRole('heading', { name: 'Tu perfil' })).toBeVisible();
@@ -44,6 +46,7 @@ test.describe('onboarding', () => {
     await page.goto('/');
     await page.getByText('No', { exact: true }).click();
     await page.getByLabel('Nacionalidad').selectOption('PL');
+    await page.getByRole('checkbox', { name: /acepto la/ }).check();
     await page.getByRole('button', { name: 'Continuar' }).click();
 
     await page.getByText('Mujer', { exact: true }).click();
@@ -60,6 +63,7 @@ test.describe('onboarding', () => {
     await page.goto('/');
     await page.getByLabel('País de origen').selectOption('IT');
     await page.getByLabel('País de destino').selectOption('DE');
+    await page.getByRole('checkbox', { name: /acepto la/ }).check();
     await page.getByRole('button', { name: 'Continuar' }).click();
 
     await page.getByText('Prefiero no decirlo', { exact: true }).click();

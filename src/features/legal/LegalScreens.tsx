@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { Card, Screen } from '../../components/ui';
+import { CONTACT_EMAIL } from '../../config/app';
 
-export const PRIVACY_UPDATED = '2026-11-18';
+import { PRIVACY_UPDATED } from './privacyVersion';
 const SECTIONS = ['what', 'where', 'network', 'analytics', 'rights', 'age', 'medical', 'controller'] as const;
 
 function BackLink({ label }: { label: string }) {
@@ -23,7 +24,7 @@ export function PrivacyScreen() {
       {SECTIONS.map((s) => (
         <Card key={s}>
           <h2 className="mb-1 font-semibold">{t(`privacy.sections.${s}.title`)}</h2>
-          <p>{t(`privacy.sections.${s}.body`)}</p>
+          <p>{t(`privacy.sections.${s}.body`, { email: CONTACT_EMAIL })}</p>
         </Card>
       ))}
     </Screen>

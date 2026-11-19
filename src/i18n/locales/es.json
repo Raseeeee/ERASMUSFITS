@@ -39,7 +39,9 @@
     "origin": "País de origen",
     "destination": "País de destino",
     "nationality": "Nacionalidad",
-    "sameCountry": "El destino debe ser distinto del país de origen."
+    "sameCountry": "El destino debe ser distinto del país de origen.",
+    "acceptPrivacy": "He leído y acepto la",
+    "privacyLink": "política de privacidad"
   },
   "profile": {
     "title": "Tu perfil",
@@ -189,7 +191,8 @@
     "about": "Información",
     "privacy": "Política de privacidad",
     "credits": "Créditos y licencias",
-    "version": "Versión {{v}}"
+    "version": "Versión {{v}}",
+    "feedback": "Enviar comentarios o avisar de un error"
   },
   "nav": {
     "today": "Hoy",
@@ -463,6 +466,30 @@
     },
     "effect": "Suma +{{kcal}} kcal (en carbohidratos) y +{{glasses}} vasos de agua a tu objetivo de este día."
   },
+  "photo": {
+    "open": "Calcular desde una foto del plato",
+    "title": "Foto del plato",
+    "intro": "Haz una foto a tu plato y te estimamos los ingredientes, los gramos, las calorías y los macros. Gratis.",
+    "take": "Hacer o elegir foto",
+    "retake": "Hacer otra foto",
+    "loading": "Analizando la foto…",
+    "reviewHint": "Es una estimación aproximada: revisa los gramos y quita lo que no sea correcto antes de añadirlo.",
+    "itemsLabel": "Ingredientes estimados",
+    "include": "Incluir {{name}}",
+    "gramsOf": "Gramos de {{name}}",
+    "itemMacros": "{{kcal}} kcal · P {{p}} g · C {{c}} g · G {{f}} g",
+    "total": "Total: {{kcal}} kcal · P {{p}} g · C {{c}} g · G {{f}} g · fibra {{fiber}} g",
+    "addAll_one": "Añadir {{count}} alimento",
+    "addAll_other": "Añadir {{count}} alimentos",
+    "notFood": "No vemos comida en esta foto. Prueba con otra, desde arriba y con buena luz.",
+    "privacy": "La foto se envía a nuestro servidor y a Google (Gemini) solo para analizarla; no se guarda ni se usa para nada más.",
+    "errors": {
+      "offline": "Necesitas conexión a internet para analizar la foto.",
+      "rate_limited": "Has analizado muchas fotos seguidas. Vuelve a intentarlo dentro de un rato.",
+      "not_configured": "El análisis de fotos no está disponible ahora mismo.",
+      "generic": "No hemos podido analizar la foto. Inténtalo de nuevo."
+    }
+  },
   "privacyNotice": "Tus datos se guardan solo en este dispositivo.",
   "privacy": {
     "title": "Política de privacidad",
@@ -479,7 +506,7 @@
       },
       "network": {
         "title": "Qué sale de tu dispositivo",
-        "body": "Únicamente lo que buscas (texto o código de barras) cuando pulsas «Buscar en Open Food Facts y USDA». La búsqueda en Open Food Facts va directamente desde tu dispositivo a sus servidores (como al visitar su web, ven tu dirección IP). La búsqueda en USDA pasa por nuestro servidor intermedio, que la reenvía y guarda temporalmente el resultado (no quién buscó). Nunca se envían tu perfil ni tus comidas. El proveedor de alojamiento puede registrar datos técnicos, como la dirección IP, según su propia política."
+        "body": "Únicamente lo que buscas (texto o código de barras) cuando pulsas «Buscar en Open Food Facts y USDA». La búsqueda en Open Food Facts va directamente desde tu dispositivo a sus servidores (como al visitar su web, ven tu dirección IP). La búsqueda en USDA pasa por nuestro servidor intermedio, que la reenvía y guarda temporalmente el resultado (no quién buscó). Si usas «Foto del plato», la foto se envía a nuestro servidor y a Google (API de Gemini, Google LLC, EE. UU.), que la analiza y devuelve la estimación; no la guardamos, y Google no la usa para entrenar sus modelos y la conserva solo el tiempo limitado que indican sus condiciones. Nunca se envían tu perfil ni tus comidas. El proveedor de alojamiento (Vercel Inc.) puede registrar datos técnicos, como la dirección IP, según su propia política."
       },
       "analytics": {
         "title": "Cookies y analítica",
@@ -487,7 +514,7 @@
       },
       "rights": {
         "title": "Tus derechos",
-        "body": "Puedes descargar todos tus datos (Ajustes → Exportar mis datos) y borrarlos por completo (Ajustes → Borrar todos mis datos) en cualquier momento."
+        "body": "Puedes descargar todos tus datos (Ajustes → Exportar mis datos) y borrarlos por completo (Ajustes → Borrar todos mis datos) en cualquier momento. Para cualquier duda o para ejercer tus derechos, escribe a {{email}}. También puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es)."
       },
       "age": {
         "title": "Edad mínima",
@@ -499,7 +526,7 @@
       },
       "controller": {
         "title": "Responsable",
-        "body": "Proyecto en desarrollo. Antes de publicarlo hay que indicar aquí el nombre y el contacto del responsable del tratamiento."
+        "body": "Responsable: Raúl Segovia (desarrollador independiente). Contacto: {{email}}. Tus datos de perfil y comidas, incluidos los de salud (peso, objetivo, actividad), se guardan solo en tu dispositivo: el responsable no tiene acceso a ellos. Base legal: tu consentimiento al usar la app, que puedes retirar en cualquier momento borrando tus datos."
       }
     }
   },

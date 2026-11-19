@@ -5,11 +5,14 @@ import { Button, Card, Disclaimer, Field, Screen, Segmented, flag, inputClass } 
 import { COUNTRIES, LANGUAGES, type CountryCode, type Language, type Trip } from '../../domain/types';
 import { validateTrip } from '../../domain/profile';
 import { useAppStore } from '../../store/appStore';
+import { PRIVACY_UPDATED } from '../legal/privacyVersion';
 
 export function WelcomeScreen() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const { trip: saved, setLanguage, setTrip } = useAppStore();
+  const { trip: saved, setLanguage, setTrip, privacyAccepted, acceptPrivacy } = useAppStore();
+  // Si la política cambia de fecha, hay que volver a aceptarla.
+  const [accepted, setAccepted] = useState(privacyAccepted === PRIVACY_UPDATED);
 
   const [erasmus, setErasmus] = useState<boolean>(saved ? saved.erasmus : true);
   const [origin, setOrigin] = useState<CountryCode | ''>(saved?.erasmus ? saved.origin : '');
@@ -44,7 +47,8 @@ export function WelcomeScreen() {
   );
 
   async function onContinue() {
-    if (!trip || !valid) return;
+    if (!trip || !valid || !accepted) return;
+    await acceptPrivacy(PRIVACY_UPDATED);
     await setLanguage(lang);
     await setTrip(trip);
     navigate('/onboarding/profile');
@@ -84,13 +88,23 @@ export function WelcomeScreen() {
         )}
       </Card>
       <Disclaimer />
-      <p className="mb-4 text-sm text-mu">
-        {t('privacyNotice')}{' '}
-        <Link to="/privacy" className="text-ac underline">
-          {t('settings.privacy')}
-        </Link>
-      </p>
-      <Button variant="primary" className="w-full" disabled={!valid} onClick={onContinue}>
+      <p className="mb-2 text-sm text-mu">{t('privacyNotice')}</p>
+      <div className="mb-4 flex min-h-11 items-start gap-3">
+        <input
+          id="accept-privacy"
+          type="checkbox"
+          className="mt-0.5 size-6 shrink-0 accent-ac"
+          checked={accepted}
+          onChange={(e) => setAccepted(e.target.checked)}
+        />
+        <label htmlFor="accept-privacy" className="text-sm">
+          {t('welcome.acceptPrivacy')}{' '}
+          <Link to="/privacy" className="text-ac underline">
+            {t('welcome.privacyLink')}
+          </Link>
+        </label>
+      </div>
+      <Button variant="primary" className="w-full" disabled={!valid || !accepted} onClick={onContinue}>
         {t('common.continue')}
       </Button>
     </Screen>

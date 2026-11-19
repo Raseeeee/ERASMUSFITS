@@ -4,3 +4,5 @@ export const APP_NAME = 'InternationalFits';
 export const APP_ID = 'InternationalFits';
 export const APP_SLUG = 'international-fits';
 export const APP_VERSION: string = typeof __APP_VERSION__ === 'string' ? __APP_VERSION__ : '0.0.0';
+/** Buzón del proyecto: comentarios, errores y ejercicio de derechos de privacidad. */
+export const CONTACT_EMAIL = 'internationalfits1@gmail.com';

@@ -171,4 +171,41 @@ test.describe('añadir comida', () => {
     await expect(page.getByTestId('preview')).toHaveText(home!);
     await expect(page.getByText('En cafetería sumamos')).toHaveCount(0);
   });
+
+  test('foto del plato: estima, se revisa y se añade', async ({ page }) => {
+    let sent: { image?: string; lang?: string } = {};
+    await page.route('**/api/photo-estimate', (route) => {
+      sent = route.request().postDataJSON();
+      return route.fulfill({
+        json: {
+          isFood: true,
+          items: [
+            { name: 'Arroz blanco', grams: 180, state: 'cooked', category: 'grain',
+              per100g: { kcal: 130, p: 2.7, c: 28, f: 0.3, fiber: 0.4, sugar: 0, salt: 0 } },
+            { name: 'Pollo a la plancha', grams: 150, state: 'cooked', category: 'meat',
+              per100g: { kcal: 165, p: 31, c: 0, f: 3.6, fiber: 0, sugar: 0, salt: 0.2 } },
+            { name: 'Salsa', grams: 30, state: 'cooked', category: 'other',
+              per100g: { kcal: 300, p: 1, c: 10, f: 28, fiber: 0, sugar: 5, salt: 2 } },
+          ],
+        },
+      });
+    });
+    await page.getByRole('link', { name: 'Añadir a cena' }).click();
+    await page.getByRole('button', { name: /foto del plato/ }).click();
+    await page.getByTestId('photo-input').setInputFiles('public/icons/icon-192.png');
+
+    await expect(page.getByTestId('photo-item')).toHaveCount(3);
+    expect(sent.lang).toBe('es');
+    expect(sent.image).toMatch(/^[A-Za-z0-9+/=]+$/);
+    await page.getByRole('checkbox', { name: 'Incluir Salsa' }).uncheck();
+    await expect(page.getByTestId('photo-total')).toContainText('482 kcal');
+    await page.getByLabel('Gramos de Arroz blanco').fill('100');
+    await expect(page.getByTestId('photo-total')).toContainText('378 kcal');
+    await expect(page.getByRole('radio', { name: 'Cena' })).toBeChecked();
+    await page.getByRole('button', { name: 'Añadir 2 alimentos' }).click();
+
+    await expect(page).toHaveURL(/\/today/);
+    await expect(page.getByTestId('meal-dinner-kcal')).toHaveText('378 kcal');
+    await expect(page.getByRole('list', { name: 'Cena' })).toContainText('Pollo a la plancha');
+  });
 });

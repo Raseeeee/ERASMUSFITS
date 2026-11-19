@@ -16,7 +16,7 @@ export function apiDevPlugin(): Plugin {
     apply: 'serve',
     configureServer(server) {
       const env = loadEnv(server.config.mode, server.config.root, '');
-      for (const k of ['USDA_API_KEY']) {
+      for (const k of ['USDA_API_KEY', 'GEMINI_API_KEY', 'GEMINI_MODEL']) {
         if (env[k] && !process.env[k]) process.env[k] = env[k];
       }
 
@@ -33,7 +33,16 @@ export function apiDevPlugin(): Plugin {
             res.statusCode = 405;
             return res.end();
           }
-          const response = await handler(new Request(url, { method: req.method }));
+          const method = req.method ?? 'GET';
+          let body: Uint8Array<ArrayBuffer> | undefined;
+          if (method !== 'GET' && method !== 'HEAD') {
+            const chunks: Buffer[] = [];
+            for await (const c of req) chunks.push(c as Buffer);
+            body = new Uint8Array(Buffer.concat(chunks));
+          }
+          const headers = new Headers();
+          for (const [k, v] of Object.entries(req.headers)) if (typeof v === 'string') headers.set(k, v);
+          const response = await handler(new Request(url, { method, headers, body }));
           res.statusCode = response.status;
           response.headers.forEach((v, k) => res.setHeader(k, v));
           res.end(Buffer.from(await response.arrayBuffer()));

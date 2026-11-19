@@ -20,6 +20,7 @@ for (const scheme of ['light', 'dark'] as const) {
       await audit(page, 'welcome');
       await page.getByLabel('País de origen').selectOption('ES');
       await page.getByLabel('País de destino').selectOption('TR');
+      await page.getByRole('checkbox', { name: /acepto la/ }).check();
       await page.getByRole('button', { name: 'Continuar' }).click();
       await expect(page.getByRole('heading', { name: 'Tu perfil' })).toBeVisible();
       await audit(page, 'profile');
@@ -45,6 +46,22 @@ for (const scheme of ['light', 'dark'] as const) {
         await expect(page.getByRole('heading', { name: heading, exact: true }).first()).toBeVisible();
         await audit(page, path);
       }
+    });
+
+    test('foto del plato con resultados', async ({ page }) => {
+      await seedOnboarded(page);
+      await page.route('**/api/photo-estimate', (route) =>
+        route.fulfill({
+          json: { isFood: true, items: [{ name: 'Arroz', grams: 150, state: 'cooked', category: 'grain',
+            per100g: { kcal: 130, p: 2.7, c: 28, f: 0.3, fiber: 0.4, sugar: 0, salt: 0 } }] },
+        }),
+      );
+      await page.goto('/add?meal=lunch');
+      await page.getByRole('button', { name: /foto del plato/ }).click();
+      await audit(page, 'photo');
+      await page.getByTestId('photo-input').setInputFiles('public/icons/icon-192.png');
+      await expect(page.getByTestId('photo-item')).toHaveCount(1);
+      await audit(page, 'photo-results');
     });
 
     test('objetivos táctiles ≥ 44 px en Hoy', async ({ page }) => {
