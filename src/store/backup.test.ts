@@ -20,13 +20,13 @@ describe('exportar datos', () => {
     await db.foodCache.put({ key: 'off:es:x', foods: [], fetchedAt: 0 });
 
     const file = await exportAll(new Date('2026-11-18T10:00:00Z'));
-    expect(file.format).toBe('erasmus-fits-export');
+    expect(file.format).toBe('international-fits-export');
     expect(file.exportedAt).toBe('2026-11-18T10:00:00.000Z');
     expect(file.data.entries).toHaveLength(1);
     expect(file.data.weights).toEqual([{ date: '2026-11-18', kg: 60 }]);
     expect((file.data.settings as { key: string }[]).map((r) => r.key)).toContain('profile');
     expect(Object.keys(file.data)).not.toContain('foodCache');
-    expect(exportFileName(new Date('2026-11-18T10:00:00Z'))).toBe('erasmus-fits-2026-11-18.json');
+    expect(exportFileName(new Date('2026-11-18T10:00:00Z'))).toBe('international-fits-2026-11-18.json');
   });
 
   it('borrar todo deja la base vacía, incluido el indicador de onboarding', async () => {

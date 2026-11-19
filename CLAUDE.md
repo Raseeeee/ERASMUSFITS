@@ -1,4 +1,4 @@
-# Erasmus+FITS
+# InternationalFits
 
 PWA móvil-primero de nutrición para estudiantes Erasmus (o no): objetivos de macros por tipo de día, registro casa/cantina, recetas baratas por país, optimizador de compra por precio y avisos de coherencia con el objetivo. Especificación completa en `SPEC.md`; prototipo original en `docs/macros-erasmus.html`. Decisiones tomadas en `DECISIONS.md`.
 

@@ -12,7 +12,7 @@ type Handler = (req: Request) => Promise<Response> | Response;
 
 export function apiDevPlugin(): Plugin {
   return {
-    name: 'erasmus-fits-api-dev',
+    name: 'international-fits-api-dev',
     apply: 'serve',
     configureServer(server) {
       const env = loadEnv(server.config.mode, server.config.root, '');

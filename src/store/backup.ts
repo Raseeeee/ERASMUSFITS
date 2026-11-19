@@ -1,7 +1,7 @@
 /** Exportar todos los datos del usuario (RGPD: portabilidad). */
 import { db } from './db';
 
-export const EXPORT_FORMAT = 'erasmus-fits-export';
+export const EXPORT_FORMAT = 'international-fits-export';
 export const EXPORT_VERSION = 1;
 
 export interface ExportFile {
@@ -29,7 +29,7 @@ export async function exportAll(now = new Date()): Promise<ExportFile> {
 }
 
 export function exportFileName(now = new Date()): string {
-  return `erasmus-fits-${now.toISOString().slice(0, 10)}.json`;
+  return `international-fits-${now.toISOString().slice(0, 10)}.json`;
 }
 
 /** Descarga el JSON en el navegador. */

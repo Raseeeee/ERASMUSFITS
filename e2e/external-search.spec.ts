@@ -46,7 +46,7 @@ test.describe('búsqueda externa (OFF directo + USDA por proxy, simulados)', () 
     await expect(page.getByText('Datos de Open Food Facts (licencia ODbL).')).toBeVisible();
     const off = calls.find((u) => u.startsWith('https://world.openfoodfacts.org/cgi/search.pl'))!;
     expect(new URL(off).searchParams.get('search_terms')).toBe('yogur griego');
-    expect(new URL(off).searchParams.get('app_name')).toBe('ErasmusFITS');
+    expect(new URL(off).searchParams.get('app_name')).toBe('InternationalFits');
     expect(calls.some((u) => u.includes('usda-search?q=Plain%20Greek%20yogurt'))).toBe(true); // traducido con alias
 
     await external.getByRole('button', { name: /Yogur griego ligero/ }).click();

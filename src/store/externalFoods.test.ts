@@ -44,7 +44,7 @@ describe('searchExternal', () => {
     expect(off.pathname).toBe('/cgi/search.pl');
     expect(off.searchParams.get('search_terms')).toBe('pechuga de pollo');
     expect(off.searchParams.get('lc')).toBe('es');
-    expect(off.searchParams.get('app_name')).toBe('ErasmusFITS');
+    expect(off.searchParams.get('app_name')).toBe('InternationalFits');
     expect(off.searchParams.get('json')).toBe('1');
     expect(urls[1]).toBe('/api/usda-search?q=Chicken%20breast');
   });

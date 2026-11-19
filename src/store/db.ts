@@ -24,6 +24,7 @@ export class AppDB extends Dexie {
   days!: EntityTable<DayRecord, 'date'>;
   myFoods!: EntityTable<Food, 'id'>;
 
+  // Nombre interno heredado: no se cambia para no perder los datos de quien ya usa la app.
   constructor(name = 'erasmus-fits') {
     super(name);
     this.version(1).stores({ kv: 'key' });
