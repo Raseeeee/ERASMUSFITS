@@ -17,17 +17,17 @@ const estimate = {
       per100g: { kcal: 130, p: 2.7, c: 28, f: 0.3, fiber: 0.4, sugar: 0, salt: 0 } },
   ],
 };
-const geminiReply = (text: string, finishReason = 'STOP') =>
+const groqReply = (text: string | null) =>
   new Response(
-    JSON.stringify({ candidates: [{ content: { role: 'model', parts: [{ text }] }, finishReason }] }),
+    JSON.stringify({ choices: [{ index: 0, message: { role: 'assistant', content: text }, finish_reason: 'stop' }] }),
     { status: 200, headers: { 'content-type': 'application/json' } },
   );
 
 beforeEach(() => {
   fetchMock.mockReset();
   vi.stubGlobal('fetch', fetchMock);
-  vi.stubEnv('GEMINI_API_KEY', 'test-key');
-  vi.stubEnv('GEMINI_MODEL', '');
+  vi.stubEnv('GROQ_API_KEY', 'test-key');
+  vi.stubEnv('GROQ_MODEL', '');
   photo.globalLimiter.reset();
   photo.ipLimiters.clear();
 });
@@ -38,7 +38,7 @@ afterEach(() => {
 
 describe('/api/photo-estimate', () => {
   it('503 sin clave configurada', async () => {
-    vi.stubEnv('GEMINI_API_KEY', '');
+    vi.stubEnv('GROQ_API_KEY', '');
     expect((await photo.POST(post({ image: IMG }))).status).toBe(503);
   });
 
@@ -50,27 +50,29 @@ describe('/api/photo-estimate', () => {
   });
 
   it('devuelve la estimación saneada y manda la foto como imagen JPEG', async () => {
-    fetchMock.mockResolvedValueOnce(geminiReply(JSON.stringify(estimate)));
+    fetchMock.mockResolvedValueOnce(groqReply(JSON.stringify(estimate)));
     const res = await photo.POST(post({ image: IMG, lang: 'es' }));
     expect(res.status).toBe(200);
     expect(await res.json()).toEqual(estimate);
     const [url, init] = fetchMock.mock.calls[0] as [string, RequestInit];
-    expect(String(url)).toContain(`models/${photo.DEFAULT_MODEL}:generateContent`);
+    expect(url).toBe(photo.GROQ_URL);
+    expect((init.headers as Record<string, string>).authorization).toBe('Bearer test-key');
     const sent = JSON.parse(String(init.body));
-    expect(sent.contents[0].parts[0].inlineData).toEqual({ mimeType: 'image/jpeg', data: IMG });
-    expect(sent.generationConfig.responseMimeType).toBe('application/json');
+    expect(sent.model).toBe(photo.DEFAULT_MODEL);
+    expect(sent.messages[1].content[1].image_url.url).toBe(`data:image/jpeg;base64,${IMG}`);
+    expect(sent.response_format.json_schema.strict).toBe(true);
   });
 
   it('502 si la IA no responde o devuelve algo inválido', async () => {
-    fetchMock.mockResolvedValueOnce(geminiReply('', 'SAFETY'));
+    fetchMock.mockResolvedValueOnce(groqReply(null));
     expect((await photo.POST(post({ image: IMG }))).status).toBe(502);
-    fetchMock.mockResolvedValueOnce(geminiReply('{"nope":1}'));
+    fetchMock.mockResolvedValueOnce(groqReply('{"nope":1}'));
     expect((await photo.POST(post({ image: IMG }))).status).toBe(502);
-    fetchMock.mockResolvedValueOnce(geminiReply('no es json'));
+    fetchMock.mockResolvedValueOnce(groqReply('no es json'));
     expect((await photo.POST(post({ image: IMG }))).status).toBe(502);
   });
 
-  it('429 de Gemini (cuota agotada) → rate_limited', async () => {
+  it('429 de Groq (cuota agotada) → rate_limited', async () => {
     fetchMock.mockResolvedValue(
       new Response(JSON.stringify({ error: { code: 429, message: 'quota', status: 'RESOURCE_EXHAUSTED' } }), {
         status: 429,
@@ -81,7 +83,7 @@ describe('/api/photo-estimate', () => {
   });
 
   it('limita las peticiones por IP', async () => {
-    fetchMock.mockImplementation(async () => geminiReply(JSON.stringify(estimate)));
+    fetchMock.mockImplementation(async () => groqReply(JSON.stringify(estimate)));
     for (let i = 0; i < photo.PER_IP_MAX; i++) expect((await photo.POST(post({ image: IMG }))).status).toBe(200);
     expect((await photo.POST(post({ image: IMG }))).status).toBe(429);
     expect((await photo.POST(post({ image: IMG }, '2.2.2.2'))).status).toBe(200);

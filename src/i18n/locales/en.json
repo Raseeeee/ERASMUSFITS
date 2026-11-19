@@ -482,7 +482,7 @@
     "addAll_one": "Add {{count}} food",
     "addAll_other": "Add {{count}} foods",
     "notFood": "We can't see any food in this photo. Try another one, from above and in good light.",
-    "privacy": "The photo is sent to our server and to Google (Gemini) only to analyse it; it is not stored or used for anything else.",
+    "privacy": "The photo is sent to our server and to Groq only to analyse it; it is not stored or used for anything else.",
     "errors": {
       "offline": "You need an internet connection to analyse the photo.",
       "rate_limited": "You've analysed a lot of photos in a row. Please try again in a while.",
@@ -506,7 +506,7 @@
       },
       "network": {
         "title": "What leaves your device",
-        "body": "Only what you search for (text or barcode) when you tap \"Search Open Food Facts and USDA\". The Open Food Facts search goes directly from your device to their servers (as when visiting their website, they see your IP address). The USDA search goes through our intermediate server, which forwards it and temporarily caches the result (not who searched). If you use \"Plate photo\", the photo is sent to our server and to Google (Gemini API, Google LLC, USA), which analyses it and returns the estimate; we don't store it, and Google does not use it to train its models and keeps it only for the limited time stated in its terms. Your profile and meals are never sent. The hosting provider (Vercel Inc.) may log technical data, such as IP address, under its own policy."
+        "body": "Only what you search for (text or barcode) when you tap \"Search Open Food Facts and USDA\". The Open Food Facts search goes directly from your device to their servers (as when visiting their website, they see your IP address). The USDA search goes through our intermediate server, which forwards it and temporarily caches the result (not who searched). If you use \"Plate photo\", the photo is sent to our server and to Groq, Inc. (USA), which analyses it with an AI model and returns the estimate; we don't store it, and Groq does not use it to train models or keep it. Your profile and meals are never sent. The hosting provider (Vercel Inc.) may log technical data, such as IP address, under its own policy."
       },
       "analytics": {
         "title": "Cookies and analytics",

@@ -16,7 +16,7 @@ export function apiDevPlugin(): Plugin {
     apply: 'serve',
     configureServer(server) {
       const env = loadEnv(server.config.mode, server.config.root, '');
-      for (const k of ['USDA_API_KEY', 'GEMINI_API_KEY', 'GEMINI_MODEL']) {
+      for (const k of ['USDA_API_KEY', 'GROQ_API_KEY', 'GROQ_MODEL']) {
         if (env[k] && !process.env[k]) process.env[k] = env[k];
       }
 

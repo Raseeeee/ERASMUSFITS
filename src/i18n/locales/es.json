@@ -482,7 +482,7 @@
     "addAll_one": "Añadir {{count}} alimento",
     "addAll_other": "Añadir {{count}} alimentos",
     "notFood": "No vemos comida en esta foto. Prueba con otra, desde arriba y con buena luz.",
-    "privacy": "La foto se envía a nuestro servidor y a Google (Gemini) solo para analizarla; no se guarda ni se usa para nada más.",
+    "privacy": "La foto se envía a nuestro servidor y a Groq solo para analizarla; no se guarda ni se usa para nada más.",
     "errors": {
       "offline": "Necesitas conexión a internet para analizar la foto.",
       "rate_limited": "Has analizado muchas fotos seguidas. Vuelve a intentarlo dentro de un rato.",
@@ -506,7 +506,7 @@
       },
       "network": {
         "title": "Qué sale de tu dispositivo",
-        "body": "Únicamente lo que buscas (texto o código de barras) cuando pulsas «Buscar en Open Food Facts y USDA». La búsqueda en Open Food Facts va directamente desde tu dispositivo a sus servidores (como al visitar su web, ven tu dirección IP). La búsqueda en USDA pasa por nuestro servidor intermedio, que la reenvía y guarda temporalmente el resultado (no quién buscó). Si usas «Foto del plato», la foto se envía a nuestro servidor y a Google (API de Gemini, Google LLC, EE. UU.), que la analiza y devuelve la estimación; no la guardamos, y Google no la usa para entrenar sus modelos y la conserva solo el tiempo limitado que indican sus condiciones. Nunca se envían tu perfil ni tus comidas. El proveedor de alojamiento (Vercel Inc.) puede registrar datos técnicos, como la dirección IP, según su propia política."
+        "body": "Únicamente lo que buscas (texto o código de barras) cuando pulsas «Buscar en Open Food Facts y USDA». La búsqueda en Open Food Facts va directamente desde tu dispositivo a sus servidores (como al visitar su web, ven tu dirección IP). La búsqueda en USDA pasa por nuestro servidor intermedio, que la reenvía y guarda temporalmente el resultado (no quién buscó). Si usas «Foto del plato», la foto se envía a nuestro servidor y a Groq, Inc. (EE. UU.), que la analiza con un modelo de IA y devuelve la estimación; no la guardamos, y Groq no la usa para entrenar modelos ni la conserva. Nunca se envían tu perfil ni tus comidas. El proveedor de alojamiento (Vercel Inc.) puede registrar datos técnicos, como la dirección IP, según su propia política."
       },
       "analytics": {
         "title": "Cookies y analítica",
