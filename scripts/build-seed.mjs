@@ -91,6 +91,12 @@ kefir|Kéfir|Kefir|Kefir|Kefir|Kefir|Kefir|dairy|cooked|3.4 4 1.5 0 0 0.1|vaso|g
 ayran|Ayran|Ayran|Ayran|Ayran|Ayran|Ayran|dairy|cooked|1.7 2 1.5 0 0 0.6|vaso|glass|250
 soy_drink|Bebida de soja sin azúcar|Unsweetened soy drink|Bevanda di soia senza zucchero|Sojadrink ungesüßt|Napój sojowy niesłodzony|Şekersiz soya sütü|dairy|raw|3.3 0.5 1.8 0.6 0 0.1|vaso|glass|250
 coffee_milk|Café con leche|Coffee with milk|Caffellatte|Milchkaffee|Kawa z mlekiem|Sütlü kahve|dairy|cooked|1.7 2.4 0.8 0 0 0.05|taza|cup|200
+coffee_black|Café solo|Black coffee|Caffè espresso|Schwarzer Kaffee|Kawa czarna|Sade kahve (Türk kahvesi)|other|cooked|0.1 0.3 0 0 0 0|taza pequeña|small cup|60
+tea_black|Té negro (sin azúcar)|Black tea (unsweetened)|Tè nero|Schwarzer Tee|Herbata czarna|Çay (siyah çay)|other|cooked|0 0.3 0 0 0 0|vaso de té|tea glass|100
+tea_green|Té verde (sin azúcar)|Green tea (unsweetened)|Tè verde|Grüner Tee|Herbata zielona|Yeşil çay|other|cooked|0 0.2 0 0 0 0|taza|cup|200
+chamomile_tea|Manzanilla (infusión)|Chamomile tea|Camomilla|Kamillentee|Rumianek (napar)|Papatya çayı|other|cooked|0 0.2 0 0 0 0|taza|cup|200
+mint_tea|Poleo menta (infusión)|Mint tea|Tisana alla menta|Pfefferminztee|Herbata miętowa|Nane çayı|other|cooked|0 0.2 0 0 0 0|taza|cup|200
+herbal_tea|Infusión de hierbas|Herbal tea|Tisana|Kräutertee|Herbata ziołowa|Bitki çayı|other|cooked|0 0.2 0 0 0 0|taza|cup|200
 cheese_hard|Queso curado|Hard cheese|Formaggio stagionato|Hartkäse|Ser żółty|Kaşar peyniri|dairy|cooked|25 0.5 30 0 0 1.6|loncha|slice|20
 white_cheese|Queso blanco (feta, beyaz peynir)|White cheese (feta)|Formaggio feta|Feta|Ser feta|Beyaz peynir|dairy|cooked|14 1.5 20 0 0 2.5|porción|portion|40
 mozzarella|Mozzarella|Mozzarella|Mozzarella|Mozzarella|Mozzarella|Mozzarella|dairy|cooked|18 1 17 0 0 0.5|bola|ball|125

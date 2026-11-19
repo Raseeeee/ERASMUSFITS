@@ -60,6 +60,7 @@ export function foodQuality(food: Food): FoodQuality {
 /**
  * Grasa extra (g por 100 g) que añade la cocina de cafetería/restaurante,
  * por categoría. Revisable; el usuario puede fijar su propio valor por alimento.
+ * Las ensaladas y verduras crudas se sirven sin aliñar: 0 (el aliño se registra aparte).
  */
 export const CANTEEN_EXTRA_FAT: Record<FoodCategory, number> = {
   meat: 4,
@@ -73,7 +74,7 @@ export const CANTEEN_EXTRA_FAT: Record<FoodCategory, number> = {
   dairy: 0,
   fruit: 0,
   vegetable: 5,
-  salad: 6,
+  salad: 0,
   fat: 0,
   nuts: 0,
   prepared: 0,
@@ -89,7 +90,14 @@ export function kcalFromMacros(n: Pick<Nutrients, 'p' | 'c' | 'f' | 'fiber'>): n
 }
 
 export function canteenExtraFat(food: Food): number {
-  return food.canteenExtraFatPer100g ?? CANTEEN_EXTRA_FAT[food.category];
+  if (food.canteenExtraFatPer100g !== undefined) return food.canteenExtraFatPer100g;
+  if (isRawVeg(food)) return 0;
+  return CANTEEN_EXTRA_FAT[food.category];
+}
+
+/** Ensaladas y verduras crudas: en cafetería suelen servirse sin aliñar (el aceite va aparte). */
+export function isRawVeg(food: Pick<Food, 'category' | 'state'>): boolean {
+  return food.category === 'salad' || (food.category === 'vegetable' && food.state === 'raw');
 }
 
 export function gramsFor(food: Food, quantity: number, unit: 'g' | 'unit'): number {
@@ -161,14 +169,19 @@ const SOURCE_RANK: Record<FoodSource, number> = { mine: 0, seed: 1, off: 2, usda
 function matchScore(name: string, q: string): number {
   const n = normalize(name);
   if (n === q) return 0;
+  const words = n.split(/[\s(),/-]+/);
+  // Palabra completa ("té" en "Té negro") antes que un prefijo ("te…" en "Ternera").
+  if (words[0] === q) return 0.5;
+  if (words.includes(q)) return 0.6;
   if (n.startsWith(q)) return 1;
-  if (n.split(/[\s(),/-]+/).some((w) => w.startsWith(q))) return 2;
+  if (words.some((w) => w.startsWith(q))) return 2;
   if (n.includes(q)) return 3;
   return Infinity;
 }
 
 /**
- * Búsqueda local. Prioridad: coincidencia (exacta > prefijo > palabra > contiene),
+ * Búsqueda local. Prioridad: coincidencia (exacta > prefijo > palabra > contiene; en tu idioma
+ * antes que en otro),
  * luego fuente (mío > semilla > OFF > USDA). Los alimentos "míos" ocultan al que corrigen.
  * Con query vacía devuelve los míos primero y luego el resto en orden alfabético.
  */
@@ -179,7 +192,8 @@ export function searchFoods(query: string, foods: Food[], lang: string, limit = 
   const scored = visible
     .map((f) => ({
       f,
-      score: q ? Math.min(...Object.values(f.names).map((n) => matchScore(n, q))) : 0,
+      // A igual coincidencia, gana el nombre en tu idioma frente a los alias de otros idiomas.
+      score: q ? Math.min(...Object.entries(f.names).map(([l, n]) => matchScore(n, q) + (l === lang ? 0 : 0.5))) : 0,
     }))
     .filter((x) => x.score !== Infinity);
   const penalty = (f: Food) => (f.category === 'prepared' || f.category === 'sweet' ? 1 : 0);

@@ -2521,6 +2521,186 @@
     "source": "seed"
   },
   {
+    "id": "coffee_black",
+    "names": {
+      "es": "Café solo",
+      "en": "Black coffee",
+      "it": "Caffè espresso",
+      "de": "Schwarzer Kaffee",
+      "pl": "Kawa czarna",
+      "tr": "Sade kahve (Türk kahvesi)"
+    },
+    "category": "other",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 2,
+      "p": 0.1,
+      "c": 0.3,
+      "f": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "taza pequeña",
+        "en": "small cup"
+      },
+      "grams": 60
+    },
+    "source": "seed"
+  },
+  {
+    "id": "tea_black",
+    "names": {
+      "es": "Té negro (sin azúcar)",
+      "en": "Black tea (unsweetened)",
+      "it": "Tè nero",
+      "de": "Schwarzer Tee",
+      "pl": "Herbata czarna",
+      "tr": "Çay (siyah çay)"
+    },
+    "category": "other",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 1,
+      "p": 0,
+      "c": 0.3,
+      "f": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "vaso de té",
+        "en": "tea glass"
+      },
+      "grams": 100
+    },
+    "source": "seed"
+  },
+  {
+    "id": "tea_green",
+    "names": {
+      "es": "Té verde (sin azúcar)",
+      "en": "Green tea (unsweetened)",
+      "it": "Tè verde",
+      "de": "Grüner Tee",
+      "pl": "Herbata zielona",
+      "tr": "Yeşil çay"
+    },
+    "category": "other",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 1,
+      "p": 0,
+      "c": 0.2,
+      "f": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "taza",
+        "en": "cup"
+      },
+      "grams": 200
+    },
+    "source": "seed"
+  },
+  {
+    "id": "chamomile_tea",
+    "names": {
+      "es": "Manzanilla (infusión)",
+      "en": "Chamomile tea",
+      "it": "Camomilla",
+      "de": "Kamillentee",
+      "pl": "Rumianek (napar)",
+      "tr": "Papatya çayı"
+    },
+    "category": "other",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 1,
+      "p": 0,
+      "c": 0.2,
+      "f": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "taza",
+        "en": "cup"
+      },
+      "grams": 200
+    },
+    "source": "seed"
+  },
+  {
+    "id": "mint_tea",
+    "names": {
+      "es": "Poleo menta (infusión)",
+      "en": "Mint tea",
+      "it": "Tisana alla menta",
+      "de": "Pfefferminztee",
+      "pl": "Herbata miętowa",
+      "tr": "Nane çayı"
+    },
+    "category": "other",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 1,
+      "p": 0,
+      "c": 0.2,
+      "f": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "taza",
+        "en": "cup"
+      },
+      "grams": 200
+    },
+    "source": "seed"
+  },
+  {
+    "id": "herbal_tea",
+    "names": {
+      "es": "Infusión de hierbas",
+      "en": "Herbal tea",
+      "it": "Tisana",
+      "de": "Kräutertee",
+      "pl": "Herbata ziołowa",
+      "tr": "Bitki çayı"
+    },
+    "category": "other",
+    "state": "cooked",
+    "per100g": {
+      "kcal": 1,
+      "p": 0,
+      "c": 0.2,
+      "f": 0,
+      "fiber": 0,
+      "sugar": 0,
+      "salt": 0
+    },
+    "unit": {
+      "name": {
+        "es": "taza",
+        "en": "cup"
+      },
+      "grams": 200
+    },
+    "source": "seed"
+  },
+  {
     "id": "cheese_hard",
     "names": {
       "es": "Queso curado",

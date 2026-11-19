@@ -43,9 +43,18 @@ describe('semilla curada', () => {
 describe('grasa extra en cantina por categoría', () => {
   it('valores por defecto revisables', () => {
     expect(CANTEEN_EXTRA_FAT.meat).toBe(4);
-    expect(CANTEEN_EXTRA_FAT.salad).toBe(6);
+    expect(CANTEEN_EXTRA_FAT.salad).toBe(0); // se sirven sin aliñar
+    expect(CANTEEN_EXTRA_FAT.vegetable).toBe(5); // verdura cocinada (salteada)
     expect(CANTEEN_EXTRA_FAT.dairy).toBe(0);
     expect(CANTEEN_EXTRA_FAT.prepared).toBe(0);
+  });
+  it('ensaladas y verduras crudas no suman grasa en cafetería; las cocinadas sí', () => {
+    const byId = (id: string) => seedFoods.find((f) => f.id === id)!;
+    expect(canteenExtraFat(byId('salad'))).toBe(0);
+    expect(canteenExtraFat(byId('lettuce'))).toBe(0);
+    expect(canteenExtraFat(byId('tomato'))).toBe(0);
+    expect(canteenExtraFat(byId('veg_cooked'))).toBe(5);
+    expect(nutrientsFor(byId('salad'), 150, 'canteen')).toEqual(nutrientsFor(byId('salad'), 150, 'home'));
   });
   it('el valor propio del alimento tiene prioridad', () => {
     expect(canteenExtraFat(chicken)).toBe(4);
@@ -90,6 +99,16 @@ describe('búsqueda', () => {
     expect(searchFoods('platano', seedFoods, 'es')[0].id).toBe('banana');
     expect(searchFoods('arroz', seedFoods, 'es').slice(0, 2).map((f) => f.id).sort()).toEqual(['rice_cooked', 'rice_raw']);
     expect(searchFoods('zzzz', seedFoods, 'es')).toEqual([]);
+  });
+  it('té, infusiones y café (casi sin calorías) se pueden buscar', () => {
+    expect(searchFoods('té', seedFoods, 'es')[0].id).toMatch(/^tea_/);
+    expect(searchFoods('çay', seedFoods, 'tr')[0].id).toBe('tea_black');
+    expect(searchFoods('manzanilla', seedFoods, 'es')[0].id).toBe('chamomile_tea');
+    expect(searchFoods('tea', seedFoods, 'en').map((f) => f.id)).toEqual(expect.arrayContaining(['tea_black', 'tea_green', 'herbal_tea']));
+    expect(searchFoods('café solo', seedFoods, 'es')[0].id).toBe('coffee_black');
+    const tea = seedFoods.find((f) => f.id === 'tea_black')!;
+    expect(tea.per100g.kcal).toBeLessThanOrEqual(2);
+    expect(tea.unit?.grams).toBe(100);
   });
   it('alias multilingües (it/de/pl/tr)', () => {
     expect(searchFoods('tavuk göğsü', seedFoods, 'es')[0].id).toBe('chicken_breast');
