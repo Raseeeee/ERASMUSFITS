@@ -284,7 +284,8 @@
     "attribution": {
       "off": "Datos de Open Food Facts (licencia ODbL).",
       "usda": "Datos de USDA FoodData Central (dominio público)."
-    }
+    },
+    "dressingHint": "Las ensaladas y verduras crudas no suman grasa, ni siquiera en cafetería (suelen servirse sin aliñar). Si les pones aceite, añádelo aparte: busca «Aceite de oliva» (1 cucharada ≈ 10 g)."
   },
   "meals": {
     "breakfast": "Desayuno",

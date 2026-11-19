@@ -146,4 +146,29 @@ test.describe('añadir comida', () => {
     await expect(page.getByLabel('Tipo de día')).toHaveValue('gym');
     await expect(page.getByTestId('water-count')).toHaveText('1 / 13 vasos');
   });
+
+  test('té e infusiones: se encuentran y apenas suman calorías', async ({ page }) => {
+    await page.getByRole('link', { name: 'Añadir a desayuno' }).click();
+    await page.getByLabel('Buscar alimento').fill('té');
+    const first = page.getByRole('list', { name: 'Resultados' }).getByRole('listitem').first();
+    await expect(first).toContainText('Té');
+    await page.getByLabel('Buscar alimento').fill('té negro');
+    await page.getByRole('button', { name: /Té negro/ }).click();
+    await expect(page.getByLabel('Unidad')).toHaveValue('unit'); // vaso de té (100 g)
+    await page.getByLabel('Cantidad').fill('3');
+    await expect(page.getByTestId('preview')).toContainText('300 g → 3 kcal');
+    await page.getByRole('button', { name: 'Añadir al día' }).click();
+    await expect(page.getByRole('list', { name: 'Desayuno' })).toContainText('Té negro');
+  });
+
+  test('ensalada en cafetería: sin grasa extra y aviso de añadir el aliño aparte', async ({ page }) => {
+    await page.getByRole('link', { name: 'Añadir a comida' }).click();
+    await page.getByLabel('Buscar alimento').fill('ensalada mixta');
+    await page.getByRole('button', { name: /Ensalada mixta/ }).click();
+    await expect(page.getByTestId('dressing-hint')).toContainText('añádelo aparte');
+    const home = await page.getByTestId('preview').textContent();
+    await page.getByText('Cafetería / restaurante', { exact: true }).click();
+    await expect(page.getByTestId('preview')).toHaveText(home!);
+    await expect(page.getByText('En cafetería sumamos')).toHaveCount(0);
+  });
 });

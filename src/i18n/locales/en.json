@@ -284,7 +284,8 @@
     "attribution": {
       "off": "Data from Open Food Facts (ODbL licence).",
       "usda": "Data from USDA FoodData Central (public domain)."
-    }
+    },
+    "dressingHint": "Salads and raw vegetables add no fat, even in the canteen (they are usually served undressed). If you add oil, log it separately: search \"Olive oil\" (1 tbsp ≈ 10 g)."
   },
   "meals": {
     "breakfast": "Breakfast",

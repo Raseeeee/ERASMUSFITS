@@ -8,6 +8,7 @@ import { useDebounced } from '../../components/useDebounced';
 import { seedFoods } from '../../data/foods';
 import {
   canteenExtraFat,
+  isRawVeg,
   foodName,
   gramsFor,
   localized,
@@ -203,6 +204,11 @@ export function AddFoodScreen() {
           />
           {context === 'canteen' && canteenExtraFat(selected) > 0 && (
             <p className="-mt-1 mb-3 text-sm text-mu">{t('food.canteenHint', { fat: canteenExtraFat(selected) })}</p>
+          )}
+          {isRawVeg(selected) && (
+            <p className="-mt-1 mb-3 rounded-lg bg-bg p-2 text-sm" role="note" data-testid="dressing-hint">
+              {t('food.dressingHint')}
+            </p>
           )}
           <Segmented
             name="meal"
