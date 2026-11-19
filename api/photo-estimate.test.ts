@@ -60,7 +60,8 @@ describe('/api/photo-estimate', () => {
     const sent = JSON.parse(String(init.body));
     expect(sent.model).toBe(photo.DEFAULT_MODEL);
     expect(sent.messages[1].content[1].image_url.url).toBe(`data:image/jpeg;base64,${IMG}`);
-    expect(sent.response_format.json_schema.strict).toBe(true);
+    expect(sent.response_format).toEqual({ type: 'json_object' });
+    expect(sent.messages[0].content).toContain('"per100g"'); // el esquema va en el prompt
   });
 
   it('502 si la IA no responde o devuelve algo inválido', async () => {
@@ -70,6 +71,14 @@ describe('/api/photo-estimate', () => {
     expect((await photo.POST(post({ image: IMG }))).status).toBe(502);
     fetchMock.mockResolvedValueOnce(groqReply('no es json'));
     expect((await photo.POST(post({ image: IMG }))).status).toBe(502);
+  });
+
+  it('reintenta una vez si Groq devuelve 400 (JSON fallido) o 429', async () => {
+    fetchMock
+      .mockResolvedValueOnce(new Response('{"error":{"code":"json_validate_failed"}}', { status: 400 }))
+      .mockResolvedValueOnce(groqReply(JSON.stringify(estimate)));
+    expect((await photo.POST(post({ image: IMG }))).status).toBe(200);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
   it('429 de Groq (cuota agotada) → rate_limited', async () => {

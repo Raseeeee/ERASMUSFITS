@@ -31,6 +31,8 @@ function ipAllowed(ip: string): boolean {
   return l.tryTake();
 }
 
+type GroqReply = { choices?: { message?: { content?: string | null } }[] };
+
 const LANG_NAME: Record<string, string> = { es: 'Spanish', en: 'English' };
 
 const SYSTEM = `You estimate the nutrition of a meal from a single photo for a calorie-tracking app.
@@ -42,7 +44,13 @@ For each item give:
 - category: the closest one from the list.
 - per100g: typical values per 100 g of that food as served (kcal, protein p, carbohydrates c, fat f, fiber, free sugars sugar, salt in grams).
 Include visible oil, dressings and sauces as their own items when they add meaningful calories.
-Be realistic, not conservative: typical home or canteen portions. If the photo does not show food, return isFood false and no items.`;
+Be realistic, not conservative: typical home or canteen portions. If the photo does not show food, return isFood false and no items.
+Reply only with a JSON object that matches this JSON Schema:
+${JSON.stringify(PHOTO_SCHEMA)}`;
+
+/** Espera antes del único reintento (Groq pide esperar <1 s cuando se llega al límite por minuto). */
+export const RETRY_DELAY_MS = 1500;
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export async function POST(request: Request): Promise<Response> {
   const key = process.env.GROQ_API_KEY?.trim();
@@ -62,8 +70,8 @@ export async function POST(request: Request): Promise<Response> {
   const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
   if (!ipAllowed(ip) || !globalLimiter.tryTake()) return error('rate_limited', 429);
 
-  try {
-    const data = await fetchJson<{ choices?: { message?: { content?: string | null } }[] }>(
+  const ask = () =>
+    fetchJson<GroqReply>(
       GROQ_URL,
       {
         method: 'POST',
@@ -72,10 +80,8 @@ export async function POST(request: Request): Promise<Response> {
           model,
           temperature: 0.2,
           max_completion_tokens: 4096,
-          response_format: {
-            type: 'json_schema',
-            json_schema: { name: 'plate_estimate', strict: true, schema: PHOTO_SCHEMA },
-          },
+          // json_object (no json_schema estricto): con este modelo el modo estricto a veces degenera.
+          response_format: { type: 'json_object' },
           messages: [
             { role: 'system', content: SYSTEM },
             {
@@ -90,6 +96,17 @@ export async function POST(request: Request): Promise<Response> {
       },
       50_000,
     );
+
+  try {
+    let data: GroqReply;
+    try {
+      data = await ask();
+    } catch (e) {
+      // Límite por minuto o JSON fallido: un reintento.
+      if (!(e instanceof UpstreamError) || (e.status !== 429 && e.status !== 400)) throw e;
+      await sleep(RETRY_DELAY_MS);
+      data = await ask();
+    }
     const text = data.choices?.[0]?.message?.content;
     let parsed: unknown = null;
     try {
